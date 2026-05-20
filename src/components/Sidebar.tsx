@@ -27,6 +27,14 @@ const BG_SWATCH_PRESETS = (
   ["dark", "white", "paper", "navy"] as const
 ).map((id) => ({ id, color: BACKGROUND_COLORS[id] }));
 
+function ChevronDownIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+
 export function Sidebar(props: Props) {
   const {
     effectId,
@@ -107,15 +115,23 @@ export function Sidebar(props: Props) {
         {cameraError && <p className="mt-1 text-[10px] text-red-400">{cameraError}</p>}
         {hasMedia && (
           <div className="mt-1.5 flex gap-1.5">
-            <select
-              value={exportFormat}
-              onChange={(e) => setExportFormat(e.target.value as "png" | "jpg" | "svg")}
-              className="h-8 flex-1 rounded-lg bg-panel px-2 text-[13px] outline-none"
-            >
-              <option value="png">PNG</option>
-              <option value="jpg">JPG</option>
-              <option value="svg">SVG</option>
-            </select>
+            <div className="relative flex flex-1 items-center">
+              <select
+                value={exportFormat}
+                onChange={(e) => setExportFormat(e.target.value as "png" | "jpg" | "svg")}
+                className="h-8 w-full appearance-none rounded-lg bg-panel py-0 pl-2 pr-8 text-[13px] outline-none"
+              >
+                <option value="png">PNG</option>
+                <option value="jpg">JPG</option>
+                <option value="svg">SVG</option>
+              </select>
+              <span
+                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-muted"
+                aria-hidden
+              >
+                <ChevronDownIcon />
+              </span>
+            </div>
             <button
               type="button"
               onClick={onExport}
@@ -382,7 +398,28 @@ export function Sidebar(props: Props) {
           </Section>
         </>
       )}
+
+      <footer className="mt-auto border-t border-[#1f1f1f] p-3">
+        <LogoutButton />
+      </footer>
     </aside>
+  );
+}
+
+function LogoutButton() {
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    window.location.href = "/login";
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => void handleLogout()}
+      className="h-8 w-full rounded-lg bg-panel text-[13px] text-muted hover:bg-[#262626] hover:text-white"
+    >
+      Sign out
+    </button>
   );
 }
 

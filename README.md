@@ -18,6 +18,39 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+### Password protection (optional locally, required in production)
+
+The app can be gated with a shared password. **No database** — the bcrypt hash and session secret live in environment variables only.
+
+| Variable | Purpose |
+|----------|---------|
+| `AUTH_PASSWORD_HASH` | bcrypt hash of your password (never store plaintext) |
+| `AUTH_SECRET` | Random string, **32+ characters**, used to sign the session cookie |
+
+**Local setup**
+
+1. Copy `.env.example` to `.env.local` (gitignored).
+2. Generate a secret: `openssl rand -base64 32` → set as `AUTH_SECRET`.
+3. Generate a password hash: `npm run hash-password` (prompts securely; avoid putting the password on the command line).
+4. Paste the printed `AUTH_PASSWORD_HASH=...` into `.env.local`.
+5. Restart `npm run dev`.
+
+If `AUTH_PASSWORD_HASH` is **not** set in development, auth is **disabled** and a console warning is printed. In **production** (Vercel), both variables are **required**; visitors see a configuration message until they are set.
+
+**Why not a markdown file with the hash in the repo?**
+
+Anyone with read access to the Git repository (or a public GitHub repo) can read committed files. Storing even a **hashed** password in `PASSWORD.md` still exposes your credential material to every collaborator and CI log. Hashes can be offline-attacked. Use **Vercel Environment Variables** (or `.env.local` only on your machine) for `AUTH_PASSWORD_HASH` and `AUTH_SECRET` instead.
+
+**Vercel**
+
+1. Project → **Settings** → **Environment Variables**.
+2. Add `AUTH_PASSWORD_HASH` (from `npm run hash-password` on your machine).
+3. Add `AUTH_SECRET` (`openssl rand -base64 32`).
+4. Apply to **Production** (and Preview if you want the same gate on preview URLs).
+5. Redeploy.
+
+Sign out via **Sign out** at the bottom of the sidebar.
+
 Run **only one** dev server for this project. Two `npm run dev` processes (e.g. terminal + IDE) race on `.next/cache/webpack` and can cause:
 
 ```text
@@ -44,7 +77,7 @@ npm start
 1. Push this folder to a Git repository.
 2. Import the repo in [Vercel](https://vercel.com).
 3. Framework: **Next.js** (defaults are fine).
-4. Deploy — no environment variables required.
+4. Set `AUTH_PASSWORD_HASH` and `AUTH_SECRET` (see **Password protection** above), then deploy.
 
 ## Track mode (hands & eyes)
 
