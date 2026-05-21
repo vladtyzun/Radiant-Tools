@@ -1,7 +1,8 @@
 "use client";
 
+import { memo } from "react";
 import { getParamDefs, EFFECT_ORDER } from "@/lib/paramDefs";
-import { ANIMATED_EFFECTS, GRID_ALGORITHM_EFFECTS } from "@/lib/types";
+import { ANIMATED_EFFECTS, EFFECT_LABELS, GRID_ALGORITHM_EFFECTS } from "@/lib/types";
 import { SHAPE_OPTIONS } from "@/lib/shapes";
 import { BACKGROUND_COLORS } from "@/lib/types";
 import type { PatternStore } from "@/hooks/usePatternStore";
@@ -35,7 +36,7 @@ function ChevronDownIcon() {
   );
 }
 
-export function Sidebar(props: Props) {
+function SidebarInner(props: Props) {
   const {
     effectId,
     setEffectId,
@@ -198,6 +199,16 @@ export function Sidebar(props: Props) {
                 </button>
               ))}
             </div>
+            <p className="mt-1 text-[9px] leading-snug text-muted">
+              {EFFECT_LABELS[effectId].subtitle}
+            </p>
+            {(effectId === "track" || effectId === "imgTrack") && (
+              <p className="mt-0.5 text-[9px] leading-snug text-muted/80">
+                {effectId === "track"
+                  ? "Video motion diff + optional MediaPipe hand/eye overlays. Needs motion or ML toggles on."
+                  : "Single-frame edge detection boxes only — no motion diff or MediaPipe."}
+              </p>
+            )}
             {showEffectAnimation && (
               <div className="mt-1.5">
                 <p className="mb-1 text-[9px] uppercase tracking-wide text-muted">Animation</p>
@@ -464,6 +475,7 @@ function formatEffectLabel(id: EffectId) {
     cHtone: "C. Htone",
     imgTrack: "ImgTrack",
     dotChar: "Dot Char",
+    motionBlur: "Motion Blur",
   };
   return map[id] || id.charAt(0).toUpperCase() + id.slice(1);
 }
@@ -492,3 +504,5 @@ function DownloadIcon() {
     </svg>
   );
 }
+
+export const Sidebar = memo(SidebarInner);

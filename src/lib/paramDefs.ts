@@ -2,6 +2,7 @@ import type { EffectId, ParamControl, Params } from "./types";
 
 export const EFFECT_ORDER: EffectId[] = [
   "blur",
+  "motionBlur",
   "cHtone",
   "glass",
   "ascii",
@@ -99,9 +100,10 @@ const defs: Record<EffectId, ParamControl[]> = {
     { key: "opacity", label: "Opacity", type: "slider", min: 0, max: 100, default: 100 },
   ],
   glass: [
-    { key: "tileSize", label: "Tile Size", type: "slider", min: 8, max: 48, default: 23 },
+    { key: "rings", label: "Rings", type: "slider", min: 3, max: 40, default: 20 },
     { key: "spiralTurns", label: "Turns", type: "slider", min: 0, max: 20, default: 10 },
-    { key: "distortion", label: "Distortion", type: "slider", min: 0, max: 100, default: 55 },
+    { key: "stagger", label: "Delay", type: "slider", min: 0, max: 100, default: 50 },
+    { key: "distortion", label: "Twist", type: "slider", min: 0, max: 100, default: 55 },
     { key: "opacity", label: "Opacity", type: "slider", min: 0, max: 100, default: 100 },
     { key: "speed", label: "Speed", type: "slider", min: 0, max: 100, default: 25 },
   ],
@@ -111,8 +113,12 @@ const defs: Record<EffectId, ParamControl[]> = {
     { key: "contrast", label: "Contrast", type: "slider", min: 0, max: 100, default: 50 },
   ],
   blur: [
-    { key: "cellSize", label: "Sample Size", type: "slider", min: 2, max: 24, default: 8 },
-    { key: "blurAmount", label: "Blur", type: "slider", min: 1, max: 10, default: 4 },
+    { key: "blurAmount", label: "Blur", type: "slider", min: 0, max: 30, default: 8 },
+    { key: "opacity", label: "Opacity", type: "slider", min: 0, max: 100, default: 100 },
+  ],
+  motionBlur: [
+    { key: "angle", label: "Angle", type: "slider", min: 0, max: 360, default: 0 },
+    { key: "length", label: "Length", type: "slider", min: 0, max: 300, default: 24 },
     { key: "opacity", label: "Opacity", type: "slider", min: 0, max: 100, default: 100 },
   ],
   dither: [

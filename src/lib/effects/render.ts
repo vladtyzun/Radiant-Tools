@@ -68,13 +68,17 @@ export function renderEffect(
   h: number,
   ctx: RenderContext
 ) {
-  // Glass/blur read src canvas; skip bg fill so in-place src (sample canvas) stays intact.
+  // Glass/blur/motionBlur read src canvas; skip bg fill so in-place src stays intact.
   if (ctx.effectId === "glass") {
-    renderGlass(out, src.canvas, w, h, ctx.params, ctx.time, ctx.animating);
+    renderGlass(out, src.canvas, w, h, ctx.params, ctx.time, ctx.animating, ctx.focalPoint, ctx.useFocalPoint);
     return;
   }
   if (ctx.effectId === "blur") {
     renderBlur(out, src, w, h, ctx.params);
+    return;
+  }
+  if (ctx.effectId === "motionBlur") {
+    renderMotionBlur(out, src, w, h, ctx);
     return;
   }
 
@@ -100,7 +104,7 @@ export function renderEffect(
       renderPixel(out, data, w, h, ctx);
       break;
     case "ascii":
-      renderAscii(out, data, w, h, ctx.params, ctx.bgColor);
+      renderAscii(out, data, w, h, ctx);
       break;
     case "dither":
       renderDither(out, data, w, h, ctx.params);
@@ -326,6 +330,13 @@ function glassSourceCanvas(src: HTMLCanvasElement, w: number, h: number): HTMLCa
   return glassSrcBuf;
 }
 
+function glassRingCount(p: Params): number {
+  const legacy = p.tileSize != null ? num(p, "tileSize", 20) : undefined;
+  const raw = num(p, "rings", legacy ?? 20);
+  return Math.min(40, Math.max(3, Math.round(raw)));
+}
+
+/** Radial annulus slices rotated per ring — concentric glass swirl. */
 function renderGlass(
   out: CanvasRenderingContext2D,
   srcCanvas: HTMLCanvasElement,
@@ -333,9 +344,10 @@ function renderGlass(
   h: number,
   p: Params,
   time: number,
-  animating: boolean
+  animating: boolean,
+  focal: FocalPoint,
+  useFocal: boolean
 ) {
-  const tile = num(p, "tileSize", 23);
   const turns = num(p, "spiralTurns", 10);
   const intensity = turns / 20;
   const src =
@@ -344,27 +356,58 @@ function renderGlass(
     out.drawImage(src, 0, 0, w, h);
     return;
   }
-  const distort = (num(p, "distortion", 55) / 100) * intensity;
+
+  const rings = glassRingCount(p);
+  const stagger = num(p, "stagger", 50) / 100;
+  const distort = num(p, "distortion", 55) / 100;
   const opacity = num(p, "opacity", 100) / 100;
   const speed = num(p, "speed", 25) / 100;
-  const cx = w / 2;
-  const cy = h / 2;
-  const phase = animating ? time * 0.001 * speed * 10 : 0;
 
+  const cx = useFocal ? focal.x * w : w * 0.5;
+  const cy = useFocal ? focal.y * h : h * 0.5;
+  const maxR = Math.min(
+    Math.hypot(cx, cy),
+    Math.hypot(w - cx, cy),
+    Math.hypot(cx, h - cy),
+    Math.hypot(w - cx, h - cy)
+  );
+
+  const turnsScale = intensity * Math.PI * 2 * (0.25 + distort * 0.75);
+  const staggerRad = stagger * turnsScale;
+  const phase = animating ? time * 0.001 * speed * Math.PI * 2 : 0;
+
+  out.imageSmoothingEnabled = true;
+  out.drawImage(src, 0, 0, w, h);
+
+  out.save();
   out.globalAlpha = opacity;
-  for (let y = 0; y < h; y += tile) {
-    for (let x = 0; x < w; x += tile) {
-      const dx = x - cx;
-      const dy = y - cy;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      const angle =
-        Math.atan2(dy, dx) + phase + (dist / Math.max(w, h)) * turns * Math.PI * 2;
-      const offset = dist * distort * 0.15;
-      const sx = cx + Math.cos(angle) * (dist + offset) - tile / 2;
-      const sy = cy + Math.sin(angle) * (dist + offset) - tile / 2;
-      out.drawImage(src, sx, sy, tile, tile, x, y, tile, tile);
-    }
+  out.beginPath();
+  out.arc(cx, cy, maxR, 0, Math.PI * 2);
+  out.clip();
+
+  for (let i = 0; i < rings; i++) {
+    const r0 = (i / rings) * maxR;
+    const r1 = ((i + 1) / rings) * maxR;
+    const ringT = i / rings;
+    const angle_i =
+      ringT * staggerRad +
+      phase +
+      (animating ? ringT * stagger * Math.PI * 2 * speed : 0);
+
+    out.save();
+    out.beginPath();
+    out.arc(cx, cy, r1, 0, Math.PI * 2);
+    if (r0 > 0.5) out.arc(cx, cy, r0, 0, Math.PI * 2, true);
+    out.clip("evenodd");
+
+    out.translate(cx, cy);
+    out.rotate(angle_i);
+    out.translate(-cx, -cy);
+    out.drawImage(src, 0, 0, w, h);
+    out.restore();
   }
+
+  out.restore();
   out.globalAlpha = 1;
 }
 
@@ -373,25 +416,85 @@ function renderAscii(
   data: Uint8ClampedArray,
   w: number,
   h: number,
-  p: Params,
-  bgColor: string
+  ctx: RenderContext
 ) {
+  const p = ctx.params;
   const cell = num(p, "cellSize", 10);
   const gap = num(p, "gap", 0);
   const step = cell + gap;
   const contrast = num(p, "contrast", 50);
-  out.fillStyle = bgColor;
+  out.fillStyle = ctx.bgColor;
   out.fillRect(0, 0, w, h);
   out.font = `${cell}px monospace`;
   out.textAlign = "center";
   out.textBaseline = "middle";
   for (let y = 0; y < h; y += step) {
     for (let x = 0; x < w; x += step) {
+      const fw = getFocalWeight((x + cell / 2) / w, (y + cell / 2) / h, ctx.focalPoint, ctx.useFocalPoint);
+      if (ctx.useFocalPoint && fw < 0.12) continue;
       const { r, g, b, l } = sampleCell(data, w, h, x, y, cell, contrast);
+      const mappedL = l * fw;
+      out.globalAlpha = fw;
       out.fillStyle = `rgb(${r | 0},${g | 0},${b | 0})`;
-      out.fillText(charFromLuma(l), x + cell / 2, y + cell / 2);
+      out.fillText(charFromLuma(mappedL), x + cell / 2, y + cell / 2);
     }
   }
+  out.globalAlpha = 1;
+}
+
+let effectSrcBuf: HTMLCanvasElement | null = null;
+
+function effectSourceCanvas(src: HTMLCanvasElement, w: number, h: number): HTMLCanvasElement {
+  if (!effectSrcBuf) effectSrcBuf = document.createElement("canvas");
+  if (effectSrcBuf.width !== w || effectSrcBuf.height !== h) {
+    effectSrcBuf.width = w;
+    effectSrcBuf.height = h;
+  }
+  effectSrcBuf.getContext("2d")!.drawImage(src, 0, 0, w, h);
+  return effectSrcBuf;
+}
+
+function resolveEffectSource(
+  out: CanvasRenderingContext2D,
+  src: CanvasRenderingContext2D,
+  w: number,
+  h: number
+): HTMLCanvasElement {
+  const srcCanvas = src.canvas;
+  return out.canvas === srcCanvas ? effectSourceCanvas(srcCanvas, w, h) : srcCanvas;
+}
+
+let blurEffectBuf: HTMLCanvasElement | null = null;
+let motionBlurBuf: HTMLCanvasElement | null = null;
+
+/** Lerp sharp vs blurred: t=0 sharp, t=1 fully blurred (no overlay on sharp). */
+function compositeSharpBlur(
+  out: CanvasRenderingContext2D,
+  sharp: CanvasImageSource,
+  blurred: CanvasImageSource,
+  w: number,
+  h: number,
+  t: number
+) {
+  out.save();
+  out.setTransform(1, 0, 0, 1, 0, 0);
+  out.clearRect(0, 0, w, h);
+  if (t <= 0) {
+    out.drawImage(sharp, 0, 0, w, h);
+    out.restore();
+    return;
+  }
+  if (t >= 1) {
+    out.drawImage(blurred, 0, 0, w, h);
+    out.restore();
+    return;
+  }
+  out.globalAlpha = 1 - t;
+  out.drawImage(sharp, 0, 0, w, h);
+  out.globalAlpha = t;
+  out.drawImage(blurred, 0, 0, w, h);
+  out.globalAlpha = 1;
+  out.restore();
 }
 
 function renderBlur(
@@ -401,32 +504,116 @@ function renderBlur(
   h: number,
   p: Params
 ) {
-  const cell = num(p, "cellSize", 8);
-  const blur = num(p, "blurAmount", 4);
+  const radius = Math.min(30, Math.max(0, num(p, "blurAmount", 8)));
   const opacity = num(p, "opacity", 100) / 100;
-  out.globalAlpha = opacity;
-  for (let y = 0; y < h; y += cell) {
-    for (let x = 0; x < w; x += cell) {
-      let r = 0,
-        g = 0,
-        b = 0,
-        n = 0;
-      for (let oy = -blur; oy <= blur; oy++) {
-        for (let ox = -blur; ox <= blur; ox++) {
-          const px = Math.min(w - 1, Math.max(0, x + ox * cell));
-          const py = Math.min(h - 1, Math.max(0, y + oy * cell));
-          const d = src.getImageData(px, py, 1, 1).data;
-          r += d[0];
-          g += d[1];
-          b += d[2];
-          n++;
-        }
+  const source = resolveEffectSource(out, src, w, h);
+  if (radius <= 0 || opacity <= 0) {
+    out.save();
+    out.setTransform(1, 0, 0, 1, 0, 0);
+    out.clearRect(0, 0, w, h);
+    out.drawImage(source, 0, 0, w, h);
+    out.restore();
+    return;
+  }
+  if (!blurEffectBuf) blurEffectBuf = document.createElement("canvas");
+  if (blurEffectBuf.width !== w || blurEffectBuf.height !== h) {
+    blurEffectBuf.width = w;
+    blurEffectBuf.height = h;
+  }
+  const bCtx = blurEffectBuf.getContext("2d")!;
+  bCtx.clearRect(0, 0, w, h);
+  bCtx.filter = `blur(${radius}px)`;
+  bCtx.drawImage(source, 0, 0, w, h);
+  bCtx.filter = "none";
+  compositeSharpBlur(out, source, blurEffectBuf, w, h, opacity);
+}
+
+function streakBlurRegion(
+  mCtx: CanvasRenderingContext2D,
+  source: CanvasImageSource,
+  x: number,
+  y: number,
+  bw: number,
+  bh: number,
+  blurLen: number,
+  cos: number,
+  sin: number
+) {
+  if (blurLen < 0.5) {
+    mCtx.drawImage(source, x, y, bw, bh, x, y, bw, bh);
+    return;
+  }
+  const samples = Math.min(32, Math.max(4, Math.round(blurLen / 2)));
+  const step = blurLen / (samples - 1);
+  mCtx.save();
+  mCtx.beginPath();
+  mCtx.rect(x, y, bw, bh);
+  mCtx.clip();
+  for (let i = 0; i < samples; i++) {
+    const t = i - (samples - 1) / 2;
+    const dx = cos * t * step;
+    const dy = sin * t * step;
+    mCtx.globalCompositeOperation = "source-over";
+    mCtx.globalAlpha = 1 / samples;
+    mCtx.drawImage(source, x + dx, y + dy, bw, bh, x, y, bw, bh);
+  }
+  mCtx.globalCompositeOperation = "source-over";
+  mCtx.globalAlpha = 1;
+  mCtx.restore();
+}
+
+function renderMotionBlur(
+  out: CanvasRenderingContext2D,
+  src: CanvasRenderingContext2D,
+  w: number,
+  h: number,
+  ctx: RenderContext
+) {
+  const p = ctx.params;
+  const angle = (num(p, "angle", 0) * Math.PI) / 180;
+  const length = Math.min(300, Math.max(0, num(p, "length", 24)));
+  const opacity = num(p, "opacity", 100) / 100;
+  const source = resolveEffectSource(out, src, w, h);
+  const cos = Math.cos(angle);
+  const sin = Math.sin(angle);
+
+  if (length <= 0 || opacity <= 0) {
+    out.save();
+    out.setTransform(1, 0, 0, 1, 0, 0);
+    out.clearRect(0, 0, w, h);
+    out.drawImage(source, 0, 0, w, h);
+    out.restore();
+    return;
+  }
+
+  if (!motionBlurBuf) motionBlurBuf = document.createElement("canvas");
+  if (motionBlurBuf.width !== w || motionBlurBuf.height !== h) {
+    motionBlurBuf.width = w;
+    motionBlurBuf.height = h;
+  }
+  const mCtx = motionBlurBuf.getContext("2d")!;
+  mCtx.clearRect(0, 0, w, h);
+
+  if (!ctx.useFocalPoint) {
+    streakBlurRegion(mCtx, source, 0, 0, w, h, length, cos, sin);
+  } else {
+    const block = Math.max(8, Math.ceil(Math.min(w, h) / 4));
+    for (let y = 0; y < h; y += block) {
+      for (let x = 0; x < w; x += block) {
+        const bw = Math.min(block, w - x);
+        const bh = Math.min(block, h - y);
+        const fw = getFocalWeight(
+          (x + bw / 2) / w,
+          (y + bh / 2) / h,
+          ctx.focalPoint,
+          ctx.useFocalPoint
+        );
+        streakBlurRegion(mCtx, source, x, y, bw, bh, length * fw, cos, sin);
       }
-      out.fillStyle = `rgb(${r / n | 0},${g / n | 0},${b / n | 0})`;
-      out.fillRect(x, y, cell, cell);
     }
   }
-  out.globalAlpha = 1;
+
+  compositeSharpBlur(out, source, motionBlurBuf, w, h, opacity);
 }
 
 function renderDither(

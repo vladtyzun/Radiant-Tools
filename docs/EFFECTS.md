@@ -16,7 +16,7 @@ For cell `(cx, cy)` with size `cellSize` and gap `gap`:
 ### Focal point
 - Normalized `focalPoint` `{ x, y }` (0–1), default center. Draggable cyan handle on the preview canvas.
 - `getFocalWeight(nx, ny, focal, enabled)` in `render.ts`: smooth falloff from 1.0 at the focal point to ~0.25 at the farthest canvas edge.
-- Applied to Glitch, Glass, Stage, Vintage, Pattern, Halftone, Pixel when **Focal Point** is on. Toggle off or **Center** resets position.
+- Applied to Pattern, Halftone, Pixel, ASCII, Motion Blur, Stage, Vintage, and related grid effects when **Focal Point** is on (not Glass or Glitch). Toggle off or **Center** resets position.
 
 ### Algorithm modes (Pattern, Halftone, Dot Char, Pixel)
 | Mode | Behavior |
@@ -37,7 +37,9 @@ Repeating grid of shapes over media. Params: cellSize, gap, contrast, opacity, t
 Circular dots only; dot radius from luminance. Params: cellSize, gap, contrast, opacity, minDot, maxDot, threshold.
 
 ## Track
-Combines optional motion-region boxes, MediaPipe hand skeleton, and face eye highlights over letterboxed media.
+Live overlay effect: optional **motion-region** boxes from frame-to-frame diff, plus optional **MediaPipe** hand skeleton and eye markers on video/webcam. Uses the full render pipeline in `CanvasPreview` for ML; static image still gets motion boxes if a previous frame exists.
+
+**Not the same as ImgTrack** — Track is temporal + ML; ImgTrack is a single-frame edge finder with no motion diff and no MediaPipe.
 
 ### Aspect ratio
 - **Display** canvas size is derived only from source intrinsic dimensions (`videoWidth`/`Height` or image `naturalWidth`/`Height`), capped at 960px edge.
@@ -64,13 +66,16 @@ Halftone dots + ASCII character from luminance charset. Params: cellSize, gap, c
 Mosaic blocks + optional grid lines. Params: cellSize, gap, showGrid, contrast, opacity.
 
 ## Glass
-Spiral tile distortion from center. **Turns** (`spiralTurns`, 0–20): 0 = passthrough (source image only); 20 = full effect. Distortion and spiral strength scale linearly with `turns / 20`. Works in static mode (no Play required). Params: tileSize, turns, distortion, opacity, speed (animation phase only while playing).
+Concentric annulus swirl: the image is split into radial rings (canvas clip, full resolution), each ring rotated with staggered phase for a smooth spiral. Center is canvas midpoint (focal point applies when focal mode is on). **Turns** (`spiralTurns`, 0–20): 0 = passthrough (source only); strength scales with `turns / 20`. Static swirl from **Delay** (`stagger`); **Play** animates global phase with per-ring delay. Params: rings (3–40), turns, delay, twist, opacity, speed.
 
 ## ASCII
-Character per cell from luminance. Params: cellSize, gap, contrast, charset.
+Character per cell from luminance. **Focal point** scales character density (`l × focal weight`), cell opacity, and skips very low-weight cells. Params: cellSize, gap, contrast, charset.
 
-## Blur / Dither / Glitch / Vintage / C. Htone / ImgTrack / Stage
-Stylized filters: blur stack, ordered dither, RGB split + slice/block glitch, sepia, CMYK-style dots, edge boxes, radial stage vignette. Each exposes 3–6 sliders in `paramDefs`. Glitch does not require Effect Animation Play.
+## ImgTrack
+**Single-frame** edge emphasis: Sobel-style gradient per pixel, aggregate into coarse blocks, draw cyan boxes on the strongest regions (like motion boxes but from edges, not frame diff). No MediaPipe, no previous frame, no hand/eye overlays. Params: edgeThresh, boxSize, maxRegions.
+
+## Blur / Motion Blur / Dither / Glitch / Vintage / C. Htone / Stage
+Stylized filters: Gaussian blur, **directional motion blur** (uniform `drawImage` streaks along angle; focal scales streak length on a 4×4 grid), ordered dither, RGB split + slice/block glitch, sepia, CMYK-style dots, radial stage vignette. Each exposes 3–6 sliders in `paramDefs`. Glitch does not require Effect Animation Play.
 
 ---
 

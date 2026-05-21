@@ -7,6 +7,7 @@ export type EffectId =
   | "glass"
   | "ascii"
   | "blur"
+  | "motionBlur"
   | "dither"
   | "glitch"
   | "vintage"
@@ -79,17 +80,18 @@ export type ParamControl =
 export const EFFECT_LABELS: Record<EffectId, { title: string; subtitle: string }> = {
   pattern: { title: "Pattern", subtitle: "Grid of shapes over media" },
   halftone: { title: "Halftone", subtitle: "Variable dot size from luminance" },
-  track: { title: "Track", subtitle: "Hands, eyes & motion" },
+  track: { title: "Track", subtitle: "Motion boxes + MediaPipe hands/eyes" },
   dotChar: { title: "Dot Char", subtitle: "Halftone dots + characters" },
   pixel: { title: "Pixel", subtitle: "Mosaic blocks with grid" },
-  glass: { title: "Glass", subtitle: "Spiral tile distortion" },
-  ascii: { title: "ASCII", subtitle: "Character mosaic" },
-  blur: { title: "Blur", subtitle: "Stacked blur sampling" },
+  glass: { title: "Glass", subtitle: "Radial ring swirl" },
+  ascii: { title: "ASCII", subtitle: "Character mosaic; focal affects density" },
+  blur: { title: "Blur", subtitle: "Gaussian blur on media" },
+  motionBlur: { title: "Motion Blur", subtitle: "Directional streak blur" },
   dither: { title: "Dither", subtitle: "Ordered dither pattern" },
   glitch: { title: "Glitch", subtitle: "RGB channel offset" },
   vintage: { title: "Vintage", subtitle: "Sepia and grain" },
   cHtone: { title: "C. Htone", subtitle: "Color halftone dots" },
-  imgTrack: { title: "ImgTrack", subtitle: "Edge region highlight" },
+  imgTrack: { title: "ImgTrack", subtitle: "Edge boxes on one frame (no ML)" },
   stage: { title: "Stage", subtitle: "Radial spotlight vignette" },
 };
 
@@ -105,4 +107,9 @@ export type ExportFormat = "png" | "jpg" | "svg";
 export const GRID_ALGORITHM_EFFECTS: EffectId[] = ["pattern", "halftone", "dotChar", "pixel"];
 
 /** Effects whose preview changes over time when Play is active (see render.ts). */
-export const ANIMATED_EFFECTS: EffectId[] = ["glass", "glitch", "stage", "vintage"];
+export const ANIMATED_EFFECTS: EffectId[] = [
+  "glass",
+  "glitch",
+  "stage",
+  "vintage",
+];

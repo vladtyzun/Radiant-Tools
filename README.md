@@ -49,6 +49,14 @@ Anyone with read access to the Git repository (or a public GitHub repo) can read
 4. Apply to **Production** (and Preview if you want the same gate on preview URLs).
 5. Redeploy.
 
+**Important:** On Vercel, set `AUTH_PASSWORD_HASH` to the **literal bcrypt string** (starts with `$2b$12$…`, 60 characters). Do **not** paste the backslash-escaped form from `.env.local` (`\$2b\$12$…` is only for local dotenv). Pasting through a shell or dashboard that strips `$` will make login always fail with “Invalid password”. Prefer the CLI without shell expansion:
+
+```bash
+printf '%s' '$2b$12$YOUR_HASH_HERE' | npx vercel env add AUTH_PASSWORD_HASH production
+```
+
+If you change the password locally (`npm run hash-password`), update Vercel’s `AUTH_PASSWORD_HASH` the same way and redeploy.
+
 Sign out via **Sign out** at the bottom of the sidebar.
 
 Run **only one** dev server for this project. Two `npm run dev` processes (e.g. terminal + IDE) race on `.next/cache/webpack` and can cause:
@@ -56,6 +64,8 @@ Run **only one** dev server for this project. Two `npm run dev` processes (e.g. 
 ```text
 [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT ... rename ... 0.pack.gz_
 ```
+
+If the dev server crashes with missing `.next/server/app/page.js` (ENOENT), the build output is missing or was deleted — stop dev, then `rm -rf .next`, `npm run build` (or `npm run dev:clean`).
 
 If that appears, stop extra dev servers, then:
 

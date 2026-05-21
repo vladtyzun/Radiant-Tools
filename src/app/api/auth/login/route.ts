@@ -33,6 +33,13 @@ export async function POST(request: Request) {
   const hash = process.env.AUTH_PASSWORD_HASH!.trim();
   const valid = await bcrypt.compare(password, hash);
   if (!valid) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(
+        "[auth/login] password mismatch (hash length %d, starts with %s)",
+        hash.length,
+        hash.slice(0, 4)
+      );
+    }
     return NextResponse.json({ error: "Invalid password" }, { status: 401 });
   }
 

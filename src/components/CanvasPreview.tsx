@@ -19,10 +19,32 @@ import {
   getTrackMlError,
   initTrackModels,
 } from "@/lib/tracking/mediapipeClient";
-import type { PatternStore } from "@/hooks/usePatternStore";
-import type { ExportFormat } from "@/lib/types";
+import { ANIMATED_EFFECTS, type ExportFormat } from "@/lib/types";
+import type {
+  AlgorithmMode,
+  EffectId,
+  FocalPoint,
+  Params,
+  ShapeId,
+  SourceMode,
+} from "@/lib/types";
 
-type Props = PatternStore & {
+type Props = {
+  effectId: EffectId;
+  params: Params;
+  algorithmMode: AlgorithmMode;
+  shapeId: ShapeId;
+  customPath: Path2D | null;
+  bgColor: string;
+  sourceMode: SourceMode;
+  effectPlaying: boolean;
+  effectSpeed: 1 | 2 | 3;
+  focalPoint: FocalPoint;
+  setFocalPoint: (p: FocalPoint) => void;
+  useFocalPoint: boolean;
+  videoPlaying: boolean;
+  videoSpeed: 1 | 2 | 3;
+  setTrackMlStatus: (msg: string | null) => void;
   imageUrl: string | null;
   videoRef: React.RefObject<HTMLVideoElement | null>;
   stream: MediaStream | null;
@@ -30,8 +52,9 @@ type Props = PatternStore & {
   onExportReady?: (fn: (format: ExportFormat) => void) => void;
 };
 
-const RENDER_MAX = 1280;
-const DISPLAY_MAX = 960;
+const RENDER_MAX = 960;
+const DISPLAY_MAX = 720;
+const PARAM_DEBOUNCE_MS = 32;
 const ML_INTERVAL_MS = 50;
 
 export type CanvasPreviewHandle = {
@@ -75,11 +98,58 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
   const intrinsicRef = useRef({ w: 0, h: 0 });
   const mediaRectRef = useRef<MediaRect>({ x: 0, y: 0, w: 1, h: 1 });
   const lastMlRef = useRef(0);
+  const mlStaticKeyRef = useRef("");
   const mlReadyRef = useRef(false);
   const handsRef = useRef<ReturnType<typeof detectHands>>(null);
   const eyesRef = useRef<ReturnType<typeof detectEyes>>(null);
+  const dirtyRef = useRef(true);
+  const loopActiveRef = useRef(false);
+  const renderParamsRef = useRef(params);
+  const dCtxRef = useRef<CanvasRenderingContext2D | null>(null);
+  const sCtxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [draggingFocal, setDraggingFocal] = useState(false);
   const drawFrameRef = useRef<(now?: number) => void>(() => {});
+  const scheduleFrameRef = useRef<() => void>(() => {});
+
+  const bindContexts = useCallback(() => {
+    const display = displayRef.current;
+    const sample = sampleRef.current;
+    if (!display || !sample) return;
+    if (!dCtxRef.current) {
+      dCtxRef.current = display.getContext("2d", { willReadFrequently: false });
+    }
+    if (!sCtxRef.current) {
+      sCtxRef.current = sample.getContext("2d", { willReadFrequently: true });
+    }
+  }, []);
+
+  useEffect(() => {
+    renderParamsRef.current = params;
+    dirtyRef.current = true;
+    const id = window.setTimeout(() => {
+      renderParamsRef.current = params;
+      dirtyRef.current = true;
+      scheduleFrameRef.current();
+    }, PARAM_DEBOUNCE_MS);
+    return () => window.clearTimeout(id);
+  }, [params]);
+
+  useEffect(() => {
+    renderParamsRef.current = params;
+    dirtyRef.current = true;
+    scheduleFrameRef.current();
+  }, [
+    effectId,
+    algorithmMode,
+    shapeId,
+    customPath,
+    bgColor,
+    focalPoint,
+    useFocalPoint,
+    sourceMode,
+    effectPlaying,
+    videoPlaying,
+  ]);
 
   const applyCanvasSizes = useCallback((sourceW: number, sourceH: number) => {
     if (
@@ -103,12 +173,16 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
       displayRef.current.height = display.h;
       displayRef.current.style.removeProperty("width");
       displayRef.current.style.removeProperty("height");
+      dCtxRef.current = null;
     }
     if (sampleRef.current) {
       sampleRef.current.width = render.w;
       sampleRef.current.height = render.h;
+      sCtxRef.current = null;
     }
-  }, []);
+    dirtyRef.current = true;
+    bindContexts();
+  }, [bindContexts]);
 
   const blitSampleToDisplay = useCallback(
     (
@@ -171,7 +245,7 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
       mirrorX: boolean,
       now: number
     ) => {
-      const tp = readTrackParams(params);
+      const tp = readTrackParams(renderParamsRef.current);
       const data = sCtx.getImageData(0, 0, renderW, renderH).data;
       renderTrackBase(sCtx, data, renderW, renderH, tp.invert);
 
@@ -199,8 +273,14 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
       const sampleCanvas = sampleRef.current;
       const isVideo = sourceMode === "video" || sourceMode === "webcam";
       if (sampleCanvas && mlReadyRef.current && (tp.trackHands || tp.trackEyes)) {
-        if (now - lastMlRef.current >= ML_INTERVAL_MS) {
+        const mlKey = `${tp.trackHands}:${tp.trackEyes}:${isVideo}`;
+        const runMl =
+          isVideo
+            ? now - lastMlRef.current >= ML_INTERVAL_MS
+            : mlStaticKeyRef.current !== mlKey;
+        if (runMl) {
           lastMlRef.current = now;
+          mlStaticKeyRef.current = mlKey;
           if (tp.trackHands) {
             handsRef.current = detectHands(sampleCanvas, now, isVideo);
           } else handsRef.current = null;
@@ -249,16 +329,29 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
 
       prevFrameRef.current = cloneImageData(data);
     },
-    [params, sourceMode, blitSampleToDisplay]
+    [sourceMode, blitSampleToDisplay]
   );
+
+  const needsContinuousFrame = useCallback(() => {
+    if (sourceMode === "none") return false;
+    if (effectPlaying && ANIMATED_EFFECTS.includes(effectId)) return true;
+    const isVideo = sourceMode === "video" || sourceMode === "webcam";
+    if (isVideo && videoPlaying) return true;
+    if (effectId === "track") {
+      const tp = readTrackParams(renderParamsRef.current);
+      if (tp.trackMotion && isVideo && videoPlaying) return true;
+    }
+    return false;
+  }, [sourceMode, effectPlaying, effectId, videoPlaying]);
 
   const drawFrame = useCallback(
     (now = performance.now()) => {
       const display = displayRef.current;
       const sample = sampleRef.current;
       if (!display || !sample) return;
-      const dCtx = display.getContext("2d", { willReadFrequently: true });
-      const sCtx = sample.getContext("2d", { willReadFrequently: true });
+      bindContexts();
+      const dCtx = dCtxRef.current;
+      const sCtx = sCtxRef.current;
       if (!dCtx || !sCtx) return;
 
       const video = videoRef.current;
@@ -302,9 +395,10 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
         return;
       }
 
+      const rp = renderParamsRef.current;
       renderEffect(sCtx, sCtx, renderW, renderH, {
         effectId,
-        params,
+        params: rp,
         algorithmMode,
         shapeId,
         customPath,
@@ -315,15 +409,10 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
         focalPoint,
         useFocalPoint,
       });
-      prevFrameRef.current = cloneImageData(
-        sCtx.getImageData(0, 0, renderW, renderH).data
-      );
       blitSampleToDisplay(dCtx, sCtx.canvas, renderW, renderH, displayW, displayH);
-
     },
     [
       effectId,
-      params,
       algorithmMode,
       shapeId,
       customPath,
@@ -336,6 +425,7 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
       onReadyChange,
       drawTrackFrame,
       blitSampleToDisplay,
+      bindContexts,
     ]
   );
 
@@ -346,9 +436,11 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
   useEffect(() => {
     if (effectId !== "track") {
       mlReadyRef.current = false;
+      mlStaticKeyRef.current = "";
       handsRef.current = null;
       eyesRef.current = null;
       setTrackMlStatus(null);
+      disposeTrackModels();
       return;
     }
     const isVideo = sourceMode === "video" || sourceMode === "webcam";
@@ -356,6 +448,7 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
     void initTrackModels(isVideo).then((ok) => {
       if (cancelled) return;
       mlReadyRef.current = ok;
+      mlStaticKeyRef.current = "";
       if (!ok) {
         setTrackMlStatus(
           getTrackMlError() ?? "Hand/eye models unavailable — motion tracking still works"
@@ -363,6 +456,8 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
       } else {
         setTrackMlStatus(null);
       }
+      dirtyRef.current = true;
+      scheduleFrameRef.current();
     });
     return () => {
       cancelled = true;
@@ -489,23 +584,53 @@ export const CanvasPreview = forwardRef<CanvasPreviewHandle, Props>(function Can
     else video.pause();
   }, [videoPlaying, videoRef, sourceMode]);
 
-  useEffect(() => {
+  const kickLoop = useCallback(() => {
+    if (loopActiveRef.current) return;
+    loopActiveRef.current = true;
     const loop = (now: number) => {
-      if (effectPlaying) {
-        const last = lastTickRef.current ?? now;
-        const dt = Math.min(64, now - last);
-        lastTickRef.current = now;
-        animTimeRef.current += dt * effectSpeed;
+      const continuous = needsContinuousFrame();
+      if (continuous) {
+        if (effectPlaying) {
+          const last = lastTickRef.current ?? now;
+          const dt = Math.min(64, now - last);
+          lastTickRef.current = now;
+          animTimeRef.current += dt * effectSpeed;
+        } else {
+          lastTickRef.current = null;
+        }
       } else {
         lastTickRef.current = null;
       }
 
-      if (sourceMode !== "none") drawFrame(now);
-      rafRef.current = requestAnimationFrame(loop);
+      if (sourceMode !== "none" && (continuous || dirtyRef.current)) {
+        drawFrame(now);
+        dirtyRef.current = false;
+      }
+
+      if (continuous || dirtyRef.current) {
+        rafRef.current = requestAnimationFrame(loop);
+      } else {
+        loopActiveRef.current = false;
+      }
     };
     rafRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [drawFrame, sourceMode, effectPlaying, effectSpeed]);
+  }, [drawFrame, sourceMode, effectPlaying, effectSpeed, needsContinuousFrame]);
+
+  useEffect(() => {
+    scheduleFrameRef.current = () => {
+      dirtyRef.current = true;
+      kickLoop();
+    };
+  }, [kickLoop]);
+
+  useEffect(() => {
+    dirtyRef.current = true;
+    kickLoop();
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      loopActiveRef.current = false;
+    };
+  }, [kickLoop, needsContinuousFrame]);
 
   const display = displayRef.current;
   const focalOverlay =

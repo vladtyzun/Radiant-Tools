@@ -1,4 +1,6 @@
-export function ParamSlider({
+import { memo } from "react";
+
+function ParamSliderInner({
   label,
   value,
   min,
@@ -41,3 +43,5 @@ export function ParamSlider({
     </div>
   );
 }
+
+export const ParamSlider = memo(ParamSliderInner);

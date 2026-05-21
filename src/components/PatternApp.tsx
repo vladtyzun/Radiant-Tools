@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePatternStore } from "@/hooks/usePatternStore";
 import { Sidebar } from "./Sidebar";
 import { CanvasPreview, type CanvasPreviewHandle } from "./CanvasPreview";
@@ -122,29 +122,73 @@ export function PatternApp() {
 
   const isVideoSource = sourceMode === "video" || sourceMode === "webcam";
 
+  const canvasProps = useMemo(
+    () => ({
+      effectId: store.effectId,
+      params: store.params,
+      algorithmMode: store.algorithmMode,
+      shapeId: store.shapeId,
+      customPath: store.customPath,
+      bgColor: store.bgColor,
+      sourceMode: store.sourceMode,
+      effectPlaying: store.effectPlaying,
+      effectSpeed: store.effectSpeed,
+      focalPoint: store.focalPoint,
+      setFocalPoint: store.setFocalPoint,
+      useFocalPoint: store.useFocalPoint,
+      videoPlaying: store.videoPlaying,
+      videoSpeed: store.videoSpeed,
+      setTrackMlStatus: store.setTrackMlStatus,
+    }),
+    [
+      store.effectId,
+      store.params,
+      store.algorithmMode,
+      store.shapeId,
+      store.customPath,
+      store.bgColor,
+      store.sourceMode,
+      store.effectPlaying,
+      store.effectSpeed,
+      store.focalPoint,
+      store.setFocalPoint,
+      store.useFocalPoint,
+      store.videoPlaying,
+      store.videoSpeed,
+      store.setTrackMlStatus,
+    ]
+  );
+
+  const sidebarProps = useMemo(
+    () => ({
+      ...store,
+      onUpload,
+      onExport,
+      hasMedia,
+      isVideoSource,
+      cameraError,
+      trackMlStatus: store.trackMlStatus,
+    }),
+    [store, onUpload, onExport, hasMedia, isVideoSource, cameraError]
+  );
+
+  const onExportReady = useCallback((fn: (format: ExportFormat) => void) => {
+    exportFnRef.current = fn;
+  }, []);
+
   return (
     <div className="flex h-screen overflow-hidden bg-black">
-      <Sidebar
-        {...store}
-        onUpload={onUpload}
-        onExport={onExport}
-        hasMedia={hasMedia}
-        isVideoSource={isVideoSource}
-        cameraError={cameraError}
-        trackMlStatus={store.trackMlStatus}
-      />
+      <Sidebar {...sidebarProps} />
       <main className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
         <video ref={videoRef} className="hidden" playsInline muted autoPlay />
         <CanvasPreview
           ref={canvasRef}
-          {...store}
+          {...canvasProps}
           imageUrl={imageUrl}
           videoRef={videoRef}
           stream={stream}
           onReadyChange={setHasMedia}
-          onExportReady={(fn) => {
-            exportFnRef.current = fn;
-          }}
+          onExportReady={onExportReady}
         />
       </main>
     </div>
