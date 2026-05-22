@@ -110,7 +110,7 @@ Models load lazily when you select Track (first load needs network). Toggle **Ha
 - Algorithm modes (Pattern): Flat, Halftone, Inverse
 - Shape grid + custom SVG upload
 - Background presets and export PNG/JPG
-- Video playback: play/pause, 1x/2x/3x speed
+- Uploaded video playback: play/pause, 1x/2x/3x speed (webcam stays live)
 
 ## Storage
 

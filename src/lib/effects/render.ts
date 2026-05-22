@@ -19,8 +19,6 @@ export type RenderContext = {
   shapeId: ShapeId;
   customPath: Path2D | null;
   bgColor: string;
-  time: number;
-  animating: boolean;
   prevFrame: Uint8ClampedArray | null;
   focalPoint: FocalPoint;
   useFocalPoint: boolean;
@@ -68,9 +66,13 @@ export function renderEffect(
   h: number,
   ctx: RenderContext
 ) {
-  // Glass/blur/motionBlur read src canvas; skip bg fill so in-place src stays intact.
+  // Glass/fractalGlass/blur/motionBlur read src canvas; skip bg fill so in-place src stays intact.
   if (ctx.effectId === "glass") {
-    renderGlass(out, src.canvas, w, h, ctx.params, ctx.time, ctx.animating, ctx.focalPoint, ctx.useFocalPoint);
+    renderGlass(out, src.canvas, w, h, ctx.params, ctx.focalPoint, ctx.useFocalPoint);
+    return;
+  }
+  if (ctx.effectId === "fractalGlass") {
+    renderFractalGlass(out, src, w, h, ctx.params);
     return;
   }
   if (ctx.effectId === "blur") {
@@ -336,23 +338,27 @@ function glassRingCount(p: Params): number {
   return Math.min(40, Math.max(3, Math.round(raw)));
 }
 
-/** Radial annulus slices rotated per ring — concentric glass swirl. */
+/** Degrees 0–180; legacy stored values ≤20 are treated as old 0–20 scale. */
+function glassTurnDegrees(p: Params): number {
+  const raw = num(p, "spiralTurns", 90);
+  if (raw > 0 && raw <= 20) return (raw / 20) * 180;
+  return Math.min(180, Math.max(0, raw));
+}
+
+/** Radial annulus slices rotated per ring — static base, swirl disk only inside maxR. */
 function renderGlass(
   out: CanvasRenderingContext2D,
   srcCanvas: HTMLCanvasElement,
   w: number,
   h: number,
   p: Params,
-  time: number,
-  animating: boolean,
   focal: FocalPoint,
   useFocal: boolean
 ) {
-  const turns = num(p, "spiralTurns", 10);
-  const intensity = turns / 20;
+  const turnDeg = glassTurnDegrees(p);
   const src =
     out.canvas === srcCanvas ? glassSourceCanvas(srcCanvas, w, h) : srcCanvas;
-  if (intensity <= 0) {
+  if (turnDeg <= 0) {
     out.drawImage(src, 0, 0, w, h);
     return;
   }
@@ -361,7 +367,6 @@ function renderGlass(
   const stagger = num(p, "stagger", 50) / 100;
   const distort = num(p, "distortion", 55) / 100;
   const opacity = num(p, "opacity", 100) / 100;
-  const speed = num(p, "speed", 25) / 100;
 
   const cx = useFocal ? focal.x * w : w * 0.5;
   const cy = useFocal ? focal.y * h : h * 0.5;
@@ -372,27 +377,24 @@ function renderGlass(
     Math.hypot(w - cx, h - cy)
   );
 
-  const turnsScale = intensity * Math.PI * 2 * (0.25 + distort * 0.75);
+  const twistScale = 0.25 + distort * 0.75;
+  const turnsScale = (turnDeg / 180) * Math.PI * 2 * twistScale;
   const staggerRad = stagger * turnsScale;
-  const phase = animating ? time * 0.001 * speed * Math.PI * 2 : 0;
 
   out.imageSmoothingEnabled = true;
+  out.setTransform(1, 0, 0, 1, 0, 0);
+  out.globalAlpha = 1;
   out.drawImage(src, 0, 0, w, h);
 
   out.save();
   out.globalAlpha = opacity;
-  out.beginPath();
-  out.arc(cx, cy, maxR, 0, Math.PI * 2);
-  out.clip();
+  out.globalCompositeOperation = "source-over";
 
   for (let i = 0; i < rings; i++) {
     const r0 = (i / rings) * maxR;
     const r1 = ((i + 1) / rings) * maxR;
     const ringT = i / rings;
-    const angle_i =
-      ringT * staggerRad +
-      phase +
-      (animating ? ringT * stagger * Math.PI * 2 * speed : 0);
+    const angle_i = ringT * staggerRad + ringT * stagger * Math.PI * 2;
 
     out.save();
     out.beginPath();
@@ -408,6 +410,224 @@ function renderGlass(
   }
 
   out.restore();
+  out.globalAlpha = 1;
+  out.globalCompositeOperation = "source-over";
+}
+
+let fractalBlurBuf: HTMLCanvasElement | null = null;
+
+function fractalHash(i: number, seed: number) {
+  return (((i * 374761393 + seed * 668265263) >>> 0) % 10000) / 10000;
+}
+
+/** Uneven pane boundaries for fractal column/row widths (variation 0 = equal). */
+function fractalPaneEdges(size: number, count: number, variation: number, seed: number): number[] {
+  const n = Math.min(40, Math.max(1, Math.round(count)));
+  if (n <= 1) return [0, size];
+  const v = Math.min(1, Math.max(0, variation / 100));
+  const weights: number[] = [];
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    const w = 1 + (fractalHash(i, seed) - 0.5) * 2 * v * 0.85;
+    weights.push(Math.max(0.15, w));
+    sum += weights[weights.length - 1];
+  }
+  const edges = [0];
+  let pos = 0;
+  for (let i = 0; i < n; i++) {
+    pos += (weights[i] / sum) * size;
+    edges.push(i === n - 1 ? size : Math.round(pos));
+  }
+  edges[edges.length - 1] = size;
+  return edges;
+}
+
+type FractalPane = { x: number; y: number; w: number; h: number };
+
+function fractalPanes(
+  w: number,
+  h: number,
+  layout: string,
+  count: number,
+  variation: number,
+  seed: number
+): FractalPane[] {
+  const panes: FractalPane[] = [];
+  if (layout === "rows") {
+    const edges = fractalPaneEdges(h, count, variation, seed + 1);
+    for (let i = 0; i < edges.length - 1; i++) {
+      const y0 = edges[i];
+      const y1 = edges[i + 1];
+      if (y1 > y0) panes.push({ x: 0, y: y0, w, h: y1 - y0 });
+    }
+    return panes;
+  }
+  if (layout === "grid") {
+    const n = Math.min(20, Math.max(2, Math.round(count)));
+    const xEdges = fractalPaneEdges(w, n, variation, seed);
+    const yEdges = fractalPaneEdges(h, n, variation, seed + 97);
+    for (let row = 0; row < yEdges.length - 1; row++) {
+      for (let col = 0; col < xEdges.length - 1; col++) {
+        const x0 = xEdges[col];
+        const x1 = xEdges[col + 1];
+        const y0 = yEdges[row];
+        const y1 = yEdges[row + 1];
+        if (x1 > x0 && y1 > y0) panes.push({ x: x0, y: y0, w: x1 - x0, h: y1 - y0 });
+      }
+    }
+    return panes;
+  }
+  const edges = fractalPaneEdges(w, count, variation, seed);
+  for (let i = 0; i < edges.length - 1; i++) {
+    const x0 = edges[i];
+    const x1 = edges[i + 1];
+    if (x1 > x0) panes.push({ x: x0, y: 0, w: x1 - x0, h });
+  }
+  return panes;
+}
+
+function paneGradientRgb(
+  base: { r: number; g: number; b: number },
+  strength: number
+): { dark: string; mid: string } {
+  const s = Math.min(1, Math.max(0, strength));
+  const dr = (base.r * 0.5) | 0;
+  const dg = (base.g * 0.5) | 0;
+  const db = (base.b * 0.5) | 0;
+  const lr = Math.min(255, (base.r * (1 + 0.45 * s)) | 0);
+  const lg = Math.min(255, (base.g * (1 + 0.45 * s)) | 0);
+  const lb = Math.min(255, (base.b * (1 + 0.45 * s)) | 0);
+  return { dark: `${dr},${dg},${db}`, mid: `${lr},${lg},${lb}` };
+}
+
+function samplePaneColor(
+  data: Uint8ClampedArray,
+  w: number,
+  h: number,
+  pane: FractalPane,
+  layout: string
+): { r: number; g: number; b: number } {
+  const band = Math.max(2, Math.floor((layout === "rows" ? pane.w : pane.h) * 0.22));
+  let x0 = pane.x;
+  let y0 = pane.y;
+  let x1 = pane.x + pane.w;
+  let y1 = pane.y + pane.h;
+  if (layout === "grid") {
+    x0 = pane.x + Math.floor(pane.w * 0.35);
+    x1 = pane.x + Math.ceil(pane.w * 0.65);
+    y0 = pane.y + Math.floor(pane.h * 0.35);
+    y1 = pane.y + Math.ceil(pane.h * 0.65);
+  } else if (layout === "rows") {
+    x0 = pane.x + Math.floor(pane.w * 0.35);
+    x1 = pane.x + Math.ceil(pane.w * 0.65);
+    y0 = pane.y + pane.h - band;
+  } else {
+    y0 = pane.y + pane.h - band;
+    x0 = pane.x + Math.floor(pane.w * 0.2);
+    x1 = pane.x + Math.ceil(pane.w * 0.8);
+  }
+  let r = 0,
+    g = 0,
+    b = 0,
+    n = 0;
+  for (let py = y0; py < y1; py += 2) {
+    for (let px = x0; px < x1; px += 2) {
+      const i = (py * w + px) * 4;
+      r += data[i];
+      g += data[i + 1];
+      b += data[i + 2];
+      n++;
+    }
+  }
+  if (!n) return { r: 200, g: 120, b: 60 };
+  return { r: r / n, g: g / n, b: b / n };
+}
+
+/** Frosted pane grid: sharp base, per-pane blurred layer + tinted gradient overlay. */
+function renderFractalGlass(
+  out: CanvasRenderingContext2D,
+  src: CanvasRenderingContext2D,
+  w: number,
+  h: number,
+  p: Params
+) {
+  const layout = str(p, "layout", "columns");
+  const count = num(p, "count", 12);
+  const blurPx = Math.min(30, Math.max(0, num(p, "blurAmount", 12)));
+  const opacity = num(p, "opacity", 85) / 100;
+  const gradStr = num(p, "gradientStrength", 70) / 100;
+  const variation = num(p, "variation", 25);
+  const showEdges = p.showEdges !== false;
+  const source = resolveEffectSource(out, src, w, h);
+  const img = src.getImageData(0, 0, w, h);
+  const data = img.data;
+
+  const seed = 42;
+  const panes = fractalPanes(w, h, layout, count, variation, seed);
+
+  out.save();
+  out.setTransform(1, 0, 0, 1, 0, 0);
+  out.clearRect(0, 0, w, h);
+  out.drawImage(source, 0, 0, w, h);
+  out.restore();
+
+  let blurred: HTMLCanvasElement | null = null;
+  if (blurPx > 0 && opacity > 0) {
+    if (!fractalBlurBuf) fractalBlurBuf = document.createElement("canvas");
+    if (fractalBlurBuf.width !== w || fractalBlurBuf.height !== h) {
+      fractalBlurBuf.width = w;
+      fractalBlurBuf.height = h;
+    }
+    const bCtx = fractalBlurBuf.getContext("2d")!;
+    bCtx.clearRect(0, 0, w, h);
+    bCtx.filter = `blur(${blurPx}px)`;
+    bCtx.drawImage(source, 0, 0, w, h);
+    bCtx.filter = "none";
+    blurred = fractalBlurBuf;
+  }
+
+  for (const pane of panes) {
+    const { r, g, b } = samplePaneColor(data, w, h, pane, layout);
+    const shimmer = 0;
+
+    out.save();
+    out.beginPath();
+    out.rect(pane.x, pane.y, pane.w, pane.h);
+    out.clip();
+
+    if (blurred) {
+      out.drawImage(blurred, 0, 0, w, h);
+    }
+
+    const alpha = opacity * (gradStr * (0.35 + 0.65 * (1 + shimmer)));
+    if (alpha > 0.01) {
+      const { dark, mid } = paneGradientRgb({ r, g, b }, gradStr);
+      const edgeA = Math.min(1, alpha * (0.55 + gradStr * 0.45));
+      const midA = Math.min(1, alpha * (0.75 + gradStr * 0.25));
+      let grad: CanvasGradient;
+      if (layout === "rows") {
+        grad = out.createLinearGradient(pane.x, pane.y, pane.x + pane.w, pane.y);
+      } else {
+        grad = out.createLinearGradient(pane.x, pane.y, pane.x, pane.y + pane.h);
+      }
+      grad.addColorStop(0, `rgba(${dark},${edgeA})`);
+      grad.addColorStop(0.5, `rgba(${mid},${midA})`);
+      grad.addColorStop(1, `rgba(${dark},${edgeA})`);
+      out.fillStyle = grad;
+      out.fillRect(pane.x, pane.y, pane.w, pane.h);
+    }
+
+    out.restore();
+
+    if (showEdges) {
+      out.save();
+      out.strokeStyle = "rgba(255,255,255,0.18)";
+      out.lineWidth = 1;
+      out.strokeRect(pane.x + 0.5, pane.y + 0.5, pane.w - 1, pane.h - 1);
+      out.restore();
+    }
+  }
+
   out.globalAlpha = 1;
 }
 
@@ -672,8 +892,6 @@ function renderGlitch(
   }
 
   const staticSeed = glitchStaticSeed(p);
-  const animFrame = ctx.animating ? Math.floor(ctx.time / 80) : 0;
-  const t = ctx.animating ? ctx.time * 0.001 : 0;
   const rgbShift = Math.max(1, Math.round(offset * 0.5));
   const block = Math.max(4, sliceH * 2);
 
@@ -685,10 +903,8 @@ function renderGlitch(
       const h0 = glitchHash(x, y, staticSeed);
       const baseRs = (h0 % (rgbShift * 2 + 1)) - rgbShift;
       const baseBs = (glitchHash(x + 3, y + 7, staticSeed) % (rgbShift * 2 + 1)) - rgbShift;
-      const animRs = ctx.animating ? Math.round(Math.sin(t * 9 + y * 0.03 + animFrame) * offset * 0.35) : 0;
-      const animBs = ctx.animating ? Math.round(Math.cos(t * 7 + x * 0.03 + animFrame) * offset * 0.35) : 0;
-      const rs = Math.round((baseRs + animRs) * amt);
-      const bs = Math.round((baseBs + animBs) * amt);
+      const rs = Math.round(baseRs * amt);
+      const bs = Math.round(baseBs * amt);
       const rx = Math.min(w - 1, Math.max(0, x + rs));
       const bx = Math.min(w - 1, Math.max(0, x + bs));
       const ri = (y * w + rx) * 4;
@@ -713,10 +929,8 @@ function renderGlitch(
       if (h0 % 100 > 25 + (1 - intensity) * 50) continue;
       const baseDx = ((h0 % (offset + 1)) - offset / 2) * amt;
       const baseDy = ((glitchHash(bx, by + 1, staticSeed) % (offset + 1)) - offset / 2) * amt;
-      const animDx = ctx.animating ? Math.round(Math.sin(t * 5 + bx * 0.02 + animFrame) * offset * 0.5) : 0;
-      const animDy = ctx.animating ? Math.round(Math.cos(t * 4 + by * 0.02 + animFrame) * offset * 0.4) : 0;
-      const dx = Math.round(baseDx + animDx);
-      const dy = Math.round(baseDy + animDy);
+      const dx = Math.round(baseDx);
+      const dy = Math.round(baseDy);
       const slice = out.getImageData(bx, by, Math.min(block, w - bx), Math.min(block, h - by));
       out.putImageData(slice, bx + dx, by + dy);
     }
@@ -726,8 +940,7 @@ function renderGlitch(
     const h0 = glitchHash(0, y, staticSeed);
     if (h0 % 100 > 20 + (1 - intensity) * 55) continue;
     const baseShift = ((h0 % (offset * 2 + 1)) - offset) * amt;
-    const animShift = ctx.animating ? Math.round(Math.sin(t * 6 + y * 0.04 + animFrame) * offset * 0.8) : 0;
-    const shift = Math.round(baseShift + animShift);
+    const shift = Math.round(baseShift);
     const slice = out.getImageData(0, y, w, Math.min(sliceH, h - y));
     out.putImageData(slice, shift, y);
   }
@@ -767,7 +980,7 @@ function renderVintage(
     g *= v;
     b *= v;
     if (grain > 0) {
-      const n = ((px * 17 + py * 31 + i + Math.floor(ctx.time * 0.05)) % 20) / 20 - 0.5;
+      const n = ((px * 17 + py * 31 + i) % 20) / 20 - 0.5;
       const grainAmt = grain * fw;
       r += n * grainAmt * 40;
       g += n * grainAmt * 40;
@@ -872,8 +1085,7 @@ function renderStage(
   const spot = num(p, "spotSize", 55) / 100;
   const darkness = num(p, "darkness", 70) / 100;
   const warmth = num(p, "warmth", 40) / 100;
-  const drift = ctx.animating ? Math.sin(ctx.time * 0.001) * w * 0.06 : 0;
-  const cx = w / 2 + drift;
+  const cx = w / 2;
   const cy = h / 2;
   const maxR = Math.max(w, h) * spot;
   const outData = new Uint8ClampedArray(data);

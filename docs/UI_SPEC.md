@@ -15,10 +15,6 @@ Reference: dark sidebar mockups (`assets/IMG_966*.png` in Cursor project).
 - Camera permission error message when denied.
 - Export row: format `<select>` (PNG/JPG/SVG) + white primary Export button.
 
-### EFFECT ANIMATION (always visible)
-- Play/Pause — drives effect `animationTime` (default paused).
-- Speed pills: 1x / 2x / 3x for effect animation.
-
 ### PLAYBACK (visible when video or webcam)
 - Play/Pause for video element.
 - Speed pills: 1x / 2x / 3x for video `playbackRate`.

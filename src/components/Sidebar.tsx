@@ -2,7 +2,7 @@
 
 import { memo } from "react";
 import { getParamDefs, EFFECT_ORDER } from "@/lib/paramDefs";
-import { ANIMATED_EFFECTS, EFFECT_LABELS, GRID_ALGORITHM_EFFECTS } from "@/lib/types";
+import { EFFECT_LABELS, GRID_ALGORITHM_EFFECTS } from "@/lib/types";
 import { SHAPE_OPTIONS } from "@/lib/shapes";
 import { BACKGROUND_COLORS } from "@/lib/types";
 import type { PatternStore } from "@/hooks/usePatternStore";
@@ -51,10 +51,6 @@ function SidebarInner(props: Props) {
     setBgPreset,
     customBg,
     setCustomBg,
-    effectPlaying,
-    setEffectPlaying,
-    effectSpeed,
-    setEffectSpeed,
     useFocalPoint,
     setUseFocalPoint,
     resetFocalPoint,
@@ -77,10 +73,8 @@ function SidebarInner(props: Props) {
   const paramDefs = getParamDefs(effectId);
   const showAlgorithm = GRID_ALGORITHM_EFFECTS.includes(effectId);
   const showShape = effectId === "pattern";
-  const showEffectAnimation = ANIMATED_EFFECTS.includes(effectId);
-
   return (
-    <aside className="flex h-screen w-[300px] shrink-0 flex-col overflow-y-auto border-r border-[#1f1f1f] bg-sidebar text-white">
+    <aside className="flex h-full w-[300px] shrink-0 flex-col overflow-y-auto rounded-xl border border-[#333] bg-sidebar text-white shadow-lg">
       <header className="px-3 pb-4 pt-3">
         <p className="text-[10px] text-muted">Pattern generator</p>
         <h1 className="mt-0.5 text-xl font-bold">Radiant Pattern</h1>
@@ -145,7 +139,10 @@ function SidebarInner(props: Props) {
         )}
       </Section>
 
-      {hasMedia && effectId !== "glass" && effectId !== "glitch" && (
+      {hasMedia &&
+        effectId !== "glass" &&
+        effectId !== "fractalGlass" &&
+        effectId !== "glitch" && (
         <Section title="Focal Point">
           <div className="flex items-center gap-1.5">
             <div className="flex flex-1 items-center justify-between rounded-lg bg-panel px-2.5 py-1.5">
@@ -208,17 +205,6 @@ function SidebarInner(props: Props) {
                   ? "Video motion diff + optional MediaPipe hand/eye overlays. Needs motion or ML toggles on."
                   : "Single-frame edge detection boxes only — no motion diff or MediaPipe."}
               </p>
-            )}
-            {showEffectAnimation && (
-              <div className="mt-1.5">
-                <p className="mb-1 text-[9px] uppercase tracking-wide text-muted">Animation</p>
-                <SpeedControlRow
-                  playing={effectPlaying}
-                  onTogglePlay={() => setEffectPlaying(!effectPlaying)}
-                  speed={effectSpeed}
-                  onSpeed={setEffectSpeed}
-                />
-              </div>
             )}
           </Section>
 
@@ -410,7 +396,7 @@ function SidebarInner(props: Props) {
         </>
       )}
 
-      <footer className="mt-auto border-t border-[#1f1f1f] p-3">
+      <footer className="mt-auto border-t border-white/10 p-3">
         <LogoutButton />
       </footer>
     </aside>
@@ -476,6 +462,7 @@ function formatEffectLabel(id: EffectId) {
     imgTrack: "ImgTrack",
     dotChar: "Dot Char",
     motionBlur: "Motion Blur",
+    fractalGlass: "Fractal",
   };
   return map[id] || id.charAt(0).toUpperCase() + id.slice(1);
 }

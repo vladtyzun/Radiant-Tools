@@ -7,16 +7,13 @@ For cell `(cx, cy)` with size `cellSize` and gap `gap`:
 - Sample rectangle at center of cell from source image data.
 - **Luminance** `L = 0.299R + 0.587G + 0.114B` (0–255).
 
-### Effect animation
-- **Effect Animation** (sidebar): Play/Pause + 1x/2x/3x drives `animationTime` via rAF when playing. Default is paused (static frame).
-- Time-based effects (Glass spiral phase, Stage spotlight drift, Vintage grain) advance `time` only while playing.
-- **Glitch** always renders RGB split, block nudges, and slice shifts when paused; static mode uses a param-derived seed (stable per settings). Play advances the seed over time.
-- **Playback** (video/webcam only): separate controls for `HTMLVideoElement` play rate.
+### Playback
+- **Playback** (uploaded video only): Play/Pause + 1x/2x/3x for `HTMLVideoElement` `playbackRate`. Webcam preview stays live.
 
 ### Focal point
 - Normalized `focalPoint` `{ x, y }` (0–1), default center. Draggable cyan handle on the preview canvas.
 - `getFocalWeight(nx, ny, focal, enabled)` in `render.ts`: smooth falloff from 1.0 at the focal point to ~0.25 at the farthest canvas edge.
-- Applied to Pattern, Halftone, Pixel, ASCII, Motion Blur, Stage, Vintage, and related grid effects when **Focal Point** is on (not Glass or Glitch). Toggle off or **Center** resets position.
+- Applied to Pattern, Halftone, Pixel, ASCII, Motion Blur, Stage, Vintage, and related grid effects when **Focal Point** is on (not Glass, Fractal Glass, or Glitch). Toggle off or **Center** resets position.
 
 ### Algorithm modes (Pattern, Halftone, Dot Char, Pixel)
 | Mode | Behavior |
@@ -66,7 +63,15 @@ Halftone dots + ASCII character from luminance charset. Params: cellSize, gap, c
 Mosaic blocks + optional grid lines. Params: cellSize, gap, showGrid, contrast, opacity.
 
 ## Glass
-Concentric annulus swirl: the image is split into radial rings (canvas clip, full resolution), each ring rotated with staggered phase for a smooth spiral. Center is canvas midpoint (focal point applies when focal mode is on). **Turns** (`spiralTurns`, 0–20): 0 = passthrough (source only); strength scales with `turns / 20`. Static swirl from **Delay** (`stagger`); **Play** animates global phase with per-ring delay. Params: rings (3–40), turns, delay, twist, opacity, speed.
+Concentric annulus swirl: sharp full-frame base, then rotated annulus clips only inside the focal disk (`maxR`); corners outside the disk stay static. **Rotation (°)** (`spiralTurns`, 0–180): 0 = passthrough; stagger scales with `spiralTurns/180`. Static swirl from **Delay** (`stagger`); **Play** animates global phase with per-ring delay. Params: rings (3–40), rotation°, delay, twist, opacity, speed.
+
+## Fractal Glass
+Frosted-glass panes over media: sharp full-frame base, then per-pane clipped **backdrop blur** (one full-frame blur pass, clipped per cell) plus a **linear gradient tint** sampled from the pane’s bottom band (columns/grid) or trailing edge (rows). Orange/warm tones come from the source image, not a fixed palette.
+
+- **Layout**: vertical columns, horizontal rows, or grid (grid caps at 20×20 divisions for performance).
+- **Variation** perturbs pane widths/heights with a seeded hash (stable when paused; **Play** advances seed and adds a subtle gradient shimmer).
+- Optional **Pane Edges** draws thin white separators between cells.
+- No focal point; export embeds raster like Blur/Glass. Params: layout, count (4–40), blur, opacity, gradient, variation, pane edges.
 
 ## ASCII
 Character per cell from luminance. **Focal point** scales character density (`l × focal weight`), cell opacity, and skips very low-weight cells. Params: cellSize, gap, contrast, charset.
@@ -75,7 +80,7 @@ Character per cell from luminance. **Focal point** scales character density (`l 
 **Single-frame** edge emphasis: Sobel-style gradient per pixel, aggregate into coarse blocks, draw cyan boxes on the strongest regions (like motion boxes but from edges, not frame diff). No MediaPipe, no previous frame, no hand/eye overlays. Params: edgeThresh, boxSize, maxRegions.
 
 ## Blur / Motion Blur / Dither / Glitch / Vintage / C. Htone / Stage
-Stylized filters: Gaussian blur, **directional motion blur** (uniform `drawImage` streaks along angle; focal scales streak length on a 4×4 grid), ordered dither, RGB split + slice/block glitch, sepia, CMYK-style dots, radial stage vignette. Each exposes 3–6 sliders in `paramDefs`. Glitch does not require Effect Animation Play.
+Stylized filters: Gaussian blur, **directional motion blur** (uniform `drawImage` streaks along angle; focal scales streak length on a 4×4 grid), ordered dither, RGB split + slice/block glitch (param-derived seed), sepia, CMYK-style dots, radial stage vignette. Each exposes 3–6 sliders in `paramDefs`.
 
 ---
 

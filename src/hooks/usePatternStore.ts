@@ -13,17 +13,19 @@ import type {
 } from "@/lib/types";
 import { BACKGROUND_COLORS } from "@/lib/types";
 
+const DEFAULT_ALGORITHM_MODE: AlgorithmMode = "halftone";
+
 export function usePatternStore() {
   const [effectId, setEffectId] = useState<EffectId>("pattern");
-  const [paramsByEffect, setParamsByEffect] = useState(allDefaultParams);
-  const [algorithmMode, setAlgorithmMode] = useState<AlgorithmMode>("halftone");
+  const [paramsByEffect, setParamsByEffect] = useState(() => allDefaultParams());
+  const [algorithmModeByEffect, setAlgorithmModeByEffect] = useState<
+    Partial<Record<EffectId, AlgorithmMode>>
+  >({});
   const [shapeId, setShapeId] = useState<ShapeId>("circle");
   const [customPath, setCustomPath] = useState<Path2D | null>(null);
   const [bgPreset, setBgPreset] = useState<BackgroundPreset>("dark");
   const [customBg, setCustomBg] = useState("#0a0a0a");
   const [sourceMode, setSourceMode] = useState<SourceMode>("none");
-  const [effectPlaying, setEffectPlaying] = useState(false);
-  const [effectSpeed, setEffectSpeed] = useState<1 | 2 | 3>(1);
   const [videoPlaying, setVideoPlaying] = useState(true);
   const [videoSpeed, setVideoSpeed] = useState<1 | 2 | 3>(1);
   const [exportFormat, setExportFormat] = useState<"png" | "jpg" | "svg">("png");
@@ -35,6 +37,19 @@ export function usePatternStore() {
   const resetFocalPoint = useCallback(() => setFocalPoint({ x: 0.5, y: 0.5 }), []);
 
   const params = paramsByEffect[effectId];
+  const algorithmMode =
+    algorithmModeByEffect[effectId] ?? DEFAULT_ALGORITHM_MODE;
+
+  const setAlgorithmMode = useCallback(
+    (mode: AlgorithmMode) => {
+      setAlgorithmModeByEffect((prev) => ({ ...prev, [effectId]: mode }));
+    },
+    [effectId]
+  );
+
+  const setShape = useCallback((id: ShapeId) => {
+    setShapeId(id);
+  }, []);
 
   const setParam = useCallback(
     (key: string, value: number | boolean | string) => {
@@ -59,7 +74,8 @@ export function usePatternStore() {
       algorithmMode,
       setAlgorithmMode,
       shapeId,
-      setShapeId,
+      setShapeId: setShape,
+      setShape,
       customPath,
       setCustomPath,
       bgPreset,
@@ -69,10 +85,6 @@ export function usePatternStore() {
       bgColor,
       sourceMode,
       setSourceMode,
-      effectPlaying,
-      setEffectPlaying,
-      effectSpeed,
-      setEffectSpeed,
       videoPlaying,
       setVideoPlaying,
       videoSpeed,
@@ -100,8 +112,6 @@ export function usePatternStore() {
       customBg,
       bgColor,
       sourceMode,
-      effectPlaying,
-      effectSpeed,
       videoPlaying,
       videoSpeed,
       exportFormat,
@@ -112,13 +122,11 @@ export function usePatternStore() {
       setEffectId,
       setParam,
       setAlgorithmMode,
-      setShapeId,
+      setShape,
       setCustomPath,
       setBgPreset,
       setCustomBg,
       setSourceMode,
-      setEffectPlaying,
-      setEffectSpeed,
       setVideoPlaying,
       setVideoSpeed,
       setExportFormat,

@@ -5,6 +5,7 @@ export type EffectId =
   | "dotChar"
   | "pixel"
   | "glass"
+  | "fractalGlass"
   | "ascii"
   | "blur"
   | "motionBlur"
@@ -84,6 +85,10 @@ export const EFFECT_LABELS: Record<EffectId, { title: string; subtitle: string }
   dotChar: { title: "Dot Char", subtitle: "Halftone dots + characters" },
   pixel: { title: "Pixel", subtitle: "Mosaic blocks with grid" },
   glass: { title: "Glass", subtitle: "Radial ring swirl" },
+  fractalGlass: {
+    title: "Fractal Glass",
+    subtitle: "Frosted panes with color-tinted gradients",
+  },
   ascii: { title: "ASCII", subtitle: "Character mosaic; focal affects density" },
   blur: { title: "Blur", subtitle: "Gaussian blur on media" },
   motionBlur: { title: "Motion Blur", subtitle: "Directional streak blur" },
@@ -105,11 +110,3 @@ export const BACKGROUND_COLORS: Record<Exclude<BackgroundPreset, "custom">, stri
 export type ExportFormat = "png" | "jpg" | "svg";
 
 export const GRID_ALGORITHM_EFFECTS: EffectId[] = ["pattern", "halftone", "dotChar", "pixel"];
-
-/** Effects whose preview changes over time when Play is active (see render.ts). */
-export const ANIMATED_EFFECTS: EffectId[] = [
-  "glass",
-  "glitch",
-  "stage",
-  "vintage",
-];

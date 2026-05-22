@@ -17,10 +17,18 @@ export function PatternApp() {
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [hasMedia, setHasMedia] = useState(false);
   const [cameraError, setCameraError] = useState<string | null>(null);
+  const mediaUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
     streamRef.current = stream;
   }, [stream]);
+
+  const revokeMediaUrl = useCallback(() => {
+    if (mediaUrlRef.current) {
+      URL.revokeObjectURL(mediaUrlRef.current);
+      mediaUrlRef.current = null;
+    }
+  }, []);
 
   const stopWebcam = useCallback(() => {
     streamRef.current?.getTracks().forEach((t) => t.stop());
@@ -29,18 +37,33 @@ export function PatternApp() {
     const v = videoRef.current;
     if (v) {
       v.srcObject = null;
+      v.removeAttribute("src");
       v.pause();
+      v.load();
     }
     setWebcamOn(false);
-    if (sourceMode === "webcam") setSourceMode("none");
+    if (sourceMode === "webcam") {
+      setSourceMode("none");
+      setVideoPlaying(false);
+    }
     setCameraError(null);
-  }, [setWebcamOn, setSourceMode, sourceMode]);
+  }, [setWebcamOn, setSourceMode, setVideoPlaying, sourceMode]);
 
   useEffect(() => {
     if (!webcamOn) {
-      if (streamRef.current) {
-        streamRef.current.getTracks().forEach((t) => t.stop());
-        setStream(null);
+      streamRef.current?.getTracks().forEach((t) => t.stop());
+      setStream(null);
+      streamRef.current = null;
+      const v = videoRef.current;
+      if (v) {
+        v.srcObject = null;
+        v.removeAttribute("src");
+        v.pause();
+        v.load();
+      }
+      if (sourceMode === "webcam") {
+        setSourceMode("none");
+        setVideoPlaying(false);
       }
       return;
     }
@@ -66,7 +89,7 @@ export function PatternApp() {
     return () => {
       cancelled = true;
     };
-  }, [webcamOn, setSourceMode, setVideoPlaying, setWebcamOn]);
+  }, [webcamOn, sourceMode, setSourceMode, setVideoPlaying, setWebcamOn]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -74,22 +97,28 @@ export function PatternApp() {
     v.srcObject = stream;
     v.muted = true;
     v.playsInline = true;
+    setVideoPlaying(true);
     const play = () => {
       void v.play().catch(() => {});
     };
+    v.addEventListener("loadedmetadata", play);
     v.addEventListener("loadeddata", play);
     v.addEventListener("canplay", play);
     if (v.readyState >= 2) play();
+    else void v.play().catch(() => {});
     return () => {
+      v.removeEventListener("loadedmetadata", play);
       v.removeEventListener("loadeddata", play);
       v.removeEventListener("canplay", play);
     };
-  }, [stream]);
+  }, [stream, setVideoPlaying]);
 
   const onUpload = useCallback(
     (file: File) => {
       stopWebcam();
+      revokeMediaUrl();
       const url = URL.createObjectURL(file);
+      mediaUrlRef.current = url;
       if (file.type.startsWith("video/")) {
         setImageUrl(null);
         setSourceMode("video");
@@ -99,21 +128,25 @@ export function PatternApp() {
           v.src = url;
           v.loop = true;
           v.muted = true;
+          v.load();
           setVideoPlaying(true);
-          void v.play();
+          void v.play().catch(() => {});
         }
       } else {
         if (videoRef.current) {
           videoRef.current.srcObject = null;
           videoRef.current.removeAttribute("src");
           videoRef.current.pause();
+          videoRef.current.load();
         }
         setImageUrl(url);
         setSourceMode("image");
       }
     },
-    [setSourceMode, setVideoPlaying, stopWebcam]
+    [setSourceMode, setVideoPlaying, stopWebcam, revokeMediaUrl]
   );
+
+  useEffect(() => () => revokeMediaUrl(), [revokeMediaUrl]);
 
   const onExport = useCallback(() => {
     const fn = exportFnRef.current ?? canvasRef.current?.exportFrame;
@@ -131,14 +164,13 @@ export function PatternApp() {
       customPath: store.customPath,
       bgColor: store.bgColor,
       sourceMode: store.sourceMode,
-      effectPlaying: store.effectPlaying,
-      effectSpeed: store.effectSpeed,
       focalPoint: store.focalPoint,
       setFocalPoint: store.setFocalPoint,
       useFocalPoint: store.useFocalPoint,
       videoPlaying: store.videoPlaying,
       videoSpeed: store.videoSpeed,
       setTrackMlStatus: store.setTrackMlStatus,
+      hasMedia,
     }),
     [
       store.effectId,
@@ -148,14 +180,13 @@ export function PatternApp() {
       store.customPath,
       store.bgColor,
       store.sourceMode,
-      store.effectPlaying,
-      store.effectSpeed,
       store.focalPoint,
       store.setFocalPoint,
       store.useFocalPoint,
       store.videoPlaying,
       store.videoSpeed,
       store.setTrackMlStatus,
+      hasMedia,
     ]
   );
 
@@ -177,9 +208,9 @@ export function PatternApp() {
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-black">
+    <div className="flex h-screen gap-4 overflow-hidden bg-workspace p-4">
       <Sidebar {...sidebarProps} />
-      <main className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
+      <main className="relative flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-workspace">
         <video ref={videoRef} className="hidden" playsInline muted autoPlay />
         <CanvasPreview
           ref={canvasRef}

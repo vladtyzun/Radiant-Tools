@@ -90,6 +90,25 @@ export function getLetterboxRect(
   };
 }
 
+/** Viewport client coords → normalized [0,1] within letterboxed media (clamped). */
+export function clientToMediaNorm(
+  clientX: number,
+  clientY: number,
+  canvas: HTMLCanvasElement,
+  media: MediaRect
+): { x: number; y: number } {
+  const rect = canvas.getBoundingClientRect();
+  if (rect.width <= 0 || rect.height <= 0 || media.w <= 0 || media.h <= 0) {
+    return { x: 0.5, y: 0.5 };
+  }
+  const px = ((clientX - rect.left) / rect.width) * canvas.width;
+  const py = ((clientY - rect.top) / rect.height) * canvas.height;
+  return {
+    x: Math.min(1, Math.max(0, (px - media.x) / media.w)),
+    y: Math.min(1, Math.max(0, (py - media.y) / media.h)),
+  };
+}
+
 /** Normalized landmark [0,1] → display pixel in letterboxed region. */
 export function normToMedia(
   nx: number,

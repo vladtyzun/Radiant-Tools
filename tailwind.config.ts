@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        sidebar: "#0a0a0a",
+        sidebar: "#1F1F1F",
+        workspace: "#1A1A1A",
         panel: "#1a1a1a",
         muted: "#666666",
       },

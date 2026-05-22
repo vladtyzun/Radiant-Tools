@@ -12,7 +12,7 @@ body {
   padding: 0;
   overflow: hidden;
   height: 100%;
-  background: #000;
+  background: #1a1a1a;
   color: #fff;
   font-family:
     system-ui,
@@ -29,4 +29,14 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 3px;
+}
+
+.canvas-workspace {
+  background-color: #1a1a1a;
+}
+
+.canvas-dot-grid {
+  background-color: #1a1a1a;
+  background-position: 0 0;
+  background-repeat: repeat;
 }
