@@ -9,6 +9,10 @@ Real-time pattern effects over images, video, and webcam — client-side Canvas 
 - [docs/EFFECTS.md](docs/EFFECTS.md)
 - [docs/BUILD.md](docs/BUILD.md)
 
+## Related
+
+- [wordpress-site/](wordpress-site/README.md) — tooling to manage and edit the studio's WordPress website (separate from the Next.js app).
+
 ## Run locally
 
 ```bash
