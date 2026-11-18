@@ -56,3 +56,13 @@ To create a new page, add `content/pages/new-page.html` with `title`, `slug`, `s
 ## Not covered (yet)
 
 Theme/plugin code, menus, widgets, WooCommerce data and Customizer settings aren't synced (REST support varies by site). Theme and plugin files should be managed via SFTP/Git deploy; they could live in `wp-content/` here later.
+
+## Running in a proxied/cloud sandbox
+
+Node's built-in `fetch` ignores `HTTPS_PROXY`. In Claude Code cloud sessions, prefix commands with:
+
+```bash
+NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt npm run check
+```
+
+The site's host must also be on the environment's allowed-hosts list. If the host's security plugin rate-limits you (HTTP 429), wait a minute and retry.
