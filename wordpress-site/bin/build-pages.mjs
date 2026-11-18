@@ -15,85 +15,48 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadEnv, ROOT } from '../lib/env.mjs';
 import { WP } from '../lib/client.mjs';
-import { loadPatterns, section, toHtml, metaFor } from '../lib/elementor.mjs';
+import { loadPatterns, section, metaFor } from '../lib/elementor.mjs';
 
 const SPEC_DIR = join(ROOT, 'content-specs');
 const STATE = join(SPEC_DIR, 'built.json');
 const CTA_HREF = '/#contact';
 
-/** Friendly spec fields -> Elementor patch paths for each cloned pattern. */
-const COMPOSE = {
-  hero: (s) => ({ pattern: 'hero', patches: { '0': { title: s.h1 }, '1': { title: s.lead } } }),
-
-  intro: (s) => ({ pattern: 'intro', patches: { '0': { title: s.eyebrow }, '1': { editor: s.body } } }),
-
-  block: (s) => ({
-    pattern: 'block',
-    patches: {
-      '0': { editor: s.label },
-      '1.0.0': { title: s.challengeTitle || 'The challenge' },
-      '1.0.1': { editor: s.challenge },
-      '1.0.2': { text: s.cta?.text || 'Book a call', href: s.cta?.href || CTA_HREF },
-      '1.1.0': { title: s.deliverTitle || 'We deliver' },
-      '1.1.1': { list: s.items || [] },
-    },
-  }),
-
-  cards3: (s) => ({
-    pattern: 'cards3',
-    patches: {
-      '0': { title: s.heading },
-      ...Object.fromEntries(s.cards.flatMap((c, i) => [
-        [`1.${i}.0.1.0`, { editor: c.title }],
-        [`1.${i}.0.1.1`, { editor: c.body }],
-      ])),
-    },
-  }),
-
-  steps3: (s) => ({
-    pattern: 'steps3',
-    patches: {
-      '0': { title: s.heading },
-      ...Object.fromEntries(s.steps.flatMap((st, i) => [
-        [`1.${i}.0.0`, { editor: st.label }],
-        [`1.${i}.0.1.0`, { editor: st.title }],
-        [`1.${i}.0.1.1`, { editor: st.body }],
-      ])),
-    },
-  }),
-
-  proof: (s) => ({
-    pattern: 'proof',
-    patches: {
-      '0': { title: s.heading },
-      '1.0.0.1.0': { editor: s.name },
-      '1.0.0.1.1': { editor: s.role },
-      '1.0.2': { editor: s.quote },
-    },
-  }),
-};
-
+/**
+ * Sections are declared in specs as { "p": "<pattern>", ...values, "rows": [...] }.
+ * Slot names in lib/patterns.mjs match the spec keys, so no per-pattern mapping
+ * table is needed here — add a pattern there and specs can use it immediately.
+ */
 function buildElementor(spec, patterns) {
-  return spec.sections.map((s) => {
-    const compose = COMPOSE[s.p];
-    if (!compose) throw new Error(`${spec.slug}: unknown section type "${s.p}"`);
-    return section(compose(s), patterns);
+  return spec.sections.map((entry, i) => {
+    try {
+      return section(entry, patterns);
+    } catch (e) {
+      throw new Error(`${spec.slug} section ${i} (${entry.p}): ${e.message}`);
+    }
   });
 }
 
-/** Flatten a spec into readable HTML for post_content (SEO fallback + content/ files). */
+/** Readable HTML for post_content: the SEO fallback and what lands in content/. */
 function specToHtml(spec) {
   const out = [];
+  const esc = (v) => String(v ?? '');
   for (const s of spec.sections) {
-    if (s.p === 'hero') out.push(`<h1>${s.h1}</h1>`, `<p>${s.lead}</p>`);
-    if (s.p === 'intro') out.push(`<h2>${s.eyebrow}</h2>`, `<p>${s.body}</p>`);
-    if (s.p === 'block') {
-      out.push(`<h2>${s.label}</h2>`, `<h3>${s.challengeTitle || 'The challenge'}</h3>`, `<p>${s.challenge}</p>`);
-      out.push(`<h3>${s.deliverTitle || 'We deliver'}</h3><ul>${(s.items || []).map((i) => `<li>${i}</li>`).join('')}</ul>`);
+    if (s.h1) out.push(`<h1>${esc(s.h1).replace(/\n/g, '<br>')}</h1>`);
+    if (s.lead) out.push(`<p>${esc(s.lead)}</p>`);
+    if (s.eyebrow) out.push(`<h2>${esc(s.eyebrow)}</h2>`);
+    if (s.heading) out.push(`<h2>${esc(s.heading)}</h2>`);
+    if (s.body) out.push(`<p>${esc(s.body)}</p>`);
+    if (s.label) out.push(`<h2>${esc(s.label)}</h2>`);
+    if (s.challenge) out.push(`<h3>${esc(s.challengeTitle || 'The challenge')}</h3><p>${esc(s.challenge)}</p>`);
+    if (s.items) out.push(`<h3>${esc(s.deliverTitle || 'We deliver')}</h3><ul>${s.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`);
+    if (s.quote) out.push(`<blockquote><p>${esc(s.quote)}</p><cite>${esc(s.name)}, ${esc(s.role)}</cite></blockquote>`);
+    for (const r of s.rows || []) {
+      if (r.title || r.name) out.push(`<h3>${esc(r.title || r.name)}</h3>`);
+      if (r.body) out.push(`<p>${esc(r.body)}</p>`);
+      const chips = [r.chip0, r.chip1, r.chip2, r.chip3].filter(Boolean);
+      if (chips.length) out.push(`<ul>${chips.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>`);
+      if (r.items) out.push(`<ul>${r.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`);
     }
-    if (s.p === 'cards3') out.push(`<h2>${s.heading}</h2>`, ...s.cards.map((c) => `<h3>${c.title}</h3><p>${c.body}</p>`));
-    if (s.p === 'steps3') out.push(`<h2>${s.heading}</h2>`, ...s.steps.map((c) => `<h3>${c.title}</h3><p>${c.body}</p>`));
-    if (s.p === 'proof') out.push(`<h2>${s.heading}</h2>`, `<blockquote><p>${s.quote}</p><cite>${s.name}, ${s.role}</cite></blockquote>`);
   }
   return out.join('\n');
 }
