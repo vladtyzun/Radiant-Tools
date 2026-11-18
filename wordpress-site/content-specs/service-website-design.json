@@ -3,6 +3,11 @@
   "title": "Website Design",
   "slug": "website-design",
   "parentKey": "page:services",
+  "seo": {
+    "title": "Website Design for SaaS & B2B Products | Radiant",
+    "description": "Conversion-focused website design for technical products: positioning, structure, UX writing and build-ready design — or we build it for you.",
+    "keyphrase": "website design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Website Design",
       "challengeTitle": "The challenge",
       "challenge": "Visitors land on your site and leave without understanding what you do. The messaging is vague, the structure is confusing, and the conversion path doesn't guide anyone toward a demo, a signup, or a purchase.",
-      "cta": { "text": "Start a website project", "href": "/#contact" },
+      "cta": {
+        "text": "Start a website project",
+        "href": "/#contact"
+      },
       "deliverTitle": "What you get",
       "items": [
         "Landing Pages",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Send us the current site",
       "challenge": "Tell us what the site has to achieve this quarter. We will come back with the three changes we would make first, and what a full engagement would involve.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Related services",
       "items": [
         "No-code Development",

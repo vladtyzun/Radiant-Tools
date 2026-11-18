@@ -3,6 +3,11 @@
   "title": "Healthtech",
   "slug": "healthtech",
   "parentKey": "page:industries",
+  "seo": {
+    "title": "Healthtech & Digital Health Design | Radiant",
+    "description": "Design for digital health teams: patient apps, clinician tools, consent flows and accessible sites. Clear under stress, defensible under regulation.",
+    "keyphrase": "healthtech design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Healthtech",
       "challengeTitle": "Sound familiar?",
       "challenge": "Your product serves patients who are anxious and clinicians who are interrupted every ninety seconds, through one interface designed for neither. Consent and privacy language was written by lawyers and pasted in at the end. Nobody can tell from your website whether this is a medical product or a wellness app — including, sometimes, your buyers.",
-      "cta": { "text": "Talk to us about your health project", "href": "/#contact" },
+      "cta": {
+        "text": "Talk to us about your health project",
+        "href": "/#contact"
+      },
       "deliverTitle": "Where we focus",
       "items": [
         "Patient-facing Apps",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Start with the consent and onboarding review",
       "challenge": "Send us your signup and consent flow. We will show you where a worried patient stops, and what we would change first.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Services health teams use most",
       "items": [
         "Product Design",

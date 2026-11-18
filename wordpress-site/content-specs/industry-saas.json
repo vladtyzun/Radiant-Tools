@@ -3,6 +3,11 @@
   "title": "SaaS & B2B Software",
   "slug": "saas",
   "parentKey": "page:industries",
+  "seo": {
+    "title": "B2B SaaS Design Agency | Radiant",
+    "description": "Product and website design for B2B software teams: onboarding that reaches value, interfaces that survive feature growth, and sites that convince buyers.",
+    "keyphrase": "b2b saas design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "SaaS & B2B Software",
       "challengeTitle": "Sound familiar?",
       "challenge": "Signups are fine and activation is not. The product that was simple at launch now carries four years of features, each added where it fit rather than where it belonged. Your website lists capabilities to a committee of buyers who each need a different answer, and nobody books the demo.",
-      "cta": { "text": "Talk to us about your SaaS project", "href": "/#contact" },
+      "cta": {
+        "text": "Talk to us about your SaaS project",
+        "href": "/#contact"
+      },
       "deliverTitle": "Where we focus",
       "items": [
         "Onboarding & Activation",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Start with the activation audit",
       "challenge": "Give us your onboarding and the metric you report on. In two weeks you will have the drop-off mapped and a ranked list of what to change first.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Services SaaS teams use most",
       "items": [
         "Product Design",

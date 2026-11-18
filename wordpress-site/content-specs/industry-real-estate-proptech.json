@@ -3,6 +3,11 @@
   "title": "Real Estate & PropTech",
   "slug": "real-estate-proptech",
   "parentKey": "page:industries",
+  "seo": {
+    "title": "Real Estate & PropTech Design Agency | Radiant",
+    "description": "Brand, website and product design for real estate and proptech, from luxury listings to the software agents and buyers use every day.",
+    "keyphrase": "real estate design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Real Estate & PropTech",
       "challengeTitle": "Sound familiar?",
       "challenge": "Your listings look like everyone else's because you all use the same portal template. Buyers judge a property in seconds from imagery and a price, and judge you in the same glance. Meanwhile the software your agents use was designed for a desktop in an office, not a phone in a hallway.",
-      "cta": { "text": "Talk to us about your property project", "href": "/#contact" },
+      "cta": {
+        "text": "Talk to us about your property project",
+        "href": "/#contact"
+      },
       "deliverTitle": "Where we focus",
       "items": [
         "Luxury & Residential Brands",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Send us a listing",
       "challenge": "Show us one property page and tell us what it should achieve. We will come back with what we would change about the brand, the imagery, and the enquiry path.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Services property teams use most",
       "items": [
         "Branding & Visual Identity",

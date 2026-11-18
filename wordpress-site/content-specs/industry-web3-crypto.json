@@ -3,6 +3,11 @@
   "title": "Web3 & Crypto",
   "slug": "web3-crypto",
   "parentKey": "page:industries",
+  "seo": {
+    "title": "Web3 & Crypto Design Agency | Radiant",
+    "description": "Design for wallets, exchanges and onchain products, where a mistyped address is permanent and the interface is the only safety net the user has.",
+    "keyphrase": "web3 design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Web3 & Crypto",
       "challengeTitle": "Sound familiar?",
       "challenge": "Your onboarding asks a newcomer to write down twelve words and understand gas before they have done anything useful. Signing requests show a hash and ask for trust. Everything is irreversible, nothing is explained in advance, and the people you most want to reach are exactly the ones the interface filters out.",
-      "cta": { "text": "Talk to us about your onchain project", "href": "/#contact" },
+      "cta": {
+        "text": "Talk to us about your onchain project",
+        "href": "/#contact"
+      },
       "deliverTitle": "Where we focus",
       "items": [
         "Wallets & Custody",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Send us the signing flow",
       "challenge": "Show us your connect-and-sign path. We will tell you where a careful user hesitates and where a careless one loses money.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Services onchain teams use most",
       "items": [
         "Product Design",

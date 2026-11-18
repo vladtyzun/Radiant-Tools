@@ -3,6 +3,11 @@
   "title": "Fintech & Payments",
   "slug": "fintech",
   "parentKey": "page:industries",
+  "seo": {
+    "title": "Fintech Design Agency for Payments & Banking | Radiant",
+    "description": "Brand, product and website design for payments, banking and wealth teams. We make money products legible, credible and finishable, from stealth to Series B.",
+    "keyphrase": "fintech design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Fintech & Payments",
       "challengeTitle": "Sound familiar?",
       "challenge": "Visitors decide whether you are safe with their money before they read a word. Your product sits on rails, ledgers, and licences almost nobody understands, your brand could be swapped with any other fintech's, and the people who do sign up drop out somewhere in KYC. None of that is a copywriting problem.",
-      "cta": { "text": "Talk to us about your fintech project", "href": "/#contact" },
+      "cta": {
+        "text": "Talk to us about your fintech project",
+        "href": "/#contact"
+      },
       "deliverTitle": "Where we focus",
       "items": [
         "Payments & Wallets",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Start with the trust audit",
       "challenge": "Send us your signup flow and your homepage. We will show you where a cautious user hesitates, and what we would change first.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Services fintech teams use most",
       "items": [
         "Product Design",

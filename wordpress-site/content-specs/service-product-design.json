@@ -3,6 +3,11 @@
   "title": "Product Design",
   "slug": "product-design",
   "parentKey": "page:services",
+  "seo": {
+    "title": "Product Design Studio for SaaS & Fintech | Radiant",
+    "description": "We design SaaS platforms, dashboards and mobile products that move activation, retention and revenue. Senior work delivered every 48 hours.",
+    "keyphrase": "product design studio"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Product Design",
       "challengeTitle": "The challenge",
       "challenge": "Your product has users, but they're not converting, retaining, or expanding the way the business needs them to. Features pile up. Flows get longer. The interface drifts further from the simplicity your users expected when they signed up.",
-      "cta": { "text": "Book a product review", "href": "/#contact" },
+      "cta": {
+        "text": "Book a product review",
+        "href": "/#contact"
+      },
       "deliverTitle": "What you get",
       "items": [
         "UX Audits",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Start with the audit",
       "challenge": "Send us your product and the metric you want to move. We will come back with what we would change first and what it would take — before you commit to anything.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Related services",
       "items": [
         "Design Systems",

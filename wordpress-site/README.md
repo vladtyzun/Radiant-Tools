@@ -88,3 +88,29 @@ Section types available to a spec (`p`): `hero`, `intro`, `block` (challenge + l
 `research/elementor/7363.json` is the cloned source and must stay in the repo.
 
 Competitor research, screenshots and the IA analysis are in `research/`.
+
+### SEO meta (All in One SEO)
+
+Each spec can carry a `seo` block. AIOSEO exposes `aioseo_meta_data` on the standard `wp/v2`
+endpoint, so the builder writes SEO fields in the same request that creates the page — neither
+UiCore MCP nor Elementor MCP writes AIOSEO fields today (both target Yoast/Rank Math).
+
+```json
+"seo": {
+  "title": "Product Design Studio for SaaS & Fintech | Radiant",
+  "description": "We design SaaS platforms, dashboards and mobile products that move…",
+  "keyphrase": "product design studio"
+}
+```
+
+`--dry-run` prints title/description lengths and warns past 60/160 characters. `og_*` and
+`twitter_*` are left empty on purpose so AIOSEO falls back to the SEO title and description;
+set `og_title` / `og_description` in the spec only when a page needs different social copy.
+Partial updates are safe — canonical URL, schema and image settings keep their values.
+
+**To manage SEO for a page whose layout is hand-built** (e.g. the Services parent), add a spec with
+`"seoOnly": true` and `"pageId": <id>`. It writes only the AIOSEO fields and never touches the
+page's content or Elementor data.
+
+> Never give a normal spec the key `page:services` — the builder would overwrite the hand-built
+> parent page. Use a `seoOnly` spec for it instead.

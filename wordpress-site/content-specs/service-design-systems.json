@@ -3,6 +3,11 @@
   "title": "Design Systems",
   "slug": "design-systems",
   "parentKey": "page:services",
+  "seo": {
+    "title": "Design Systems for Product Teams | Radiant",
+    "description": "Component libraries, design tokens and documentation your designers and engineers both trust. We audit what exists, then build what ships.",
+    "keyphrase": "design system agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Design Systems",
       "challengeTitle": "The challenge",
       "challenge": "Every new feature introduces inconsistencies. Buttons come in sizes nobody agreed on. Colors shift between pages. Engineers rebuild the same components because nothing is documented, tokenized, or reusable, and every sprint moves slower because of it.",
-      "cta": { "text": "Explore design systems", "href": "/#contact" },
+      "cta": {
+        "text": "Explore design systems",
+        "href": "/#contact"
+      },
       "deliverTitle": "What you get",
       "items": [
         "Component Libraries",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Start with a system audit",
       "challenge": "Give us access to your product and your Figma. In two weeks you will have an inventory, the duplication count, and a prioritized plan — useful whether or not we build the system for you.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Related services",
       "items": [
         "Product Design",

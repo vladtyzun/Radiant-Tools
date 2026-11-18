@@ -3,6 +3,11 @@
   "title": "AI & Data Products",
   "slug": "ai",
   "parentKey": "page:industries",
+  "seo": {
+    "title": "AI Product Design Agency | Radiant",
+    "description": "Design for AI and data products: interfaces that show their working, handle wrong answers honestly, and make a probabilistic product feel dependable.",
+    "keyphrase": "ai product design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "AI & Data Products",
       "challengeTitle": "Sound familiar?",
       "challenge": "The model works and the product still does not land. Users cannot tell where the answer came from, what it is confident about, or what to do when it is wrong. The interface is a text box with everything hidden behind it, and your marketing site sounds exactly like every other AI company's.",
-      "cta": { "text": "Talk to us about your AI project", "href": "/#contact" },
+      "cta": {
+        "text": "Talk to us about your AI project",
+        "href": "/#contact"
+      },
       "deliverTitle": "Where we focus",
       "items": [
         "Assistants & Agent Interfaces",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Show us the demo",
       "challenge": "Give us access to the prototype and tell us who has to believe it next — users, buyers, or investors. We will tell you what is standing in the way.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Services AI teams use most",
       "items": [
         "Product Design",

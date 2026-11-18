@@ -98,8 +98,42 @@ function specToHtml(spec) {
   return out.join('\n');
 }
 
+/**
+ * Map a spec's `seo` block onto All in One SEO's REST field.
+ * AIOSEO exposes `aioseo_meta_data` on the standard wp/v2 endpoint and accepts a
+ * partial object, so unlisted keys (canonical, schema, image settings) keep their values.
+ * og_* and twitter_* are left empty on purpose: AIOSEO falls back to the SEO
+ * title/description, which is what we want unless a page needs different social copy.
+ */
+const SEO_LIMITS = { title: 60, description: 160 };
+
+function seoPayload(spec) {
+  const seo = spec.seo;
+  if (!seo) return null;
+  const out = { title: seo.title, description: seo.description };
+  if (seo.keyphrase) out.keyphrases = { focus: { keyphrase: seo.keyphrase }, additional: [] };
+  if (seo.og_title) out.og_title = seo.og_title;
+  if (seo.og_description) out.og_description = seo.og_description;
+  if (seo.canonical_url) out.canonical_url = seo.canonical_url;
+  return out;
+}
+
+/** Warn (never block) when a title or description will be truncated in results. */
+function seoWarnings(spec) {
+  if (!spec.seo) return ['no seo block'];
+  const w = [];
+  for (const [field, max] of Object.entries(SEO_LIMITS)) {
+    const v = spec.seo[field];
+    if (!v) { w.push(`missing ${field}`); continue; }
+    if (v.length > max) w.push(`${field} ${v.length}>${max}`);
+  }
+  if (!spec.seo.keyphrase) w.push('no keyphrase');
+  return w;
+}
+
 const args = process.argv.slice(2);
 const dry = args.includes('--dry-run');
+const verbose = args.includes('--verbose');
 const only = args.filter((a) => !a.startsWith('--'));
 
 const specs = readdirSync(SPEC_DIR)
@@ -115,10 +149,28 @@ const wp = dry ? null : new WP(loadEnv());
 specs.sort((a, b) => (a.parentKey ? 1 : 0) - (b.parentKey ? 1 : 0));
 
 for (const spec of specs) {
+  // A `seoOnly` spec manages SEO meta for a page whose layout is hand-built.
+  // It never sends content or _elementor_data, so the existing page is untouched.
+  if (spec.seoOnly) {
+    const id = spec.pageId || state[spec.key]?.id;
+    if (!id) throw new Error(`${spec.key}: seoOnly spec needs a pageId`);
+    if (dry) {
+      console.log(`${(spec.slug || spec.key).padEnd(26)} SEO-ONLY -> #${id}  ${seoWarnings(spec).join(', ') || 'ok'}`);
+      continue;
+    }
+    await wp.json(`/pages/${id}`, 'POST', { aioseo_meta_data: seoPayload(spec) });
+    console.log(`seo only  #${id}  ${spec.slug || spec.key}`);
+    await new Promise((r) => setTimeout(r, 3000));
+    continue;
+  }
   const data = buildElementor(spec, patterns);
   const words = specToHtml(spec).replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
   if (dry) {
-    console.log(`${spec.slug.padEnd(34)} ${String(spec.sections.length).padStart(2)} sections  ${String(words).padStart(4)} words  parent=${spec.parentKey || '-'}`);
+    const warn = seoWarnings(spec);
+    const t = spec.seo?.title || '';
+    const d = spec.seo?.description || '';
+    console.log(`${spec.slug.padEnd(26)} ${String(spec.sections.length).padStart(2)}s ${String(words).padStart(4)}w  seo:${String(t.length).padStart(2)}/${String(d.length).padStart(3)}  ${warn.length ? 'WARN ' + warn.join(', ') : 'ok'}`);
+    if (verbose) console.log(`   T: ${t}\n   D: ${d}\n   K: ${spec.seo?.keyphrase || '-'}`);
     continue;
   }
   const payload = {
@@ -128,6 +180,8 @@ for (const spec of specs) {
     content: specToHtml(spec),
     meta: metaFor(data),
   };
+  const seo = seoPayload(spec);
+  if (seo) payload.aioseo_meta_data = seo;
   if (spec.parentKey) {
     const parentId = state[spec.parentKey]?.id;
     if (!parentId) throw new Error(`${spec.slug}: parent "${spec.parentKey}" not built yet`);
@@ -139,7 +193,7 @@ for (const spec of specs) {
     : await wp.json('/pages', 'POST', payload);
   state[spec.key] = { id: res.id, slug: res.slug, link: res.link };
   writeFileSync(STATE, JSON.stringify(state, null, 2));
-  console.log(`${existing ? 'updated' : 'created'}  #${res.id}  ${spec.slug}  (${words} words)`);
+  console.log(`${existing ? 'updated' : 'created'}  #${res.id}  ${spec.slug}  (${words} words${seo ? ', seo set' : ''})`);
   await new Promise((r) => setTimeout(r, 3000)); // stay under the site's rate limit
 }
 

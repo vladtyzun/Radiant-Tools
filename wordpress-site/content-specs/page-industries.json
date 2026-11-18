@@ -2,6 +2,11 @@
   "key": "page:industries",
   "title": "Industries",
   "slug": "industries",
+  "seo": {
+    "title": "Industries We Design For | Radiant",
+    "description": "Fintech, SaaS, real estate, AI, health and web3. We bring each market's conventions, objections and compliance realities into the first wireframe.",
+    "keyphrase": "design agency industries"
+  },
   "sections": [
     {
       "p": "hero",
@@ -18,7 +23,10 @@
       "label": "Where we go deepest",
       "challengeTitle": "Why market matters",
       "challenge": "A pattern that converts in consumer fintech fails in enterprise SaaS, and a real estate buyer looks for completely different proof than a developer evaluating an API. We bring the conventions, the objections, and the compliance realities of your market into the first wireframe, rather than discovering them in review.",
-      "cta": { "text": "Find your industry", "href": "/#contact" },
+      "cta": {
+        "text": "Find your industry",
+        "href": "/#contact"
+      },
       "deliverTitle": "Industries we serve",
       "items": [
         "Fintech & Payments",
@@ -98,7 +106,10 @@
       "label": "Next step",
       "challengeTitle": "Tell us what you're building",
       "challenge": "Send us your product and the metric you need to move this quarter. We will tell you what we would do first, and whether we are the right studio for it.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Start with a service",
       "items": [
         "Product Design",

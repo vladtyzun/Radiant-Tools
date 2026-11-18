@@ -3,6 +3,11 @@
   "title": "Motion Design",
   "slug": "motion-design",
   "parentKey": "page:services",
+  "seo": {
+    "title": "Motion Design & Product Animation | Radiant",
+    "description": "Product animations, Lottie and Rive, and UI motion for launches and landing pages. Production-ready file sizes, with reduced-motion variants included.",
+    "keyphrase": "motion design agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Motion Design",
       "challengeTitle": "The challenge",
       "challenge": "Static screenshots and flat mockups don't capture the speed, quality, or energy of what your product actually does. Launches fall flat, pitch decks feel generic, and marketing pages look the same as every other SaaS company in your space.",
-      "cta": { "text": "Explore motion", "href": "/#contact" },
+      "cta": {
+        "text": "Explore motion",
+        "href": "/#contact"
+      },
       "deliverTitle": "What you get",
       "items": [
         "Product Animations",
@@ -116,7 +124,10 @@
       "label": "Next step",
       "challengeTitle": "Tell us what to show",
       "challenge": "Describe the moment in your product that is hardest to explain in words. We will tell you the format, the cost, and roughly how long it takes.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Related services",
       "items": [
         "Product Design",

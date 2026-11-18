@@ -3,6 +3,11 @@
   "title": "No-code Development",
   "slug": "no-code-development",
   "parentKey": "page:services",
+  "seo": {
+    "title": "Webflow, Framer & WordPress Development | Radiant",
+    "description": "Designed and built by one studio. Webflow, Framer and WordPress builds with CMS setup, motion and analytics — live this quarter, not next year.",
+    "keyphrase": "no-code development agency"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "No-code Development",
       "challengeTitle": "The challenge",
       "challenge": "You need a professional website live this quarter, not six months from now. And you don't want to coordinate a separate design agency and dev shop, manage handoffs between them, and pay twice for alignment meetings.",
-      "cta": { "text": "Which platform to choose", "href": "/#contact" },
+      "cta": {
+        "text": "Which platform to choose",
+        "href": "/#contact"
+      },
       "deliverTitle": "What you get",
       "items": [
         "Webflow Development",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Start with the platform call",
       "challenge": "Tell us your deadline, who will maintain the site, and what it has to integrate with. We will recommend a platform and a realistic launch date on the call — free, and useful even if you build elsewhere.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Related services",
       "items": [
         "Website Design",

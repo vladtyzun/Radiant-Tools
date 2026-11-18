@@ -3,6 +3,11 @@
   "title": "Pitch Decks & Collaterals",
   "slug": "pitch-deck-design",
   "parentKey": "page:services",
+  "seo": {
+    "title": "Pitch Deck Design for Founders | Radiant",
+    "description": "Investor decks, sales presentations and collateral. We rebuild the narrative first, then design it, and hand over a template your team keeps using.",
+    "keyphrase": "pitch deck design"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Pitch Decks & Collaterals",
       "challengeTitle": "The challenge",
       "challenge": "Your product is strong enough to raise a round, close a deal, or align the board — but the deck telling that story looks like it was made in a free template at midnight. Slides are cluttered, data visualizations are confusing, and the narrative doesn't build conviction the way the product itself does.",
-      "cta": { "text": "Sharpen your pitch deck", "href": "/#contact" },
+      "cta": {
+        "text": "Sharpen your pitch deck",
+        "href": "/#contact"
+      },
       "deliverTitle": "What you get",
       "items": [
         "Investor Pitch Decks",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Send the current deck",
       "challenge": "Share what you have and who you are presenting to. We will come back with the three structural changes we would make, before you commit to anything.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Related services",
       "items": [
         "Branding & Visual Identity",

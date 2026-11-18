@@ -3,6 +3,11 @@
   "title": "Branding & Visual Identity",
   "slug": "branding-visual-identity",
   "parentKey": "page:services",
+  "seo": {
+    "title": "Brand & Visual Identity for Tech Companies | Radiant",
+    "description": "Logo systems, visual identity and brand guidelines for companies that have outgrown their launch brand. Built to hold up in product UI, not just a deck.",
+    "keyphrase": "brand identity design"
+  },
   "sections": [
     {
       "p": "hero",
@@ -19,7 +24,10 @@
       "label": "Branding & Visual Identity",
       "challengeTitle": "The challenge",
       "challenge": "Your product has evolved past the brand you launched with. The quick logo and default palette from year one don't reflect the quality of what you've built. Investors, partners, and customers see the gap — even if they don't say it.",
-      "cta": { "text": "Explore branding", "href": "/#contact" },
+      "cta": {
+        "text": "Explore branding",
+        "href": "/#contact"
+      },
       "deliverTitle": "What you get",
       "items": [
         "Logo System",
@@ -117,7 +125,10 @@
       "label": "Next step",
       "challengeTitle": "Show us the gap",
       "challenge": "Send your current brand and a screen of your product. We will tell you whether you need a refresh or a rebrand, and what each would take.",
-      "cta": { "text": "Book a call", "href": "/#contact" },
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
       "deliverTitle": "Related services",
       "items": [
         "Website Design",
