@@ -1,0 +1,790 @@
+[
+  {
+    "url": "https://www.designme.agency/services",
+    "name": "www_designme_agency_services",
+    "title": "Design and development services for tech teams | DesignMe",
+    "description": "Brand, website and product design, Framer, Webflow, Astro and Next.js builds, SEO, CRO, motion and AI workflows from one senior team.",
+    "h1": "Design and development services for funded tech teams",
+    "heads": [
+      {
+        "tag": "H1",
+        "text": "Design and development services for funded tech teams"
+      },
+      {
+        "tag": "H2",
+        "text": "Design , 7 services"
+      },
+      {
+        "tag": "H2",
+        "text": "Development , 6 services"
+      },
+      {
+        "tag": "H2",
+        "text": "Growth , 4 services"
+      },
+      {
+        "tag": "H2",
+        "text": "Design"
+      },
+      {
+        "tag": "H3",
+        "text": "01 Brand identity"
+      },
+      {
+        "tag": "H3",
+        "text": "02 Product design"
+      },
+      {
+        "tag": "H3",
+        "text": "03 Mobile app design"
+      },
+      {
+        "tag": "H3",
+        "text": "04 Website design"
+      },
+      {
+        "tag": "H3",
+        "text": "05 Motion design"
+      },
+      {
+        "tag": "H3",
+        "text": "06 Pitch deck design"
+      },
+      {
+        "tag": "H3",
+        "text": "07 AI design agency"
+      },
+      {
+        "tag": "H2",
+        "text": "Development"
+      },
+      {
+        "tag": "H3",
+        "text": "01 Framer development"
+      },
+      {
+        "tag": "H3",
+        "text": "02 Webflow development"
+      },
+      {
+        "tag": "H3",
+        "text": "03 Astro development"
+      },
+      {
+        "tag": "H3",
+        "text": "04 Next.js development"
+      },
+      {
+        "tag": "H3",
+        "text": "05 AI MVP cleanup"
+      },
+      {
+        "tag": "H3",
+        "text": "06 Website migrations"
+      },
+      {
+        "tag": "H2",
+        "text": "Growth"
+      },
+      {
+        "tag": "H3",
+        "text": "01 Conversion rate optimisation"
+      },
+      {
+        "tag": "H3",
+        "text": "02 UX audit"
+      },
+      {
+        "tag": "H3",
+        "text": "03 SEO and AEO"
+      },
+      {
+        "tag": "H3",
+        "text": "04 AI workflows"
+      },
+      {
+        "tag": "H2",
+        "text": "Words from the teams we’ve worked with"
+      },
+      {
+        "tag": "H2",
+        "text": "Still choosing?"
+      },
+      {
+        "tag": "H2",
+        "text": "Tell us what you’re building."
+      }
+    ],
+    "ctas": [
+      "Accept all",
+      "Reject all",
+      "Settings",
+      "Save choices",
+      "Services",
+      "Our work",
+      "Company",
+      "Free tools",
+      "Get your AEO score",
+      "Resources",
+      "Book a call",
+      "See our work",
+      "01 Brand identity",
+      "02 Product design"
+    ],
+    "nav": [
+      "NEW : The AI-native design subscription is back|/design-subscription",
+      "|/",
+      "Product design|/services/product-design",
+      "Mobile app design|/services/mobile-app-design",
+      "Website design|/services/website-design",
+      "Motion design|/services/motion-design",
+      "Brand identity|/services/brand-identity",
+      "Pitch decks|/services/pitch-deck-design",
+      "Framer|/services/framer-agency",
+      "Webflow|/services/webflow-agency",
+      "Astro|/services/astro-development",
+      "Custom (Next.js)|/services/nextjs-development",
+      "AI MVP cleanup|/services/ai-mvp-cleanup",
+      "Website migrations|/migrations",
+      "CRO|/services/cro",
+      "SEO and AEO|/services/seo-aeo",
+      "UX audit|/ux-audit",
+      "AI workflows|/services/ai-workflows",
+      "All services|/services",
+      "Subscriptions|/design-subscription",
+      "For startups|/startups",
+      "Comparisons|/compare",
+      "Integrations|/integrations",
+      "Free tools|/tools",
+      "Pricing|/pricing",
+      "Case studies|/projects",
+      "Our process|/our-process",
+      "Clients|/clients",
+      "Reviews|/reviews",
+      "Fundraising|/fundraising",
+      "HintNew|/projects/hint",
+      "Ballogy|/projects/ballogy",
+      "Lightdash|/projects/lightdash",
+      "DatawizzAI|/projects/datawizz",
+      "Seamless.AI|/projects/seamless-ai",
+      "N3XT.io: brand, product, website and launch for a $72M-backed narrow bank|/projects/n3xt",
+      "About us|/about-us",
+      "Careers|/careers",
+      "FAQs|/faq",
+      "Referrals|/referrals",
+      "Motion designer|/careers/motion-designer",
+      "Brand designer|/careers/brand-designer",
+      "Senior website designer|/careers/senior-website-designer",
+      "AEO scoreSee if ChatGPT, Claude and Perplexity can find and cite your site.|/tools/aeo-score",
+      "Schema markup validatorCheck your JSON-LD and get copy-paste schema for every gap.|/tools/schema-validator",
+      "llms.txt generatorTurn your sitemap into an llms.txt draft, ready to edit.|/tools/llms-txt-generator",
+      "Website migration plannerEvery URL on your site, which keep their path, and the 301 map.|/tools/migration-planner",
+      "Website cost calculatorWhat year one costs for your pages, platform and extras.|/tools/website-cost-calculator",
+      "Pitch deck checklistCheck your deck slide by slide before you send it to investors.|/tools/pitch-deck-checklist",
+      "Insights|/insights",
+      "Glossary|/glossary",
+      "Migration playbooks|/guides#migration",
+      "AI playbooks|/guides#ai",
+      "Platform migrations|/migrations",
+      "|/guides/leaving-webflow-or-framer",
+      "|/guides/leaving-wordpress",
+      "|/guides/design-system-claude-can-use",
+      "|/guides/edit-your-website-with-claude",
+      "|/guides/fix-a-vibe-coded-mvp",
+      "|/guides/get-named-in-ai-answers"
+    ],
+    "sections": 8,
+    "faq": [],
+    "words": 909,
+    "bodyText": "Skip to content\nNEW\n:\nThe AI-native design subscription is back\nServices\nPricing\nOur work\nCompany\nFree tools\nResources\nContact\nBook a call\n\nOUR SERVICES\n\nDesign and development\nservices for funded tech teams\n\nOne senior team for brand, product, websites and code. We design and build for SaaS, AI and fintech companies, in Framer, Webflow, Astro or Next.js, and stay close after launch.\n\nBook a call\nSee our work\nDesign\n,\n7\nservices\nBrand identity\nProduct design\nMobile app design\nWebsite design\nMotion design\nPitch deck design\nAI design agency\nDevelopment\n,\n6\nservices\nFramer development\nWebflow development\nAstro development\nNext.js development\nAI MVP cleanup\nWebsite migrations\nGrowth\n,\n4\nservices\nConversion rate optimisation\nUX audit\nSEO and AEO\nAI workflows\n\n01 · 7 SERVICES\n\nDesign\n\nHow the company looks, how the product works, and how both explain themselves.\n\n01\nBrand identity\n\nWHAT WE DELIVER\n\nBrand strategy\nVisual identity\nBrand guidelines\nSocial templates\nLaunch assets\nBrand system foundations\nStart a brand sprint →\n02\nProduct design\n03\nMobile app design\n04\nWebsite design\n05\nMotion design\n06\nPitch deck design\n07\nAI design agency\nBrand identity\n\n02 · 6 SERVICES\n\nDevelopment\n\nFramer, Webflow, Astro and Next.js builds, plus cleanup for AI-built products and safe platform moves.\n\n01\nFramer development\n\nWHAT WE DELIVER\n\nSite structure\nReusable sections\nFramer CMS\nMotion and interactions\nSEO setup\nHandoff and training\nExplore Framer development →\n02\nWebflow development\n03\nAstro development\n04\nNext.js development\n05\nAI MVP cleanup\n06\nWebsite migrations\nFramer development · Lightdash website\nCase study →\n\n03 · 4 SERVICES\n\nGrowth\n\nGet found in search and AI answers, turn more of the traffic into pipeline, and put AI to work on your website.\n\n01\nConversion rate optimisation\n\nWHAT WE DELIVER\n\nAudit sprint\nTracking cleanup\nHypothesis backlog\nDesigned and built variants\nA/B tests and analysis\nRollout and experiment log\nExplore Conversion rate optimisation →\n02\nUX audit\n03\nSEO and AEO\n04\nAI workflows\nConversion rate optimisation · Seamless.AI conversion audit\nCase study →\n\nTESTIMONIALS\n\nWords from\nthe teams we’ve worked with\n\n“The communication was excellent throughout.”\n\nAdam Ryan\nCMO\n\n“We’ve also received good reception from our partners and current customers. In fact, our app store rating has increased to 4.7 from 4.3.”\n\nRead full quote\nUsers on the live app\n300K+\nRaised (PitchBook)\n$17.2M\nJordan Green\nCOO, Ballogy Inc\n\n“DesignMe turned around a complex project in just one month, covering information architecture, visual language, high-fidelity design, and Webflow development.”\n\nRead full quote\nTo launch the new website\n4 weeks\nPageSpeed Insights score\n93/100\nSid\nHead of Product\n\n“We had a board meeting today and got VERY positive feedback on the new site, so great job to the entire team on a great design!”\n\nIddo Gino\nFounder @Datawizz (now Gamut.so)\n\n“Working with DesignMe feels like having a design team embedded inside Quotient. Their design sense, responsiveness, and ability to iterate quickly make them an ideal partner as we grow.”\n\nRaised by Quotient\n$5M\nEmbedded growth partnership\n18+ months\nMax Davish\nCo-Founder and CTO\n\n“DesignMe has provided our startup with significant leverage.”\n\nRead full quote\nSeries A funding\n$11M\nTo launch the new website\n8 weeks\nPriyanka Patel\nFounding Designer\n\n“They were very willing to attempt and deliver on anything we threw at them, which is what you want from a subscription based service where you're paying for continued deliverables.”\n\nMike Fogg\nCo-founder @Heroes (prev. Blockview)\n\n“I can strongly say DesignMe has elite and top tier talent on their team to get your next project completed!”\n\nRead full quote\nDemo bookings increase\n+30%\nUser conversion rate across the whole site\n+11%\nPhil LaChance\nPrincipal Designer @Seamless.AI\n\n“Appreciate the hard work guys and looking forward to the next project together”\n\nEvan Roosevelt\nManaging Partner @Old Tom Capital\n\nMore reviews on\nClutch\n↗\n(opens in a new tab)\n\nStill choosing?\nSee pricing\nWhat working with us costs.\n16\nPlatform comparisons\nFramer, Webflow, Astro, WordPress and more, side by side, so you pick the platform that fits your team.\n35\nIntegrations\nHow we connect your CRM, analytics, payments and CMS to the site.\n15\nIndustries\nWhat we build for teams in your market, and what their buyers look for.\nDesign subscription\nA senior design and development team on a monthly plan, from $6k a month.\nRounds our clients raised\nFunding rounds raised by SaaS, AI and fintech teams we’ve worked with, and what we built for each.\n\nYOU'VE REACHED THE END, SO NOW…\n\nTell us what you’re building.\n\nWe’ll help you map the right scope, team,\ntimeline, and next steps.\n\nBook a call\n\nGDAŃSK | 21:41\n\nSAN FRANCISCO | 12:41\n\nBuilt for momentum.\n\nDesign, build, and scale with one senior team.\n\nLET'S TALK\n\nBook a strategy call\n\nSEND EMAIL\n\nhello@designme.agency\n\nAsk AI about DesignMe\n\nDESIGN\n\nProduct design\nMobile app design\nWebsite design\nMotion design\nBrand identity\nPitch deck design\n\nDEVELOPMENT\n\nFramer development\nWebflow development\nAstro development\nCustom development\nAI MVP cleanup\nWebsite migrations\n\nGROWTH\n\nConversion optimisation\nSEO and AEO\nUX audit\nAI workflows\n\nDESIGNME\n\nCase studies\nAbout us\nAI Process\nCareers\nClients\nLocations\nReviews\nFundraising\n\nRESOURCES\n\nAll resources\nInsights\nIndustries\nGlossary\nComparisons\nIntegrations\nFree tools\nSecurity & trust\nTemplates\nSoon\n\nWAYS TO WORK\n\nPricing\nSubscriptions\nFor startups\n\nMISC\n\nReferrals\nFAQs\nIntro\nSitemap\n\nADDRESS\n\nGrunwaldzka 409,\n80-309, Gdansk, Poland\n\nGreat Portland Street,\nW1W 7LT London, United Kingdom\n\n★★★★★\nSee all reviews →\n\n© DESIGNME 2026. ALL RIGHTS RESERVED.\n\nPRIVACY POLICY\nTERMS OF SERVICE\nLLMS.TXT\nCOOKIE SETTINGS\nDRIBBBLE\nX\nLINKEDIN\nBOOK A CALL\nz\nz\nZ\nAsk Tidy"
+  },
+  {
+    "url": "https://www.designme.agency/industries",
+    "name": "www_designme_agency_industries",
+    "title": "Industries we design for: SaaS, AI, fintech | DesignMe",
+    "description": "One senior team that designs and builds brands, websites and products for SaaS, AI, fintech, health and consumer companies. Find your industry and see the work.",
+    "h1": "Design and build for every industry we serve.",
+    "heads": [
+      {
+        "tag": "H1",
+        "text": "Design and build for every industry we serve."
+      },
+      {
+        "tag": "H2",
+        "text": "Where we go deepest, with a full page per industry"
+      },
+      {
+        "tag": "H2",
+        "text": "Every industry we design and build for"
+      },
+      {
+        "tag": "H3",
+        "text": "Software and SaaS"
+      },
+      {
+        "tag": "H3",
+        "text": "AI and data"
+      },
+      {
+        "tag": "H3",
+        "text": "Finance"
+      },
+      {
+        "tag": "H3",
+        "text": "Health"
+      },
+      {
+        "tag": "H3",
+        "text": "Consumer and commerce"
+      },
+      {
+        "tag": "H3",
+        "text": "Property and other"
+      },
+      {
+        "tag": "H2",
+        "text": "Same senior team, whatever market you sell into"
+      },
+      {
+        "tag": "H3",
+        "text": "Your market first"
+      },
+      {
+        "tag": "H3",
+        "text": "One team for brand, site and product"
+      },
+      {
+        "tag": "H3",
+        "text": "Close, not a big reveal"
+      },
+      {
+        "tag": "H2",
+        "text": "Your questions, answered honestly"
+      },
+      {
+        "tag": "H3",
+        "text": "What industries does DesignMe work with?"
+      },
+      {
+        "tag": "H3",
+        "text": "Do you only work with the industries listed here?"
+      },
+      {
+        "tag": "H3",
+        "text": "Can you work with regulated or sensitive products?"
+      },
+      {
+        "tag": "H3",
+        "text": "Do you work with pre-seed and early-stage startups?"
+      },
+      {
+        "tag": "H3",
+        "text": "How long does a typical project take?"
+      },
+      {
+        "tag": "H2",
+        "text": "Tell us what you’re building."
+      }
+    ],
+    "ctas": [
+      "Accept all",
+      "Reject all",
+      "Settings",
+      "Save choices",
+      "Services",
+      "Our work",
+      "Company",
+      "Free tools",
+      "Get your AEO score",
+      "Resources",
+      "Book a call",
+      "Find your industry",
+      "Start a project",
+      "All"
+    ],
+    "nav": [
+      "NEW : The AI-native design subscription is back|/design-subscription",
+      "|/",
+      "Product design|/services/product-design",
+      "Mobile app design|/services/mobile-app-design",
+      "Website design|/services/website-design",
+      "Motion design|/services/motion-design",
+      "Brand identity|/services/brand-identity",
+      "Pitch decks|/services/pitch-deck-design",
+      "Framer|/services/framer-agency",
+      "Webflow|/services/webflow-agency",
+      "Astro|/services/astro-development",
+      "Custom (Next.js)|/services/nextjs-development",
+      "AI MVP cleanup|/services/ai-mvp-cleanup",
+      "Website migrations|/migrations",
+      "CRO|/services/cro",
+      "SEO and AEO|/services/seo-aeo",
+      "UX audit|/ux-audit",
+      "AI workflows|/services/ai-workflows",
+      "All services|/services",
+      "Subscriptions|/design-subscription",
+      "For startups|/startups",
+      "Comparisons|/compare",
+      "Integrations|/integrations",
+      "Free tools|/tools",
+      "Pricing|/pricing",
+      "Case studies|/projects",
+      "Our process|/our-process",
+      "Clients|/clients",
+      "Reviews|/reviews",
+      "Fundraising|/fundraising",
+      "HintNew|/projects/hint",
+      "Ballogy|/projects/ballogy",
+      "Lightdash|/projects/lightdash",
+      "DatawizzAI|/projects/datawizz",
+      "Seamless.AI|/projects/seamless-ai",
+      "N3XT.io: brand, product, website and launch for a $72M-backed narrow bank|/projects/n3xt",
+      "About us|/about-us",
+      "Careers|/careers",
+      "FAQs|/faq",
+      "Referrals|/referrals",
+      "Motion designer|/careers/motion-designer",
+      "Brand designer|/careers/brand-designer",
+      "Senior website designer|/careers/senior-website-designer",
+      "AEO scoreSee if ChatGPT, Claude and Perplexity can find and cite your site.|/tools/aeo-score",
+      "Schema markup validatorCheck your JSON-LD and get copy-paste schema for every gap.|/tools/schema-validator",
+      "llms.txt generatorTurn your sitemap into an llms.txt draft, ready to edit.|/tools/llms-txt-generator",
+      "Website migration plannerEvery URL on your site, which keep their path, and the 301 map.|/tools/migration-planner",
+      "Website cost calculatorWhat year one costs for your pages, platform and extras.|/tools/website-cost-calculator",
+      "Pitch deck checklistCheck your deck slide by slide before you send it to investors.|/tools/pitch-deck-checklist",
+      "Insights|/insights",
+      "Glossary|/glossary",
+      "Migration playbooks|/guides#migration",
+      "AI playbooks|/guides#ai",
+      "Platform migrations|/migrations",
+      "|/guides/leaving-webflow-or-framer",
+      "|/guides/leaving-wordpress",
+      "|/guides/design-system-claude-can-use",
+      "|/guides/edit-your-website-with-claude",
+      "|/guides/fix-a-vibe-coded-mvp",
+      "|/guides/get-named-in-ai-answers"
+    ],
+    "sections": 7,
+    "faq": [
+      "What industries does DesignMe work with? Do you only work with the industries listed here? Can you work with regulated o",
+      "What industries does DesignMe work with?",
+      "What industries does DesignMe work with?",
+      "Do you only work with the industries listed here?",
+      "Do you only work with the industries listed here?",
+      "Can you work with regulated or sensitive products?",
+      "Can you work with regulated or sensitive products?",
+      "Do you work with pre-seed and early-stage startups?",
+      "Do you work with pre-seed and early-stage startups?",
+      "How long does a typical project take?",
+      "How long does a typical project take?"
+    ],
+    "words": 1007,
+    "bodyText": "Skip to content\nNEW\n:\nThe AI-native design subscription is back\nServices\nPricing\nOur work\nCompany\nFree tools\nResources\nContact\nBook a call\n\nINDUSTRIES\n\nDesign and build for\nevery industry we serve.\n\nPick your industry to see the work.\n\nFind your industry\nStart a project\n\nTrusted by 100+ funded teams\n\nINDUSTRY PAGES\n\nWhere we go deepest,\nwith a full page per industry\n\nEach page covers what goes wrong in that market, the work we’ve shipped there, and what we’d do first.\n\nAI\nBrand, websites and product UX for AI startups that need to stand out and earn trust.\nB2B SaaS\nWebsites, demo flows and sales decks for sales-led SaaS that sells to buying committees.\nFintech\nBrand, website and product design that makes complex money products clear and safe to sign up for.\nSaaS\nWebsite, signup, onboarding and product UI for product-led SaaS, designed as one experience.\nConsumer apps & D2C\nBrand, app and launch design for consumer products sold direct.\nHealthtech\nAccessible, privacy-first website and product design for digital health teams.\nReal estate\nBrand, website and product design for proptech, real estate investment platforms and developers.\nInvestment firms\nWebsites, decks and investor materials for funds, advisors and wealth platforms.\nCybersecurity\nBrand and websites for security products that have to earn trust from engineers and security buyers.\nWeb3 & crypto\nBrand, website and product design that makes on-chain products feel safe and easy to follow.\nTravel & hospitality\nBooking, discovery and brand design for travel apps and hospitality groups.\nData & analytics\nBrand, websites and product UI for BI and data platforms that sell to data teams and business users.\nProductivity tools\nCalm product UI, careful redesigns and clear websites for the work tools teams use all day.\nLegal tech\nBrand, websites and product UX for legal tech that has to earn the trust of lawyers and courts.\nSports & fitness\nApp UX, brands and websites for sports tech and fitness apps that keep people past week one.\n\nDIRECTORY\n\nEvery industry\nwe design and build for\n\nSearch by industry, product type or client.\nEach one has its own page.\n\nSEARCH INDUSTRIES\nAll\nSoftware and SaaS\nAI and data\nFinance\nHealth\nConsumer and commerce\nProperty and other\n\n15 industries\n\nSoftware and SaaS\nB2B SaaS\n\nWebsites and sales assets for sales-led B2B SaaS that need more of the right buyers booking demos.\n\nSaaS\n\nWebsite and product design for product-led SaaS, so the site, the signup and the product feel like one experience.\n\nProductivity and collaboration\n\nProduct and website design for work tools: project management, spreadsheets and 3D collaboration.\n\nLegal tech\n\nBrand and website design for legal technology products that lawyers, courts and legal teams can trust.\n\nAI and data\nAI\n\nBrand, website and product design for AI startups, from seed to Series A.\n\nCybersecurity\n\nBrand and website design for security products that have to earn trust from engineers and security buyers.\n\nData and analytics\n\nBrand, website and product UI for BI, analytics and data platforms that sell to data teams and business users.\n\nFinance\nFintech\n\nBrand, website and product design for payments, banking and financial platforms, where trust decides the sale.\n\nInvestment firms and wealth\n\nWebsites, decks and investor materials for funds, advisors and wealth platforms.\n\nWeb3 and crypto\n\nBrand, website and product design that makes on-chain products feel safe and easy to follow.\n\nHealth\nHealthtech\n\nWebsite and product design for digital health teams, built for patients, clinicians and accessibility rules.\n\nSports and fitness\n\nApp, brand and website design for sports, training and fitness products.\n\nConsumer and commerce\nConsumer apps and D2C brands\n\nBrand, app and website design for consumer products people use every day.\n\nTravel and hospitality\n\nBooking, discovery and brand design for travel apps and hospitality groups.\n\nProperty and other\nReal estate and proptech\n\nBrand, website and product design for proptech and real estate investment platforms.\n\nAlso by stage. We work with teams from pre-seed to Series B. N3XT and TravelWith each went from idea to MVP in three months with us, and Seamless.AI brought us in at Series A to redesign a 130-page site.\n\nHOW WE WORK\n\nSame senior team,\nwhatever market you sell into\nSee our process →\n\n01\n\nYour market first\n\nEvery project starts with Align + Map: your buyers, your competitors and the rules of your market, before the first screen is drawn.\n\n02\n\nOne team for brand, site and product\n\nBrand, website, product and build move together, so what a buyer reads on the site matches the product they sign up for.\n\n03\n\nClose, not a big reveal\n\nA shared Slack and Notion board, updates several times a week and focused review calls. No two weeks of silence.\n\nFAQ\n\nYour questions,\nanswered honestly\n\nStill deciding? Ask us directly.\n\nBook a call\n\nOr send us a message\n\nWhat industries does DesignMe work with?\nDo you only work with the industries listed here?\nCan you work with regulated or sensitive products?\nDo you work with pre-seed and early-stage startups?\nHow long does a typical project take?\n\nYOU'VE REACHED THE END, SO NOW…\n\nTell us what you’re building.\n\nWe’ll help you map the right scope, team,\ntimeline, and next steps.\n\nBook a call\n\nGDAŃSK | 21:41\n\nSAN FRANCISCO | 12:41\n\nBuilt for momentum.\n\nDesign, build, and scale with one senior team.\n\nLET'S TALK\n\nBook a strategy call\n\nSEND EMAIL\n\nhello@designme.agency\n\nAsk AI about DesignMe\n\nDESIGN\n\nProduct design\nMobile app design\nWebsite design\nMotion design\nBrand identity\nPitch deck design\n\nDEVELOPMENT\n\nFramer development\nWebflow development\nAstro development\nCustom development\nAI MVP cleanup\nWebsite migrations\n\nGROWTH\n\nConversion optimisation\nSEO and AEO\nUX audit\nAI workflows\n\nDESIGNME\n\nCase studies\nAbout us\nAI Process\nCareers\nClients\nLocations\nReviews\nFundraising\n\nRESOURCES\n\nAll resources\nInsights\nIndustries\nGlossary\nComparisons\nIntegrations\nFree tools\nSecurity & trust\nTemplates\nSoon\n\nWAYS TO WORK\n\nPricing\nSubscriptions\nFor startups\n\nMISC\n\nReferrals\nFAQs\nIntro\nSitemap\n\nADDRESS\n\nGrunwaldzka 409,\n80-309, Gdansk, Poland\n\nGreat Portland Street,\nW1W 7LT London, United Kingdom\n\n★★★★★\nSee all reviews →\n\n© DESIGNME 2026. ALL RIGHTS RESERVED.\n\nPRIVACY POLICY\nTERMS OF SERVICE\nLLMS.TXT\nCOOKIE SETTINGS\nDRIBBBLE\nX\nLINKEDIN\nBOOK A CALL\nz\nz\nZ\nAsk Tidy"
+  },
+  {
+    "url": "https://clay.global/fintech",
+    "name": "clay_global_fintech",
+    "title": "Fintech UI/UX Design | Banking & Finance Branding Agency | Clay",
+    "description": "We’re a fintech design agency specializing in branding, UI/UX, and web design for banking, payments, and financial technology companies.",
+    "h1": "The Future of Finance is Intelligent",
+    "heads": [
+      {
+        "tag": "H1",
+        "text": "The Future of Finance is Intelligent"
+      },
+      {
+        "tag": "H2",
+        "text": "Trusted by global leaders and bold challengers alike"
+      },
+      {
+        "tag": "H2",
+        "text": "Our Impact"
+      },
+      {
+        "tag": "H3",
+        "text": "Shaping the Future of Fintech Through AI and Design"
+      },
+      {
+        "tag": "H2",
+        "text": "How We Help"
+      },
+      {
+        "tag": "H3",
+        "text": "AI Transformation"
+      },
+      {
+        "tag": "H3",
+        "text": "Design Innovation"
+      },
+      {
+        "tag": "H3",
+        "text": "Branding"
+      },
+      {
+        "tag": "H3",
+        "text": "Digital Products & CX"
+      },
+      {
+        "tag": "H3",
+        "text": "Marketing"
+      },
+      {
+        "tag": "H3",
+        "text": "Clay Perspective"
+      },
+      {
+        "tag": "H2",
+        "text": "The Next Era of Fintech"
+      },
+      {
+        "tag": "H2",
+        "text": "Where We Focus"
+      },
+      {
+        "tag": "H3",
+        "text": "Financial Infrastructure"
+      },
+      {
+        "tag": "H3",
+        "text": "Payroll & HR Tech"
+      },
+      {
+        "tag": "H3",
+        "text": "Wealth Management"
+      },
+      {
+        "tag": "H3",
+        "text": "Payments"
+      },
+      {
+        "tag": "H3",
+        "text": "BNPL & Embedded Finance"
+      },
+      {
+        "tag": "H3",
+        "text": "Lending Platforms"
+      },
+      {
+        "tag": "H3",
+        "text": "Crypto & DeFi"
+      },
+      {
+        "tag": "H3",
+        "text": "Compliance & RegTech"
+      },
+      {
+        "tag": "H3",
+        "text": "Insurance & Insurtech"
+      },
+      {
+        "tag": "H3",
+        "text": "Digital Banking"
+      },
+      {
+        "tag": "H3",
+        "text": "Financial Infrastructure"
+      },
+      {
+        "tag": "H3",
+        "text": "Payroll & HR Tech"
+      },
+      {
+        "tag": "H3",
+        "text": "Wealth Management"
+      },
+      {
+        "tag": "H3",
+        "text": "Payments"
+      },
+      {
+        "tag": "H3",
+        "text": "BNPL & Embedded Finance"
+      },
+      {
+        "tag": "H3",
+        "text": "Lending Platforms"
+      },
+      {
+        "tag": "H3",
+        "text": "Crypto & DeFi"
+      },
+      {
+        "tag": "H3",
+        "text": "Compliance & RegTech"
+      },
+      {
+        "tag": "H3",
+        "text": "Insurance & Insurtech"
+      },
+      {
+        "tag": "H3",
+        "text": "Digital Banking"
+      },
+      {
+        "tag": "H3",
+        "text": "Financial Infrastructure"
+      },
+      {
+        "tag": "H3",
+        "text": "Payroll & HR Tech"
+      },
+      {
+        "tag": "H3",
+        "text": "Wealth Management"
+      },
+      {
+        "tag": "H3",
+        "text": "Payments"
+      },
+      {
+        "tag": "H3",
+        "text": "BNPL & Embedded Finance"
+      },
+      {
+        "tag": "H3",
+        "text": "Lending Platforms"
+      },
+      {
+        "tag": "H3",
+        "text": "Crypto & DeFi"
+      },
+      {
+        "tag": "H3",
+        "text": "Compliance & RegTech"
+      },
+      {
+        "tag": "H3",
+        "text": "Insurance & Insurtech"
+      },
+      {
+        "tag": "H3",
+        "text": "Digital Banking"
+      },
+      {
+        "tag": "H2",
+        "text": "Our Work"
+      },
+      {
+        "tag": "H3",
+        "text": "Sky"
+      },
+      {
+        "tag": "H3",
+        "text": "Discover"
+      },
+      {
+        "tag": "H3",
+        "text": "STC Bank"
+      },
+      {
+        "tag": "H3",
+        "text": "Marqeta"
+      },
+      {
+        "tag": "H3",
+        "text": "Lulo Bank"
+      },
+      {
+        "tag": "H3",
+        "text": "Grayscale"
+      },
+      {
+        "tag": "H3",
+        "text": "Tipalti"
+      },
+      {
+        "tag": "H3",
+        "text": "Cornerstone"
+      },
+      {
+        "tag": "H3",
+        "text": "Wealth"
+      },
+      {
+        "tag": "H3",
+        "text": "Streetbeat"
+      },
+      {
+        "tag": "H2",
+        "text": "Why Clay"
+      },
+      {
+        "tag": "H3",
+        "text": "In Finance Since 2008"
+      },
+      {
+        "tag": "H3",
+        "text": "Based in San Francisco"
+      },
+      {
+        "tag": "H3",
+        "text": "We Know the Hard Parts"
+      },
+      {
+        "tag": "H3",
+        "text": "Trusted by Leaders"
+      },
+      {
+        "tag": "H2",
+        "text": "Let's Build the Future of Fintech Together"
+      },
+      {
+        "tag": "H2",
+        "text": "FAQ"
+      },
+      {
+        "tag": "H2",
+        "text": "Let’s Talk"
+      }
+    ],
+    "ctas": [
+      "What makes Clay different?",
+      "How long do projects typically take?",
+      "How do you approach AI in your work?"
+    ],
+    "nav": [
+      "|/",
+      "Work|/work",
+      "Clients|/clients",
+      "Services|/services",
+      "Industries|/industries",
+      "Fintech|/fintech",
+      "Crypto & Web3|/crypto",
+      "All Industries|/industries",
+      "About|/about",
+      "Blog|/blog",
+      "Contact|/contact"
+    ],
+    "sections": 10,
+    "faq": [],
+    "words": 1506,
+    "bodyText": "Work\nClients\nServices\nIndustries\nFintech\nCrypto & Web3\nAll Industries\nAbout\nBlog\nContact\n\nFintech\n\nThe Future of Finance is Intelligent\n\nWe partner with visionary companies in financial technology to design the next chapter of financial services through human-centered fintech design and purposeful AI.\n\nLet’s talk\nTrusted by global leaders and bold challengers alike\nOur Impact\nShaping the Future of Fintech Through AI and Design\n\nWork that helped the world’s leading fintechs build trusted digital products and brands.\n\nReimagined Digital Banking in the Middle East\nHelped Launch the First Bitcoin ETF\nBuilt a New Web Experience for an AP Automation Leader\nRebranded a Leading DeFi and Stablecoin Platform\nCreated a Smarter Mobile Onboarding Experience\nBrought a Bold Rebrand to Life\nDesigned a Platform for Partner Ecosystem Growth\nRedefined the Future of Wealth Management\nFutureproofed a Global Mobile Experience\nDesigned Internal Tools That Power the Business\nDesigned an AI-First Payroll Experience\nHow We Help\n\n01\n\nAI Transformation\n\nAI that works for people. We design AI-powered experiences that are intuitive, useful, and centered on human needs.\n\n02\n\nDesign Innovation\n\nModern fintech industry UI/UX design that removes legacy friction, simplifies complex journeys, and keeps operations accurate, safe, and efficient with strong error prevention.\n\n03\n\nBranding\n\nMaking your brand look like the future of finance. We craft strategy and identity systems that are credible, differentiated, and built to grow your brand identity.\n\n04\n\nDigital Products & CX\n\nWe design UI and UX for modern fintech platforms trusted by millions, shaping every user interface with clarity and care. Our work is scalable, compliant, accessible, and mobile first to build trust and engagement.\n\n05\n\nMarketing\n\nWe bring strategy and story to life through seamless, accessible websites that strengthen your digital presence. We align brand and performance across web design and launch campaigns for fintech teams and financial institutions.\n\nClay Perspective\nThe Next Era of Fintech\nHow AI is transforming the fintech landscape.\nWhere We Focus\n\nOur experience spans 15+ years across fintech’s core domains\n\nFinancial Infrastructure\nPayroll & HR Tech\nWealth Management\nPayments\nBNPL & Embedded Finance\nLending Platforms\nCrypto & DeFi\nCompliance & RegTech\nInsurance & Insurtech\nDigital Banking\nFinancial Infrastructure\nPayroll & HR Tech\nWealth Management\nPayments\nBNPL & Embedded Finance\nLending Platforms\nCrypto & DeFi\nCompliance & RegTech\nInsurance & Insurtech\nDigital Banking\nFinancial Infrastructure\nPayroll & HR Tech\nWealth Management\nPayments\nBNPL & Embedded Finance\nLending Platforms\nCrypto & DeFi\nCompliance & RegTech\nInsurance & Insurtech\nDigital Banking\nOur Work\n\nWhere Strategy Meets Craft\n\nSky\n\nBranding and visual identity for an innovative DeFi platform\n\nBranding\nDesign System\nUI/UX\nIllustration\n3D\nDiscover\n\nDesign partnership focused on mobile app innovation\n\nUI/UX\nDesign System\nFintech\nSTC Bank\n\nAccelerating the future of digital banking in Saudi Arabia\n\nWeb App\nMobile\nWebsite\nFintech\nUI/UX\nMarqeta\n\nWebsite and digital branding for a modern card-issuing platform\n\nWeb Design\n3D\nDevelopment\nFintech\nLulo Bank\n\nElevating the mobile experience for Colombia’s first digital bank\n\nUI/UX\nFintech\nStartup\nGrayscale\n\nWeb redesign for the world’s largest crypto asset manager\n\nWeb Design\nDesign System\nIllustration\nTipalti\n\nWeb redesign for a modern payables automation platform\n\nUI/UX\nDesign System\nFintech\nWebsite\n\nBuilding a human-centered web experience\n\nCornerstone\n\nWeb experience for an enterprise people development platform\n\nWebsite\nB2B\nSaaS\n3D\nWealth\n\nDesigning a self-service digital estate planning platform\n\nBranding\nUI/UX\nWebsite\nDesign System\nStreetbeat\n\nBranding for an AI-powered investment platform\n\nVisual Identity\nStartup\nFintech\nView all work\n\nWe loved working with Clay – they are professional, creative, and thorough. You’ll find a partner who feels equal ownership over the look and feel of the website as you do.”\n\nSeres Lu\nVP of Marketing, Grayscale Investments\n\nWe needed a partner who saw our vision and pushed us to new levels. Clay’s expertise helped us deliver early and scale for future expansion through the design system and brand they developed.”\n\nHanna Byers\nVP of Product, Wealth, Inc.\n\nWe have had the pleasure of collaborating with Clay's team since 2012. Their constant drive for innovation and meticulous attention to detail have consistently led to positive changes in our product and metrics.”\n\nDamian Scavo\nCEO, Streetbeat\n\nClay were great partners and weren’t afraid to think outside the box. We’re thrilled with the result and feel it communicates a unique and distinctive brand in our space.”\n\nMarc Elliott\nChief Technology Officer, Echo Street Capital\n\nWhy Clay\n\nWe’ve been designing for digital finance since the early days, building platforms for banks and fintech pioneers.\n\nToday, our senior, founder-led teams bring strategy and craft together to help ambitious companies simplify complexity and scale with clarity.\n\nIn Finance Since 2008\n\nWe've built everything from early neobanks to modern payment ecosystems, including banking app experiences and end-to-end financial apps.\n\nBased in San Francisco\n\nOperating globally with deep roots in the heart of fintech innovation.\n\nWe Know the Hard Parts\n\nWe understand the regulatory, compliance, and accessibility challenges and how to design for them across financial institutions, including evolving financial regulations.\n\nTrusted by Leaders\n\nWe help fintech teams turn vision into clarity, trust, and intelligent design across every touchpoint, from brand identity to financial apps and digital banking platforms.\n\nLet's Build the Future of Fintech Together\n\nWe help fintech teams turn vision into clarity, trust, and intelligent design across every touchpoint, from brand identity to financial apps and digital banking platforms.\n\nGet in touch\nFAQ\nWhat makes Clay different?\n\nClay is a UI/UX design agency with a founder-led team of senior designers and strategists with decades of fintech design experience. We have extensive expertise in fintech UX design, ensuring that our solutions deliver good UX tailored to the unique needs of financial services.\n\nOur process is design-system driven and built for scale, helping companies stay consistent, compliant, and ready for the future across the broader digital ecosystem of modern financial technology. In fintech, good UX design is closely tied to trust and security, as well as ease of use, which are essential for user confidence and satisfaction. We also bring detailed information at the right moments, so users feel informed without feeling overwhelmed.\n\nWe combine deep industry roots with a forward-looking, AI-ready mindset across fintech products.\n\nDo you work with both startups and large enterprises?\n\nYes. We partner with early-stage fintech startups as well as global fintech companies. Whether it is shaping a new brand identity or redesigning a complex banking app, our approach adapts to the size, pace, and goals of each client and their target audience.\n\nWe also design across the full digital ecosystem, from marketing sites and onboarding to authenticated product experiences, support flows, and design systems.\n\nHow long do projects typically take?\n\nTimelines vary depending on scope and complexity. Brand design projects usually start at around three months, web redesigns take four to five months, and full digital banking product transformations often span six months or more.\n\nIf your product includes complex data, we plan time for clear data visualization and testing, so users can understand key numbers quickly and act with confidence.\n\nHow do you approach AI in your work?\n\nWe have worked extensively with financial institutions and regulated fintechs around the world. Security is one of the most important requirements for any financial product or service.\n\nOur process integrates compliance, accessibility, and security considerations from the start, ensuring every product meets both user and regulatory standards. Fintech UX designers must signal security at every critical step and make security decisions visible to users. This matters even more in emerging spaces like decentralized finance, where trust signals and clarity can make or break adoption.\n\nHow experienced are you with compliance and regulation?\n\nWe have worked extensively with fintech companies and regulated fintechs worldwide. Our process integrates compliance, accessibility, and security considerations from the start, ensuring every product meets both user and regulatory standards.\n\nWhat kind of support do you offer after a project is completed?\n\nWe often continue as an embedded partner, supporting design, product, and strategy beyond the initial launch. This allows our clients to move faster while maintaining consistency and quality as their needs evolve across digital and traditional banking.\n\nWe can also help iterate on product edu"
+  },
+  {
+    "url": "https://clay.global/",
+    "name": "clay_global",
+    "title": "Clay | UX Design & Branding Agency",
+    "description": "Clay is a global UI/UX design and branding firm headquartered in San Francisco. We create digital products, websites, design systems, and brand identities across industries, with deep experience in B2B, SaaS, AI, and fintech.",
+    "h1": "Clay is a global branding and UX design agency",
+    "heads": [
+      {
+        "tag": "H1",
+        "text": "Clay is a global branding and UX design agency"
+      },
+      {
+        "tag": "H1",
+        "text": "The Future of Finance is Intelligent"
+      },
+      {
+        "tag": "H2",
+        "text": "Slack"
+      },
+      {
+        "tag": "H2",
+        "text": "STC Bank"
+      },
+      {
+        "tag": "H2",
+        "text": "Sky"
+      },
+      {
+        "tag": "H2",
+        "text": "Snapchat"
+      },
+      {
+        "tag": "H2",
+        "text": "Joe & The Juice"
+      },
+      {
+        "tag": "H2",
+        "text": "Vantara"
+      },
+      {
+        "tag": "H2",
+        "text": "Grayscale"
+      },
+      {
+        "tag": "H2",
+        "text": "Discover"
+      },
+      {
+        "tag": "H2",
+        "text": "Marqeta"
+      },
+      {
+        "tag": "H2",
+        "text": "Yahoo! Games"
+      },
+      {
+        "tag": "H2",
+        "text": "Serena & Lily"
+      },
+      {
+        "tag": "H2",
+        "text": "Tipalti"
+      },
+      {
+        "tag": "H2",
+        "text": "Wealth"
+      },
+      {
+        "tag": "H2",
+        "text": "Art Bridges"
+      },
+      {
+        "tag": "H2",
+        "text": "We transform companies through design innovation"
+      },
+      {
+        "tag": "H2",
+        "text": "Featured News"
+      },
+      {
+        "tag": "H3",
+        "text": "Tipalti Redesign Wins Design Awards and Features"
+      },
+      {
+        "tag": "H3",
+        "text": "Complete Guide to Buttons in Web Design for 2026"
+      },
+      {
+        "tag": "H3",
+        "text": "Clay Global Shows Up Strong at The Webby Awards 2026"
+      },
+      {
+        "tag": "H2",
+        "text": "FAQ"
+      },
+      {
+        "tag": "H2",
+        "text": "Let’s Talk"
+      }
+    ],
+    "ctas": [
+      "Branding",
+      "Digital Products",
+      "Websites",
+      "Development",
+      "Content",
+      "Generative AI",
+      "Do you work with startups?"
+    ],
+    "nav": [
+      "|/",
+      "Work|/work",
+      "Clients|/clients",
+      "Services|/services",
+      "Industries|/industries",
+      "Fintech|/fintech",
+      "Crypto & Web3|/crypto",
+      "All Industries|/industries",
+      "About|/about",
+      "Blog|/blog",
+      "Contact|/contact"
+    ],
+    "sections": 8,
+    "faq": [],
+    "words": 1783,
+    "bodyText": "Work\nClients\nServices\nIndustries\nFintech\nCrypto & Web3\nAll Industries\nAbout\nBlog\nContact\nClay is a global branding\nand UX design agency\n\nWe build transformative digital experiences for the world's leading brands by blending AI, design, and technology.\n\nBranding\n\nA brand is more than just a logo or some colors. It’s how people recognize and connect with your business. We build strong visual and verbal identities, design the assets you need, and create clear brand guidelines so your message stays consistent everywhere.\n\nDigital Products\n\nAt Clay, we focus on creating real connections. We combine smart design with behavioral science to make digital products that feel human. Our senior UI and UX designers craft websites and apps that are not just beautiful, but meaningful, and help your brand succeed.\n\nWebsites\n\nYour digital presence starts with your website. That’s where your brand comes to life. We design sites that clearly show who you are and what you stand for, all while giving users a smooth, engaging experience.\n\nDevelopment\n\nOur app and web developers care about both looks and performance. We build fast, reliable products that work great on every device. Whether it’s the backend or the frontend, we aim for a seamless experience.\n\nContent\n\nGreat content is a big part of how people experience your brand. We create everything from words to visuals: copywriting, illustrations, 2D and 3D graphics, icons, animations, videos, and photography.\n\nGenerative AI\n\nWe use AI to work smarter and build better products. Our team leads the way in AI-powered UX, creating new ways for people to interact with digital tools and setting the standard for what’s next.\n\nView all clients\n\nFintech\n\nThe Future of Finance is Intelligent\nExplore fintech\nSlack\n\nDesigning and building Slack’s interactive demo experience\n\nWeb Design\nEnterprise\nDevelopment\nSTC Bank\n\nAccelerating the future of digital banking in Saudi Arabia\n\nWeb App\nMobile\nWebsite\nFintech\nUI/UX\nSky\n\nBranding and visual identity for an innovative DeFi platform\n\nBranding\nDesign System\nUI/UX\nIllustration\n3D\nSnapchat\n\nIntegrating augmented reality to elevate social commerce\n\nUI/UX\nMobile App\nEcommerce\n\nA new app and visual identity for a global chain of coffee shops and juice bars\n\nJoe & The Juice\n\nA digital commerce and loyalty app for a global coffee shop chain\n\nUI/UX\nMobile App\nConsumer\nVantara\n\nWebsite design and development for a landmark animal conservation center\n\nUI/UX\nDesign System\nWebsite\n3D\nDevelopment\nGrayscale\n\nWeb redesign for the world’s largest crypto asset manager\n\nWeb Design\nDesign System\nIllustration\nDiscover\n\nDesign partnership focused on mobile app innovation\n\nUI/UX\nDesign System\nFintech\nMarqeta\n\nWebsite and digital branding for a modern card-issuing platform\n\nWeb Design\n3D\nDevelopment\nFintech\nYahoo! Games\n\nWebsite design and development for Yahoo Games\n\nWeb Design\nDesign System\nIllustration\nDevelopment\nSerena & Lily\n\nEcommerce redesign for a leader in luxury home decor\n\nWeb Design\nDesign System\nEcommerce\nTipalti\n\nWeb redesign for a modern payables automation platform\n\nUI/UX\nDesign System\nFintech\nWebsite\nWealth\n\nDesigning a self-service digital estate planning platform\n\nBranding\nUI/UX\nWebsite\nDesign System\nArt Bridges\n\nWebsite redesign for a niche nonprofit organization\n\nWebsite\nDevelopment\nWeb Design\nExplore all work\nWe transform companies through design innovation\n\nA full-service creative agency designing and building inventive digital experiences across all platforms and brand touchpoints.\n\nView our services\n\nOur cross-disciplinary team combines strategy, branding, UX design, and technology for swift, impactful results. Working as one team with our clients, we merge human creativity with AI-driven efficiency to consistently exceed expectations.\n\nGet to know us\nFeatured News\n\nNews\n\nTipalti Redesign Wins Design Awards and Features\nCreated: Sep 3, 2026Updated: Oct 16, 20262 min read\n\nWeb Design\n\nComplete Guide to Buttons in Web Design for 2026\nCreated: Apr 21, 2026Updated: May 14, 202612 min read\n\nNews\n\nClay Global Shows Up Strong at The Webby Awards 2026\nCreated: May 6, 20261 min read\nVisit blog\nFAQ\nWhat are your core services as a UX design and branding firm?\n\nAt Clay, user experience is not just a capability but the cornerstone of our approach. We first began as a UX design agency in San Francisco, focusing on mobile apps and enterprise/SaaS software.\n\nHowever, our passion for branding and the demand from our clients led us to expand our offering to provide full-service brand design practice and web design and development of marketing websites.\n\nToday, our projects encompass a wide range, from building new products and defining brands to revitalizing existing mobile apps, websites, and enterprise software. We specialize in crafting digital products that wholeheartedly embody the brand's personality and deliver delightful experiences to your customers.\n\nOur team handles every aspect required to bring a digital product to life. This includes user research, product strategy, branding, user interface and experience design, usability testing, prototyping, web design, and development.\n\nFurthermore, we boast an in-house content production studio that provides creative direction, 2D/3D design, illustration and iconography, motion design, animation, sound design, photo/video, and copywriting services.\n\nFor web projects, we integrate considerations for SEO into our process to ensure that our client's websites are optimized for search engines; however, SEO is not offered as a standalone service.\n\nWhat separates Clay from other branding and web design agencies?\n\nIn a saturated market of excellent UX design and branding agencies, it's challenging to stand out. At Clay, we believe our client's success is intertwined with our own. We forge enduring partnerships based on trust and mutual growth, going beyond world-class services.\n\nWhen you choose us, you collaborate directly with our dedicated team, who genuinely care about your success. Our cofounders oversee every project, while a design director leads the way, ensuring thorough design reviews and involvement in project details.\n\nCommunication and transparency drive all our interactions, guaranteeing a premium client experience from start to finish. Our agility stems from working with startups, and our refined project management approach comes from enterprise experience.\n\nUnlike traditional design firms, we integrate branding and product expertise in one place, boasting cross-disciplinary teams for each project. This ensures your app or website represents your brand effectively while delivering an unforgettable user experience.\n\nLastly, we specialize in creating scalable designs that support your long-term business goals. Our portfolio showcases websites and products untouched for over five years, proving our future-proof capabilities.\n\nFor teams evaluating partners, we share curated agency rankings, including the Top Branding Agencies and Top Web Design Agencies, on our blog.\n\nDo you work with clients in different timezones?\n\nWe have extensive experience working with clients in various time zones. Based in San Francisco, we operate as a remote-first company with team members across the United States, Europe, and South-East Asia. This global presence allows us to serve clients worldwide, regardless of location.\n\nOver the past 12 years, we have perfected our remote collaboration model, enabling seamless work with clients from Saudi Arabia, China, Australia, Germany, the UK, and many other countries. We understand the challenges of different time zones and have implemented effective communication and project management strategies to overcome them.\n\nOur team excels at coordinating and scheduling meetings to accommodate clients' time preferences and availability across different regions. We prioritize clear and timely communication, leveraging various collaboration tools and platforms to maintain constant connectivity and streamline project workflows.\n\nWorking with clients across diverse time zones has expanded our agency's capabilities and deepened our understanding of global markets. It has fostered an adaptive and efficient culture within our team, allowing us to consistently deliver exceptional results while respecting and embracing our clients' unique needs and perspectives worldwide.\n\nHow much does hiring you for a design project cost?\n\nAt Clay, we understand the importance of flexibility in budget and support for our partners. We offer a blended rate for our services and work with our clients to determine what level of support we can provide based on their budgetary constraints.\n\nWe offer three engagement models: time & materials, fixed fee, and retainer. Following a series of discovery conversations and project briefings, our team will recommend the most suitable model for your needs. We will then create a customized proposal, including a timeline and estimated cost.\n\nWe aim to deliver the best possible solutions to our partners, ta"
+  }
+]

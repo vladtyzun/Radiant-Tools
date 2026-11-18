@@ -15,7 +15,7 @@ export class WP {
     this.auth = 'Basic ' + Buffer.from(`${user}:${password}`).toString('base64');
   }
 
-  async request(path, { method = 'GET', body, headers = {}, root = false } = {}) {
+  async request(path, { method = 'GET', body, headers = {}, root = false, attempt = 0 } = {}) {
     const res = await fetch((root ? this.root : this.base) + path, {
       method,
       headers: { Authorization: this.auth, Accept: 'application/json', ...headers },
@@ -25,6 +25,12 @@ export class WP {
     let data;
     try { data = text ? JSON.parse(text) : null; } catch { data = text; }
     if (!res.ok) {
+      // The site's security plugin rate-limits bursts; back off and retry.
+      if ((res.status === 429 || res.status >= 500) && attempt < 5) {
+        const wait = Number(res.headers.get('retry-after')) * 1000 || 4000 * 2 ** attempt;
+        await new Promise((r) => setTimeout(r, wait));
+        return this.request(path, { method, body, headers, root, attempt: attempt + 1 });
+      }
       const msg = data?.message || res.statusText;
       throw new Error(`${method} ${path} -> ${res.status}: ${msg}`);
     }

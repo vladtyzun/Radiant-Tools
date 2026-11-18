@@ -1,0 +1,131 @@
+{
+  "key": "industry:saas",
+  "title": "SaaS & B2B Software",
+  "slug": "saas",
+  "parentKey": "page:industries",
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "SaaS design judged on\nactivation, not applause.",
+      "lead": "Product and website design for B2B software teams — onboarding that reaches value, interfaces that survive feature growth, and sites that convince a buying committee."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "SaaS design, in short",
+      "body": "Radiant designs for B2B SaaS and software teams: product UX and UI, onboarding and activation flows, design systems, and conversion-focused marketing sites. We work with founders and product leaders who report on activation, retention, and expansion, and we scope work against those metrics. <strong>[PLACEHOLDER: name 3–5 SaaS clients and one flagship result, e.g. \"X: activation +Y% after onboarding redesign\".]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "SaaS & B2B Software",
+      "challengeTitle": "Sound familiar?",
+      "challenge": "Signups are fine and activation is not. The product that was simple at launch now carries four years of features, each added where it fit rather than where it belonged. Your website lists capabilities to a committee of buyers who each need a different answer, and nobody books the demo.",
+      "cta": { "text": "Talk to us about your SaaS project", "href": "/#contact" },
+      "deliverTitle": "Where we focus",
+      "items": [
+        "Onboarding & Activation",
+        "Dashboards & Data-dense UI",
+        "Admin & Permissions",
+        "Self-serve & PLG Flows",
+        "Pricing & Upgrade Paths",
+        "Design Systems at Scale"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "What we fix in SaaS products",
+      "cards": [
+        {
+          "title": "An empty product on day one",
+          "body": "New accounts land in a blank dashboard that proves nothing. We design the shortest honest route to first value — sample data, guided setup, and empty states that teach rather than apologise."
+        },
+        {
+          "title": "One interface, four roles",
+          "body": "The admin, the daily user, the approver, and the person who only visits monthly all share one navigation. We separate the jobs so nobody wades through someone else's workflow."
+        },
+        {
+          "title": "A website written for analysts",
+          "body": "Feature tables convince nobody on their own. We structure the site around the buying committee — the user's job, the manager's business case, and security's checklist each get a clear route."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "What SaaS teams need,\nby stage.",
+      "steps": [
+        {
+          "label": "Seed",
+          "title": "Find the shape of the product",
+          "body": "An MVP that proves the core mechanism, a site that explains it in a sentence, and enough visual system to look deliberate. Ship, learn, and avoid building a design system too early."
+        },
+        {
+          "label": "Series A",
+          "title": "Fix activation and make it repeatable",
+          "body": "Onboarding redesign, the core flows users actually run weekly, and the first real design system so your growing team stops reinventing components."
+        },
+        {
+          "label": "Series B+",
+          "title": "Multi-product without the drift",
+          "body": "Navigation that holds several products, dense data interfaces, enterprise requirements like SSO and audit views, and a system documented well enough to survive new hires."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "SaaS design questions",
+      "cards": [
+        {
+          "title": "How do you improve activation?",
+          "body": "Define the activation event honestly, measure every step to it separately, then remove or defer everything between signup and that moment. Most gains come from deletion, not addition."
+        },
+        {
+          "title": "How long does a SaaS product redesign take?",
+          "body": "A single flow takes four to six weeks. A full product redesign runs eight to twelve, usually phased by surface so you ship improvements while the rest is still in design."
+        },
+        {
+          "title": "Can you design for a product we are still building?",
+          "body": "Yes. Designing alongside engineering is normal for us — we sign flows off with your developers against real data constraints before visual design starts."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Working with product teams",
+      "cards": [
+        {
+          "title": "Do you work inside our sprints?",
+          "body": "Yes. On retainer we join your rituals, take tickets, and deliver in your cadence. On project work we run our own and sync at agreed checkpoints."
+        },
+        {
+          "title": "Can you work with our PM and engineers?",
+          "body": "That is the arrangement that works best. Engineering sees the flows before they are visually designed, which is what keeps handoff from becoming renegotiation."
+        },
+        {
+          "title": "Do you design mobile apps for SaaS products?",
+          "body": "Yes — companion apps, approvals on the move, and the places native patterns and the web product have to agree. [PLACEHOLDER: link a mobile case study.]"
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Start with the activation audit",
+      "challenge": "Give us your onboarding and the metric you report on. In two weeks you will have the drop-off mapped and a ranked list of what to change first.",
+      "cta": { "text": "Book a call", "href": "/#contact" },
+      "deliverTitle": "Services SaaS teams use most",
+      "items": [
+        "Product Design",
+        "Design Systems",
+        "Website Design",
+        "Motion Design",
+        "No-code Development"
+      ]
+    }
+  ]
+}

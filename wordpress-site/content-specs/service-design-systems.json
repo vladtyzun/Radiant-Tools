@@ -1,0 +1,131 @@
+{
+  "key": "service:design-systems",
+  "title": "Design Systems",
+  "slug": "design-systems",
+  "parentKey": "page:services",
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "One system your designers\nand engineers both trust.",
+      "lead": "Component libraries, design tokens, and documentation that make every next feature faster to design and cheaper to build — for teams whose product has outgrown its first UI kit."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Design systems, in short",
+      "body": "Radiant builds and audits design systems for product teams: component libraries, design tokens, Figma variables, auto layout, documentation and annotations. We work in your stack and hand over a system your engineers can implement one-to-one. <strong>[PLACEHOLDER: name systems you have shipped, team sizes, and one before/after metric such as design-to-build time.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Design Systems",
+      "challengeTitle": "The challenge",
+      "challenge": "Every new feature introduces inconsistencies. Buttons come in sizes nobody agreed on. Colors shift between pages. Engineers rebuild the same components because nothing is documented, tokenized, or reusable, and every sprint moves slower because of it.",
+      "cta": { "text": "Explore design systems", "href": "/#contact" },
+      "deliverTitle": "What you get",
+      "items": [
+        "Component Libraries",
+        "Design Tokens",
+        "Figma Variables",
+        "Auto Layout",
+        "Documentation & Annotations",
+        "System Audits"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Why systems decay",
+      "cards": [
+        {
+          "title": "It was built for designers only",
+          "body": "A beautiful Figma library that no engineer can map to code is a mood board. We define tokens and component APIs with your developers in the room, so both sides name the same thing the same way."
+        },
+        {
+          "title": "Nobody owns it after launch",
+          "body": "Systems rot the first time someone is in a hurry. We hand over contribution rules, a review ritual, and documentation short enough that people actually read it."
+        },
+        {
+          "title": "It covers the happy path only",
+          "body": "Loading, empty, error, disabled, dense data, long strings, dark mode. The states nobody designs are the ones engineers improvise — and that is where drift starts."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "Three steps.\nNo surprises.",
+      "steps": [
+        {
+          "label": "Step 1",
+          "title": "Audit what exists",
+          "body": "We inventory every component, colour, and type style in your product and your Figma, and show you the duplication with numbers. Most teams find more variants than they expected."
+        },
+        {
+          "label": "Step 2",
+          "title": "Tokens, then components",
+          "body": "Primitives and semantic tokens first, then components built on them with full states and auto layout. Named to match your codebase so implementation is a rename, not a rewrite."
+        },
+        {
+          "label": "Step 3",
+          "title": "Document and hand over",
+          "body": "Usage rules, annotations, and contribution guidelines, plus a working session with your designers and engineers so the system survives the first sprint after we leave."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "Questions on design systems",
+      "cards": [
+        {
+          "title": "What is a design system?",
+          "body": "A design system is the shared set of tokens, components, patterns, and rules a team designs and builds from. It is not a UI kit — the documentation and the agreement on how to use it are what make it a system."
+        },
+        {
+          "title": "How long does a design system take?",
+          "body": "An audit takes two weeks. A working system for a focused product takes six to ten weeks. A system spanning several products is phased, starting with the surface that changes most."
+        },
+        {
+          "title": "Do we need one yet?",
+          "body": "If you have more than two designers, more than one product surface, or engineers rebuilding components, yes. Below that, a tidy component library and token set is usually enough."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Tooling and implementation",
+      "cards": [
+        {
+          "title": "Which tools do you work in?",
+          "body": "Figma with variables and modes for design, tokens exported in whatever format your stack consumes. We work with Storybook, Tailwind, and component libraries your engineers already use."
+        },
+        {
+          "title": "Can you work with our existing system?",
+          "body": "Yes, and extending a system you already have is usually cheaper than replacing it. We will tell you plainly if the foundation genuinely needs rebuilding, and why."
+        },
+        {
+          "title": "Do you help engineers implement it?",
+          "body": "We pair with your developers through implementation and run design QA against the built components, so what ships matches what was documented."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Start with a system audit",
+      "challenge": "Give us access to your product and your Figma. In two weeks you will have an inventory, the duplication count, and a prioritized plan — useful whether or not we build the system for you.",
+      "cta": { "text": "Book a call", "href": "/#contact" },
+      "deliverTitle": "Related services",
+      "items": [
+        "Product Design",
+        "Website Design",
+        "Motion Design",
+        "Branding & Visual Identity",
+        "No-code Development"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "key": "industry:fintech",
+  "title": "Fintech & Payments",
+  "slug": "fintech",
+  "parentKey": "page:industries",
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "In fintech, design is\nthe first security review.",
+      "lead": "Brand, product, and website design for payments, banking, and wealth teams. We make money products legible, credible, and finishable — from stealth to Series B."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Fintech design, in short",
+      "body": "Radiant is a product design studio working with fintech and payments companies on brand identity, product UX and UI, and conversion-focused websites. Fintech work includes Hawala, a fintech startup we branded from the ground up, and Walletbase, where gamification turned passive users into repeat ones. <strong>[PLACEHOLDER: add named metrics — Walletbase retention lift, Hawala launch outcome — and update the date stamp each quarter. This paragraph is what AI search engines quote.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Fintech & Payments",
+      "challengeTitle": "Sound familiar?",
+      "challenge": "Visitors decide whether you are safe with their money before they read a word. Your product sits on rails, ledgers, and licences almost nobody understands, your brand could be swapped with any other fintech's, and the people who do sign up drop out somewhere in KYC. None of that is a copywriting problem.",
+      "cta": { "text": "Talk to us about your fintech project", "href": "/#contact" },
+      "deliverTitle": "Where we focus",
+      "items": [
+        "Payments & Wallets",
+        "Digital Banking",
+        "Wealth & Investing",
+        "Lending Platforms",
+        "Compliance & RegTech",
+        "Embedded Finance & BNPL"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "What we fix in fintech products",
+      "cards": [
+        {
+          "title": "KYC that people abandon",
+          "body": "Document upload is where funded fintechs quietly lose their cohort. We design onboarding that explains why each step exists, saves progress, and shows how much is left — then instrument it so you can see where the drop really happens."
+        },
+        {
+          "title": "Trust signals arriving too late",
+          "body": "Licensing lines, partner banks, and risk disclosures pasted into the footer at the end of a build. We plan them from the first wireframe, so they read clearly and appear where the user is deciding."
+        },
+        {
+          "title": "A brand indistinguishable from the category",
+          "body": "Blue gradients, floating cards, the same three icons. We build identities that feel as safe as a bank and look like nobody else — tested against your product UI, not just a logo sheet."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "What fintech teams need,\nby stage.",
+      "steps": [
+        {
+          "label": "Stealth / Seed",
+          "title": "Make it legible and fundable",
+          "body": "One story that works for investors and first users. Brand, a product MVP that proves the mechanism, and a site that survives a diligence call. Speed matters more than completeness here."
+        },
+        {
+          "label": "Launch / Series A",
+          "title": "Make it convert",
+          "body": "Onboarding and KYC that people finish, a website that answers 'is this safe' above the fold, and the design system that stops the product drifting while you hire."
+        },
+        {
+          "label": "Growth / Series B+",
+          "title": "Make it scale without drift",
+          "body": "Multi-product navigation, dense data interfaces, accessibility compliance, and a system your growing design and engineering teams can both build from."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Fintech work",
+      "name": "Hawala & Walletbase",
+      "role": "Fintech branding and product design",
+      "quote": "[PLACEHOLDER: pull one client quote and two hard numbers from the Hawala and Walletbase case studies — e.g. activation lift, time to launch, funding raised. Link both case studies here.]"
+    },
+    {
+      "p": "cards3",
+      "heading": "Fintech design questions",
+      "cards": [
+        {
+          "title": "How do fintech websites build trust?",
+          "body": "By answering the safety question before the feature list: who holds the money, which licence or partner bank applies, what happens if something goes wrong. Those belong above the fold, not in the footer."
+        },
+        {
+          "title": "How do you design KYC people actually finish?",
+          "body": "Explain the reason for each step, ask for the hardest document when motivation is highest, save progress, and show remaining steps. Then measure each stage separately — the average completion rate hides where the loss is."
+        },
+        {
+          "title": "Do you handle compliance sign-off?",
+          "body": "No, and be wary of a studio that says it does. We design disclosures, consent, and risk wording to be clear and prominent, then your counsel approves the final language."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Working with fintech teams",
+      "cards": [
+        {
+          "title": "Do you sign NDAs and work in stealth?",
+          "body": "Yes, as standard. A good share of our fintech work has started before public launch, and we treat funding timing as confidential until you announce it."
+        },
+        {
+          "title": "Can you design both the product and the marketing site?",
+          "body": "Yes, and in fintech it matters more than elsewhere: the credibility built on the site has to survive the first product screen. One team keeps that promise intact."
+        },
+        {
+          "title": "Does accessibility law apply to us?",
+          "body": "If you serve EU consumers, the European Accessibility Act now covers consumer banking and payments. We design to WCAG 2.2 AA by default — [PLACEHOLDER: confirm how you document conformance for clients]."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Start with the trust audit",
+      "challenge": "Send us your signup flow and your homepage. We will show you where a cautious user hesitates, and what we would change first.",
+      "cta": { "text": "Book a call", "href": "/#contact" },
+      "deliverTitle": "Services fintech teams use most",
+      "items": [
+        "Product Design",
+        "Branding & Visual Identity",
+        "Website Design",
+        "Design Systems",
+        "Pitch Decks & Collaterals"
+      ]
+    }
+  ]
+}

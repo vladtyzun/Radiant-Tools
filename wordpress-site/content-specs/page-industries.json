@@ -1,0 +1,112 @@
+{
+  "key": "page:industries",
+  "title": "Industries",
+  "slug": "industries",
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "We design for markets\nwhere trust decides the sale.",
+      "lead": "Fintech, SaaS, real estate, AI, health, and web3. The design problems differ by market — what users fear, what regulators require, what a buyer checks before signing up."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Industries, in short",
+      "body": "Radiant is a boutique product design studio working with founders and product leaders across fintech, B2B SaaS, real estate and proptech, AI, healthtech, and web3. We go deepest in fintech and real estate, where we have shipped brand, product, and website work end to end. <strong>[PLACEHOLDER: add the client count and years active once confirmed.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Where we go deepest",
+      "challengeTitle": "Why market matters",
+      "challenge": "A pattern that converts in consumer fintech fails in enterprise SaaS, and a real estate buyer looks for completely different proof than a developer evaluating an API. We bring the conventions, the objections, and the compliance realities of your market into the first wireframe, rather than discovering them in review.",
+      "cta": { "text": "Find your industry", "href": "/#contact" },
+      "deliverTitle": "Industries we serve",
+      "items": [
+        "Fintech & Payments",
+        "SaaS & B2B Software",
+        "Real Estate & PropTech",
+        "AI & Data Products",
+        "Healthtech",
+        "Web3 & Crypto"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "The same team, whatever you sell",
+      "cards": [
+        {
+          "title": "Your market first",
+          "body": "We start from what your buyer already believes and what your competitors have trained them to expect. The design argument is built against that, not against a generic best practice list."
+        },
+        {
+          "title": "One studio for brand, site, and product",
+          "body": "The identity, the marketing site, and the product interface are designed by the same people. Nothing is lost in translation between three vendors who have never met."
+        },
+        {
+          "title": "Senior work, every 48 hours",
+          "body": "Boutique by choice. You work directly with senior designers, see progress twice a week, and never pay for a layer of account management between you and the work."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "Three steps.\nNo surprises.",
+      "steps": [
+        {
+          "label": "Step 1",
+          "title": "Book a call",
+          "body": "We align on goals, review your product, and define the right scope — whether that's a landing page, a full redesign, or an ongoing partnership."
+        },
+        {
+          "label": "Step 2",
+          "title": "We assign our expert team",
+          "body": "You get a dedicated senior designer, and a project manager on retainers. Work starts within days, not after a hiring round."
+        },
+        {
+          "label": "Step 3",
+          "title": "We deliver daily",
+          "body": "Design updates every 48 hours. You review in real time, give feedback fast, and ship faster than any in-house hire could ramp up."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "Questions about working with us",
+      "cards": [
+        {
+          "title": "Do you only work with these industries?",
+          "body": "No. These are the markets where we have the deepest pattern library and can move fastest. We take work outside them when the problem is a good fit — the first call will tell us both."
+        },
+        {
+          "title": "Can you work with regulated products?",
+          "body": "Yes. We design with your compliance counsel, planning disclosures, consent, and risk wording from the first wireframe. We design them well; we do not sign them off."
+        },
+        {
+          "title": "Do you work with pre-seed and early-stage startups?",
+          "body": "Yes, and often from stealth. Early work is usually a focused scope — an MVP, an identity, a launch site — rather than everything at once."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Tell us what you're building",
+      "challenge": "Send us your product and the metric you need to move this quarter. We will tell you what we would do first, and whether we are the right studio for it.",
+      "cta": { "text": "Book a call", "href": "/#contact" },
+      "deliverTitle": "Start with a service",
+      "items": [
+        "Product Design",
+        "Website Design",
+        "Branding & Visual Identity",
+        "Design Systems",
+        "Motion Design"
+      ]
+    }
+  ]
+}

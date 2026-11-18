@@ -1,0 +1,131 @@
+{
+  "key": "service:website-design",
+  "title": "Website Design",
+  "slug": "website-design",
+  "parentKey": "page:services",
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "Websites that explain the product\nand book the meeting.",
+      "lead": "Conversion-focused website design for SaaS, fintech, and founder-led companies — positioning, structure, UX writing, and build-ready design in one engagement."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Website design, in short",
+      "body": "Radiant designs marketing sites and landing pages for technical products: positioning and message hierarchy, sitemap and page structure, UX writing, responsive design, and the product visuals that carry the story. We hand over build-ready design, or build it ourselves in Webflow, Framer, or WordPress. <strong>[PLACEHOLDER: name 3–5 website clients and one measurable result, e.g. \"X: +Y% demo requests after relaunch\".]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Website Design",
+      "challengeTitle": "The challenge",
+      "challenge": "Visitors land on your site and leave without understanding what you do. The messaging is vague, the structure is confusing, and the conversion path doesn't guide anyone toward a demo, a signup, or a purchase.",
+      "cta": { "text": "Start a website project", "href": "/#contact" },
+      "deliverTitle": "What you get",
+      "items": [
+        "Landing Pages",
+        "SaaS Websites",
+        "Marketing Sites",
+        "Responsive Design",
+        "UX Writing",
+        "Product Visuals"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Where websites lose the deal",
+      "cards": [
+        {
+          "title": "The homepage describes the category, not the product",
+          "body": "A visitor should know what you do, who it is for, and what to do next within one screen. We write the hierarchy first and design to it, instead of decorating a vague headline."
+        },
+        {
+          "title": "One page is asked to convince four people",
+          "body": "The user, their manager, security, and finance all land in the same place. We give each of them a route, so nobody has to read someone else's page to find their answer."
+        },
+        {
+          "title": "Every new page needs a developer",
+          "body": "Campaigns stall in a ticket queue. We build page structures and components your marketing team can recombine without writing code or filing a request."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "Three steps.\nNo surprises.",
+      "steps": [
+        {
+          "label": "Step 1",
+          "title": "Position and structure",
+          "body": "We agree what the site has to prove, to whom, and in what order. You get a sitemap and a message hierarchy per page before any visual work starts — the cheapest place to disagree."
+        },
+        {
+          "label": "Step 2",
+          "title": "Design and write together",
+          "body": "Copy and layout are designed in the same pass, because a headline written after the box exists is a caption. Reviewable work every 48 hours, desktop and mobile in step."
+        },
+        {
+          "label": "Step 3",
+          "title": "Build or hand off",
+          "body": "We build in Webflow, Framer, or WordPress with the CMS set up for your team — or hand over build-ready design with components, states, and specs your developers can work from directly."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "Questions on website design",
+      "cards": [
+        {
+          "title": "How much does a website design cost?",
+          "body": "A landing page starts at [PLACEHOLDER: price]. A full marketing site is scoped by page count and depth of product storytelling, typically [PLACEHOLDER: range]. We quote after a call."
+        },
+        {
+          "title": "How long does a website project take?",
+          "body": "A landing page takes two to three weeks. A full site runs six to ten weeks from positioning to launch, including build. Redesigns of large sites take longer because the redirect map matters."
+        },
+        {
+          "title": "Can you write the copy as well?",
+          "body": "Yes. UX writing is part of every engagement, and we draft full page copy when you need it. You keep final say on claims, pricing, and anything legal or regulated."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Platforms and migrations",
+      "cards": [
+        {
+          "title": "Which platform should we be on?",
+          "body": "Webflow and Framer for marketing sites your team updates weekly; WordPress when you have an existing content library or plugin dependencies. We recommend based on who will maintain it, not on what we prefer to build."
+        },
+        {
+          "title": "Can you redesign our site without losing traffic?",
+          "body": "Yes. We keep the URL structure that earns traffic, build a redirect map before launch, and preserve the pages search engines already trust. [PLACEHOLDER: link the migration case study.]"
+        },
+        {
+          "title": "Will our team be able to update it?",
+          "body": "That is the point. We set up the CMS, name the components in your language, and record a short handover walkthrough so your marketer can ship a page without us."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Send us the current site",
+      "challenge": "Tell us what the site has to achieve this quarter. We will come back with the three changes we would make first, and what a full engagement would involve.",
+      "cta": { "text": "Book a call", "href": "/#contact" },
+      "deliverTitle": "Related services",
+      "items": [
+        "No-code Development",
+        "Branding & Visual Identity",
+        "Motion Design",
+        "Product Design",
+        "Design Systems"
+      ]
+    }
+  ]
+}

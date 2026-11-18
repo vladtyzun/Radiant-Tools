@@ -1,0 +1,131 @@
+{
+  "key": "industry:real-estate",
+  "title": "Real Estate & PropTech",
+  "slug": "real-estate-proptech",
+  "parentKey": "page:industries",
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "Property is sold on\nconfidence and photography.",
+      "lead": "Brand, website, and product design for real estate companies and proptech platforms — from luxury listings to the software agents and buyers use every day."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Real estate design, in short",
+      "body": "Radiant designs brands, websites, and products for real estate and proptech. Our work includes Lumen, a luxury real estate brand built from the ground up, and Red Cottage, where branding established a new real estate startup's credibility at launch. <strong>[PLACEHOLDER: add results from both case studies — enquiry volume, launch timeline, funding — and link them.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Real Estate & PropTech",
+      "challengeTitle": "Sound familiar?",
+      "challenge": "Your listings look like everyone else's because you all use the same portal template. Buyers judge a property in seconds from imagery and a price, and judge you in the same glance. Meanwhile the software your agents use was designed for a desktop in an office, not a phone in a hallway.",
+      "cta": { "text": "Talk to us about your property project", "href": "/#contact" },
+      "deliverTitle": "Where we focus",
+      "items": [
+        "Luxury & Residential Brands",
+        "Listing & Search Experiences",
+        "Agent & Broker Tools",
+        "Property Management Platforms",
+        "Investment & Fractional Platforms",
+        "Developer & Project Launch Sites"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "What we fix in property businesses",
+      "cards": [
+        {
+          "title": "A brand that cannot carry the price",
+          "body": "Premium property sold through a generic identity loses the argument before the viewing. We build brands where the typography, pacing, and photography direction justify the number on the listing."
+        },
+        {
+          "title": "Search that fights the buyer",
+          "body": "Filters built around the database rather than the decision. We design search around how people actually narrow — location feel, light, layout, commute — not only bedrooms and price."
+        },
+        {
+          "title": "Agent tools designed for a desk",
+          "body": "The people using your platform are standing in a property with one hand free. We design for that context first, then scale the interface up to desktop."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "What property teams need,\nby stage.",
+      "steps": [
+        {
+          "label": "Launch",
+          "title": "Establish credibility fast",
+          "body": "Identity, a site that makes the portfolio look worth its price, and the launch assets a new agency or development needs to be taken seriously from week one."
+        },
+        {
+          "label": "Growth",
+          "title": "Turn traffic into enquiries",
+          "body": "Listing and search experiences designed around the buyer's real decision, with enquiry paths that do not ask for a phone number before showing a floor plan."
+        },
+        {
+          "label": "Platform",
+          "title": "Software people choose to use",
+          "body": "Agent, landlord, and tenant tools designed for the phone, with the dense data views and permissions a maturing proptech platform needs."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Property work",
+      "name": "Lumen & Red Cottage",
+      "role": "Luxury real estate and proptech branding",
+      "quote": "[PLACEHOLDER: pull a client quote and two numbers from the Lumen and Red Cottage case studies, then link both.]"
+    },
+    {
+      "p": "cards3",
+      "heading": "Real estate design questions",
+      "cards": [
+        {
+          "title": "What makes a real estate website convert?",
+          "body": "Photography given room to work, a clear price and location above the fold, and an enquiry step that asks for the minimum. Most property sites lose people by demanding registration too early."
+        },
+        {
+          "title": "Can you work with portal data feeds?",
+          "body": "Yes. We design around the feed you have — MLS, Rightmove, or a custom API — including the ugly realities of inconsistent image sizes and missing fields. [PLACEHOLDER: name the feeds you have integrated.]"
+        },
+        {
+          "title": "Do you design for developers and new builds?",
+          "body": "Yes: project launch sites, unit selectors, floor plan interfaces, and the brochure and collateral that go with a development launch."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Working with property teams",
+      "cards": [
+        {
+          "title": "Do you handle photography and CGI?",
+          "body": "[PLACEHOLDER: confirm. We art-direct and specify; say here whether you produce, partner, or brief the client's own suppliers.]"
+        },
+        {
+          "title": "Can you build the site as well as design it?",
+          "body": "Yes — Webflow, Framer, or WordPress with the listing CMS modelled so your team can publish a property without a developer."
+        },
+        {
+          "title": "How long does a property brand and site take?",
+          "body": "An identity takes four to six weeks; a listing site six to ten including build. A full platform product is scoped separately."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Send us a listing",
+      "challenge": "Show us one property page and tell us what it should achieve. We will come back with what we would change about the brand, the imagery, and the enquiry path.",
+      "cta": { "text": "Book a call", "href": "/#contact" },
+      "deliverTitle": "Services property teams use most",
+      "items": [
+        "Branding & Visual Identity",
+        "Website Design",
+        "No-code Development",
+        "Product Design",
+        "Motion Design"
+      ]
+    }
+  ]
+}

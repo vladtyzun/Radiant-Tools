@@ -1,0 +1,131 @@
+{
+  "key": "service:pitch-decks",
+  "title": "Pitch Decks & Collaterals",
+  "slug": "pitch-deck-design",
+  "parentKey": "page:services",
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "A deck as convincing\nas the company behind it.",
+      "lead": "Investor decks, sales presentations, and collateral for founders raising a round, closing a deal, or aligning a board — narrative first, then design that carries it."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Pitch deck design, in short",
+      "body": "Radiant designs investor pitch decks, sales presentations, one-pagers, case studies, data visualizations, and proposal templates. We work on the narrative and the numbers, not only the slides, and hand over editable templates your team can keep using. <strong>[PLACEHOLDER: name decks designed, rounds raised where you have permission to say so, and typical turnaround.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Pitch Decks & Collaterals",
+      "challengeTitle": "The challenge",
+      "challenge": "Your product is strong enough to raise a round, close a deal, or align the board — but the deck telling that story looks like it was made in a free template at midnight. Slides are cluttered, data visualizations are confusing, and the narrative doesn't build conviction the way the product itself does.",
+      "cta": { "text": "Sharpen your pitch deck", "href": "/#contact" },
+      "deliverTitle": "What you get",
+      "items": [
+        "Investor Pitch Decks",
+        "Sales Presentations",
+        "One-Pagers",
+        "Case Study Design",
+        "Data Visualization",
+        "Proposal Templates"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Why decks fail in the room",
+      "cards": [
+        {
+          "title": "The story arrives in the wrong order",
+          "body": "Investors need the problem, the insight, and the evidence before the product tour. We restructure the narrative first; design cannot rescue a sequence that argues backwards."
+        },
+        {
+          "title": "The numbers are decorated, not explained",
+          "body": "Three-dimensional pie charts and unlabelled axes read as hiding something. We design each chart around the one comparison it exists to make."
+        },
+        {
+          "title": "Every slide competes for attention",
+          "body": "If everything is bold, nothing is. One idea per slide, a visual hierarchy that survives a projector, and a version that still works when read on a phone."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "Three steps.\nNo surprises.",
+      "steps": [
+        {
+          "label": "Step 1",
+          "title": "Narrative review",
+          "body": "We read your current deck and your data room, then rebuild the storyline as a written outline. You approve the argument before anyone opens a design file."
+        },
+        {
+          "label": "Step 2",
+          "title": "Design the argument",
+          "body": "Slide design, data visualization, and product imagery, delivered in batches so you can rehearse with real slides while the rest is still in progress."
+        },
+        {
+          "label": "Step 3",
+          "title": "Hand over a template",
+          "body": "Editable master slides in your tool of choice, with a component library for charts and layouts, so the next ten decks do not need us."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "Questions on pitch deck design",
+      "cards": [
+        {
+          "title": "How much does a pitch deck cost?",
+          "body": "A seed deck starts at [PLACEHOLDER: price]. A Series A deck with narrative work and custom data visualization is [PLACEHOLDER: range]. Priced per deck, with the template included."
+        },
+        {
+          "title": "How fast can you turn one around?",
+          "body": "A focused redesign of an existing deck takes one to two weeks. Narrative plus design from scratch takes three. We have done faster for a live raise — ask."
+        },
+        {
+          "title": "Do you write the content?",
+          "body": "We restructure the narrative and sharpen the wording. The claims, metrics, and financials come from you, and you sign off on every number that appears."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Format and confidentiality",
+      "cards": [
+        {
+          "title": "Which tool do you deliver in?",
+          "body": "Figma, Google Slides, PowerPoint, or Keynote. We ask what you will present from and what your team can edit, then build natively in that — no exports that break on open."
+        },
+        {
+          "title": "Do you sign NDAs?",
+          "body": "Yes, as standard, before we see anything. We work with companies in stealth and treat raise timing as confidential until you say otherwise."
+        },
+        {
+          "title": "Can you design the data room too?",
+          "body": "Yes — one-pagers, case studies, financial summaries, and the proposal templates your sales team sends after the meeting."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Send the current deck",
+      "challenge": "Share what you have and who you are presenting to. We will come back with the three structural changes we would make, before you commit to anything.",
+      "cta": { "text": "Book a call", "href": "/#contact" },
+      "deliverTitle": "Related services",
+      "items": [
+        "Branding & Visual Identity",
+        "Motion Design",
+        "Website Design",
+        "Product Design",
+        "Design Systems"
+      ]
+    }
+  ]
+}

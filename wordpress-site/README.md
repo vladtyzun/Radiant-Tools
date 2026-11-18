@@ -66,3 +66,25 @@ NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt npm run check
 ```
 
 The site's host must also be on the environment's allowed-hosts list. If the host's security plugin rate-limits you (HTTP 429), wait a minute and retry.
+
+## Building Services & Industries pages from specs
+
+`content-specs/*.json` hold the **copy** for the Services and Industries page tree. The builder
+turns each spec into a WordPress **draft**, assembling the Elementor layout by cloning section
+patterns from the existing "Our Services" page, so new pages inherit the site's fonts, colour
+globals and widget styling instead of arriving as unstyled HTML.
+
+```bash
+node bin/build-pages.mjs --dry-run      # list specs, section counts, word counts
+node bin/build-pages.mjs                # create/update the drafts
+node bin/build-pages.mjs product-design # just one
+```
+
+`content-specs/built.json` maps each spec to the WordPress page id it created, so re-running
+updates the same draft rather than creating duplicates. Edit the copy in the spec and re-run.
+
+Section types available to a spec (`p`): `hero`, `intro`, `block` (challenge + list + CTA),
+`cards3`, `steps3`, `proof`. Patterns and their patch paths live in `lib/elementor.mjs`;
+`research/elementor/7363.json` is the cloned source and must stay in the repo.
+
+Competitor research, screenshots and the IA analysis are in `research/`.
