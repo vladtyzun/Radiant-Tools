@@ -114,3 +114,30 @@ page's content or Elementor data.
 
 > Never give a normal spec the key `page:services` — the builder would overwrite the hand-built
 > parent page. Use a `seoOnly` spec for it instead.
+
+### Previewing a draft (`bin/preview.mjs`)
+
+Application passwords authenticate REST only, so a draft page cannot be fetched with a
+browser and there is no way to *see* generated output from here. `bin/preview.mjs <pageId>`
+works around that safely:
+
+1. copies the page to a throwaway page with a random slug **and a random password**;
+2. publishes the copy, then fetches it anonymously and **aborts unless the response is the
+   password gate** — content is never served to an unauthenticated request, so there is
+   nothing for a crawler to index;
+3. screenshots at 1440 / 834 / 390 px using the `wp-postpass` cookie;
+4. force-deletes the copy in a `finally` block, verifies it is gone, and checks `sitemap.xml`.
+
+The real page stays a draft and its slug is never published.
+
+**Known blocker:** the host's bot protection (adm.tools) serves a CAPTCHA/429 "Protected
+section" page to this server's IP for *front-end* HTML requests, so screenshots come back as
+the challenge page. The REST API is unaffected. To use this tool, allow the client IP in the
+hosting bot-protection settings; otherwise previews must be done by a human in the browser.
+
+### AIOSEO gotcha
+
+Write SEO through `aioseo_meta_data` on `wp/v2/pages` only. The plugin's own
+`POST /aioseo/v1/post` endpoint accepts a *partial* payload, returns `success: true`, and
+silently resets the fields you left out — it wiped a page's SEO title and description during
+testing. The `robots_*` flags are read-only over REST; set noindex in wp-admin.

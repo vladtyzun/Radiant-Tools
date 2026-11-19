@@ -101,7 +101,8 @@ export function section(entry, patterns) {
   const node = clone(pattern.node);
   applySlots(node, pattern.slots, entry);
   if (pattern.repeat) {
-    const rows = entry.rows || [];
+    // `cards` / `steps` are the older spec spellings for the same repeat data.
+    const rows = entry.rows || entry.cards || entry.steps || [];
     if (!rows.length) throw new Error(`pattern "${entry.p}" needs rows`);
     applyRepeat(node, pattern.repeat, rows);
   }
