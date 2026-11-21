@@ -1,0 +1,17 @@
+{
+  "name": "radiant-wordpress-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Manage and edit the Radiant design studio WordPress site from this repo via the WordPress REST API.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "bin": { "wp-site": "./bin/wp-site.mjs" },
+  "scripts": {
+    "wp": "node bin/wp-site.mjs",
+    "check": "node bin/wp-site.mjs check",
+    "pull": "node bin/wp-site.mjs pull",
+    "push": "node bin/wp-site.mjs push",
+    "backup": "node bin/wp-site.mjs backup",
+    "test": "node --test"
+  }
+}

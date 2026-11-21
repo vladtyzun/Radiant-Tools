@@ -1,0 +1,142 @@
+{
+  "key": "service:no-code-development",
+  "title": "No-code Development",
+  "slug": "no-code-development",
+  "parentKey": "page:services",
+  "seo": {
+    "title": "Webflow, Framer & WordPress Development | Radiant",
+    "description": "Designed and built by one studio. Webflow, Framer and WordPress builds with CMS setup, motion and analytics — live this quarter, not next year.",
+    "keyphrase": "no-code development agency"
+  },
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "Designed and built by one team.\nLive this quarter.",
+      "lead": "Webflow, Framer, and WordPress builds from the studio that designed them — no handoff, no agency-to-dev translation layer, no paying twice for the same alignment meeting."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "No-code development, in short",
+      "body": "Radiant builds production websites in Webflow, Framer, and WordPress, including CMS setup, motion and interactions, and analytics. Because the same studio designs and builds, there is no handoff gap: what was designed is what ships. <strong>[PLACEHOLDER: name platforms you are certified or most experienced in, plus 2–3 built sites with launch dates.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "No-code Development",
+      "challengeTitle": "The challenge",
+      "challenge": "You need a professional website live this quarter, not six months from now. And you don't want to coordinate a separate design agency and dev shop, manage handoffs between them, and pay twice for alignment meetings.",
+      "cta": {
+        "text": "Which platform to choose",
+        "href": "/#contact"
+      },
+      "deliverTitle": "What you get",
+      "items": [
+        "Webflow Development",
+        "Framer Development",
+        "Wordpress Development",
+        "CMS Setup",
+        "Motion and Interactions",
+        "Analytics Integration"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Where builds go wrong",
+      "cards": [
+        {
+          "title": "The build quietly redesigns the design",
+          "body": "Spacing drifts, states go missing, the animation gets dropped because it was hard. When the people who designed it also build it, none of that negotiation happens behind your back."
+        },
+        {
+          "title": "The CMS is modelled for the launch, not the year",
+          "body": "Six months in, a new case study needs a developer. We model collections around the content you will keep publishing, then show your team how to use them."
+        },
+        {
+          "title": "Analytics arrive after launch",
+          "body": "Events get bolted on once someone asks for a number. We instrument the conversion path during the build, so the first week of traffic is measurable."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "Three steps.\nNo surprises.",
+      "steps": [
+        {
+          "label": "Step 1",
+          "title": "Pick the platform honestly",
+          "body": "We ask who maintains the site, how often it changes, and what it must integrate with. The answer decides Webflow, Framer, or WordPress — not our preference, and we will tell you when code is the better call."
+        },
+        {
+          "label": "Step 2",
+          "title": "Build with the CMS first",
+          "body": "Collections and components before pages, so your content model survives growth. Motion and interactions are built in, not added as an afterthought."
+        },
+        {
+          "label": "Step 3",
+          "title": "Launch, measure, hand over",
+          "body": "Redirects, performance pass, analytics, and a recorded walkthrough for your team. You own the project, the account, and the ability to change it without calling us."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "Questions on no-code development",
+      "cards": [
+        {
+          "title": "Webflow, Framer, or WordPress — which is right for us?",
+          "body": "Framer for speed and motion-heavy marketing sites; Webflow when you need a richer CMS and tighter control; WordPress when you have an existing content library, plugins, or an editorial team already trained on it."
+        },
+        {
+          "title": "How long does a build take?",
+          "body": "A landing page builds in a few days once design is signed off. A full marketing site takes two to four weeks of build after design, depending on CMS complexity and motion."
+        },
+        {
+          "title": "What does it cost to run afterwards?",
+          "body": "Platform subscriptions plus hosting, typically [PLACEHOLDER: monthly range]. We list the real running cost before you choose a platform, including the plan tier your CMS actually needs."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Ownership and maintenance",
+      "cards": [
+        {
+          "title": "Do we own the site?",
+          "body": "Completely. The project lives in your account on your billing from day one. We work inside it as collaborators, so there is nothing to transfer and nothing held hostage."
+        },
+        {
+          "title": "Can you maintain it for us?",
+          "body": "Yes, on a monthly retainer covering updates, new pages, and performance. Plenty of clients take the handover and run it themselves — both are fine."
+        },
+        {
+          "title": "Can you work from designs we already have?",
+          "body": "Yes. We will review them first and flag anything that will not survive contact with a real CMS or a real phone, then build."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Start with the platform call",
+      "challenge": "Tell us your deadline, who will maintain the site, and what it has to integrate with. We will recommend a platform and a realistic launch date on the call — free, and useful even if you build elsewhere.",
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Related services",
+      "items": [
+        "Website Design",
+        "Motion Design",
+        "Design Systems",
+        "Product Design",
+        "Branding & Visual Identity"
+      ]
+    }
+  ]
+}

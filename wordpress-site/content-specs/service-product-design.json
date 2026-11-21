@@ -1,0 +1,216 @@
+{
+  "key": "service:product-design",
+  "title": "Product Design",
+  "slug": "product-design",
+  "parentKey": "page:services",
+  "seo": {
+    "title": "Product Design Studio for SaaS & Fintech | Radiant",
+    "description": "We design SaaS platforms, dashboards and mobile products that move activation, retention and revenue. Senior work delivered every 48 hours.",
+    "keyphrase": "product design studio"
+  },
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "Product design that moves\nactivation, retention, and revenue.",
+      "lead": "We design SaaS platforms, dashboards, and mobile products for founders and product leaders — from a first MVP to a mature product your team ships against every week."
+    },
+    {
+      "p": "logos"
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Product design, in short",
+      "body": "Radiant is a boutique product design studio. We design product UX and UI for SaaS, fintech, and marketplace teams: UX audits, user flows, interface design, design systems, and animated product visualizations. Engagements run from a two-week audit to an embedded design partner, with senior work delivered every 48 hours. <strong>[PLACEHOLDER: name 3–5 product clients and one flagship result.]</strong>"
+    },
+    {
+      "p": "grid6",
+      "heading": "Where products lose people",
+      "lead": "Six places we find revenue leaking in products that already have users. If two or three sound familiar, start with the audit.",
+      "rows": [
+        {
+          "icon": "lu lu-door-open",
+          "title": "Onboarding that never reaches value",
+          "body": "People sign up, land in an empty product, and never reach the moment that proves it works. We design the shortest honest path to first value, and the empty states that carry users there."
+        },
+        {
+          "icon": "lu lu-route",
+          "title": "Core flows that grew by accident",
+          "body": "The flow that worked for one use case now serves four, with branches nobody designed. We map it as it is, then redraw it around the job the user came to do."
+        },
+        {
+          "icon": "lu lu-users",
+          "title": "One interface, four roles",
+          "body": "The admin, the daily user, the approver and the monthly visitor share one navigation. We separate the jobs so nobody wades through someone else's workflow."
+        },
+        {
+          "icon": "lu lu-circle-alert",
+          "title": "Empty and error states nobody designed",
+          "body": "The states users hit on their worst day were improvised by whoever built the screen. We design them deliberately, because that is where trust is won or lost."
+        },
+        {
+          "icon": "lu lu-chart-spline",
+          "title": "Activation you cannot see",
+          "body": "If the activation event is not defined and each step to it measured separately, the average hides where the loss is. We instrument the path before we redesign it."
+        },
+        {
+          "icon": "lu lu-component",
+          "title": "A design system drifting out of sync",
+          "body": "Buttons in sizes nobody agreed on, colours that shift between screens, engineers rebuilding the same component. We tokenize what exists and document what ships."
+        }
+      ]
+    },
+    {
+      "p": "chipCards",
+      "rows": [
+        {
+          "title": "UX audit",
+          "body": "A two-week review of your product, analytics and user flows, with problems ranked by revenue impact rather than by how easy they are to fix.",
+          "chip0": "2 weeks",
+          "chip1": "Written findings",
+          "chip2": "Ranked by impact",
+          "chip3": "Fixed price"
+        },
+        {
+          "title": "Flows and wireframes",
+          "body": "The core journeys redrawn and signed off with your engineers against real data constraints, before any pixel is placed.",
+          "chip0": "Screen map",
+          "chip1": "Core journeys",
+          "chip2": "Engineer sign-off",
+          "chip3": "Grey wireframes"
+        },
+        {
+          "title": "Interface design",
+          "body": "Production-ready UI with every state designed — loading, empty, error, dense data, light and dark — plus the micro-interactions that make it feel fast.",
+          "chip0": "All states",
+          "chip1": "Light and dark",
+          "chip2": "Micro-interactions",
+          "chip3": "Responsive"
+        },
+        {
+          "title": "Design system and handoff",
+          "body": "Components, tokens and annotations your developers can build from without a meeting, and design QA through implementation.",
+          "chip0": "Tokens",
+          "chip1": "Components",
+          "chip2": "Annotations",
+          "chip3": "Design QA"
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "Three steps.\nNo surprises.",
+      "rows": [
+        {
+          "label": "Step 1",
+          "title": "Audit and align",
+          "body": "We review the product as it is, read your analytics, and talk to your team about where users stall. You get a written audit with problems ranked by revenue impact."
+        },
+        {
+          "label": "Step 2",
+          "title": "Flows, then interface",
+          "body": "We redraw the core journeys and sign them off with your engineers before any pixel is placed. Then interface design, states and micro-interactions, in reviewable batches every 48 hours."
+        },
+        {
+          "label": "Step 3",
+          "title": "Handoff that survives the sprint",
+          "body": "Components, tokens and annotations your developers can build from without a meeting. We stay available through implementation so the shipped product matches the designed one."
+        }
+      ]
+    },
+    {
+      "p": "plans",
+      "heading": "One project, or a design partner every month.",
+      "rows": [
+        {
+          "name": "Product project",
+          "price": "Fixed",
+          "unit": "/scope",
+          "items": [
+            "Defined scope and deadline",
+            "UX audit, flows and UI",
+            "Design system and handoff",
+            "Design QA through build",
+            "Senior designer throughout"
+          ],
+          "ctaText": "Scope a project",
+          "ctaHref": "/#contact"
+        },
+        {
+          "name": "Ongoing partner",
+          "price": "Monthly",
+          "unit": "/mo",
+          "items": [
+            "Embedded in your sprints",
+            "Updates every 48 hours",
+            "Unlimited design requests",
+            "Dedicated senior designer",
+            "Pause or stop any month"
+          ],
+          "ctaText": "Talk about a retainer",
+          "ctaHref": "/#contact"
+        }
+      ]
+    },
+    {
+      "p": "work",
+      "heading": "Recent product work"
+    },
+    {
+      "p": "reviews",
+      "heading": "Trusted by our partners",
+      "lead": "Don't just take our word for it."
+    },
+    {
+      "p": "cards3",
+      "heading": "Questions on product design",
+      "rows": [
+        {
+          "title": "What does a product design agency do?",
+          "body": "It designs how software works and looks: user flows, interface design, states, and the design system that keeps it consistent. We work as an embedded partner rather than delivering a file and leaving."
+        },
+        {
+          "title": "How much does product design cost?",
+          "body": "A focused UX audit starts at [PLACEHOLDER: price]. A full engagement is scoped by surface area and runs [PLACEHOLDER: range]. We quote after a call, never from a template."
+        },
+        {
+          "title": "How long does it take?",
+          "body": "An audit takes two weeks. A core flow redesign takes four to six. A full engagement runs eight to twelve weeks, with work in your hands every 48 hours throughout."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Working with your team",
+      "rows": [
+        {
+          "title": "Can you work with our design system?",
+          "body": "Yes. We audit what you have, work inside it, and tell you plainly where it is costing you speed. Rebuilding it is a separate decision we will not make for you mid-project."
+        },
+        {
+          "title": "Do you work with our engineers?",
+          "body": "Yes, and the work is better when we do. Flows are signed off with engineering before visual design starts, so what we hand over is buildable against your real data."
+        },
+        {
+          "title": "Do you design mobile apps?",
+          "body": "Yes — native iOS and Android patterns, responsive web, and the places they have to agree. [PLACEHOLDER: link a mobile case study once published.]"
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Start with the audit",
+      "challenge": "Send us your product and the metric you want to move. We will come back with what we would change first and what it would take — before you commit to anything.",
+      "ctaText": "Book a call",
+      "ctaHref": "/#contact",
+      "deliverTitle": "Related services",
+      "items": [
+        "Design Systems",
+        "Website Design",
+        "Motion Design",
+        "Branding & Visual Identity",
+        "No-code Development"
+      ]
+    }
+  ]
+}

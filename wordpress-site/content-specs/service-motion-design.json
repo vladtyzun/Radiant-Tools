@@ -1,0 +1,141 @@
+{
+  "key": "service:motion-design",
+  "title": "Motion Design",
+  "slug": "motion-design",
+  "parentKey": "page:services",
+  "seo": {
+    "title": "Motion Design & Product Animation | Radiant",
+    "description": "Product animations, Lottie and Rive, and UI motion for launches and landing pages. Production-ready file sizes, with reduced-motion variants included.",
+    "keyphrase": "motion design agency"
+  },
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "Show the product moving.\nStatic screenshots undersell it.",
+      "lead": "Product animations, Lottie and Rive, and UI motion for launches, landing pages, and pitch decks — built to ship at real file sizes, not just to look good in a case study."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Motion design, in short",
+      "body": "Radiant designs and produces motion for software companies: product animations and demos, Lottie and SVG, Rive, interface motion, and social assets. Animation is delivered production-ready for web and app, with performance budgets agreed up front. <strong>[PLACEHOLDER: name motion clients, formats delivered, and one result such as a launch video view count or landing-page lift.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Motion Design",
+      "challengeTitle": "The challenge",
+      "challenge": "Static screenshots and flat mockups don't capture the speed, quality, or energy of what your product actually does. Launches fall flat, pitch decks feel generic, and marketing pages look the same as every other SaaS company in your space.",
+      "cta": {
+        "text": "Explore motion",
+        "href": "/#contact"
+      },
+      "deliverTitle": "What you get",
+      "items": [
+        "Product Animations",
+        "Lottie & SVG Animations",
+        "Rive Animations",
+        "UI Motion",
+        "Social Motion Assets"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Where motion earns its place",
+      "cards": [
+        {
+          "title": "Explaining something a screenshot can't",
+          "body": "If your product's value is a process — data moving, a flow completing, a state changing — motion explains it in four seconds where a paragraph takes thirty."
+        },
+        {
+          "title": "Making the interface feel fast",
+          "body": "Transitions that carry context, loading states that stay honest, micro-interactions that confirm an action. Perceived speed is a design decision, not an engineering one."
+        },
+        {
+          "title": "Launches and fundraising",
+          "body": "A launch video, a deck that animates the one slide that matters, social cuts sized for each platform. Produced from the same source files, so the story stays identical everywhere."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "Three steps.\nNo surprises.",
+      "steps": [
+        {
+          "label": "Step 1",
+          "title": "Agree the point",
+          "body": "Every animation has one job: explain a mechanism, carry a transition, or sell a moment. We write that in a sentence and agree the format and performance budget before production."
+        },
+        {
+          "label": "Step 2",
+          "title": "Storyboard, then animate",
+          "body": "You approve timing and key frames as stills before anything is rendered — the stage where changes are cheap. Then full production with reviewable passes."
+        },
+        {
+          "label": "Step 3",
+          "title": "Deliver production-ready",
+          "body": "Lottie, Rive, MP4, or WebM at the sizes your site can afford, with fallbacks and reduced-motion variants. Implementation notes for your developers included."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "Questions on motion design",
+      "cards": [
+        {
+          "title": "How much does motion design cost?",
+          "body": "A single product animation starts at [PLACEHOLDER: price]. A launch package with hero animation, social cuts, and UI motion is [PLACEHOLDER: range]. Priced per asset, not per hour."
+        },
+        {
+          "title": "How long does it take?",
+          "body": "A focused product animation takes two to three weeks including storyboard approval. A full launch package runs four to six."
+        },
+        {
+          "title": "Lottie, Rive, or video?",
+          "body": "Lottie for lightweight vector animation that scales; Rive when it must respond to user input or state; video when the content is screen capture or needs photographic quality. We recommend per asset."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Performance and accessibility",
+      "cards": [
+        {
+          "title": "Will it slow our site down?",
+          "body": "Not if the budget is set first. We agree a file-size ceiling per asset, lazy-load below the fold, and measure the result against your Core Web Vitals before handover."
+        },
+        {
+          "title": "What about reduced motion?",
+          "body": "Every delivery includes a reduced-motion variant that respects the user's system setting. It is a requirement in our process, not an upgrade."
+        },
+        {
+          "title": "Can you animate our existing designs?",
+          "body": "Yes. Send the Figma file. If the layers will not survive export we will tell you what needs restructuring before we quote."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Tell us what to show",
+      "challenge": "Describe the moment in your product that is hardest to explain in words. We will tell you the format, the cost, and roughly how long it takes.",
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Related services",
+      "items": [
+        "Product Design",
+        "Website Design",
+        "Pitch Decks & Collaterals",
+        "Branding & Visual Identity",
+        "No-code Development"
+      ]
+    }
+  ]
+}

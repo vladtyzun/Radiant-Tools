@@ -1,0 +1,127 @@
+---
+id: 7966
+title: The Product Design Process: From Idea to Launch in 7 Stages
+slug: product-design-process
+status: publish
+modified: 2026-10-26T23:33:11
+---
+<p>Every good product design process is some version of the same seven-stage arc: understand the problem. Define what to build, explore how to build it, validate before committing, refine, launch, learn from launch. Teams that skip stages consistently ship the wrong thing well or the right thing badly. Teams that follow the full arc ship the right thing well - sometimes slower on any single project, but with dramatically better hit rates over time.</p>
+<p>This piece walks through each of the seven stages: what actually happens, what shouldn&#39;t be skipped, and what the most common mistake is at each one.</p>
+<h2>The Seven Stages at a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Stage</th>
+<th>Core question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Discovery</td>
+<td>What problem are we actually solving?</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Research</td>
+<td>What do we know about users and context?</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Definition</td>
+<td>What specifically are we building?</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ideation</td>
+<td>What are the possible solutions?</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Prototyping</td>
+<td>Does the leading solution actually work?</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Testing & Refinement</td>
+<td>What do real users tell us?</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Handoff & Launch</td>
+<td>How does this ship well?</td>
+</tr>
+</tbody>
+</table>
+
+<p>Post-launch iteration is the eighth stage every process should include but most treat as optional - we&#39;ll cover it at the end.</p>
+<h2>Stage 1: Discovery</h2>
+<p><strong>What happens:</strong> Understanding the problem in enough depth to know whether the initial brief is asking the right question. Discovery includes conversations with stakeholders, review of any existing data (user research, analytics, support tickets), and often reframing the problem before jumping to solutions.</p>
+<p><strong>Why it matters:</strong> Most &quot;the design didn&#39;t work&quot; outcomes trace back to solving the wrong problem well. Discovery is where wrong problems get caught before design time is spent solving them.</p>
+<p><strong>Common mistake:</strong> Skipping discovery entirely, treating the brief as final rather than as a hypothesis, and jumping straight to sketching solutions.</p>
+<h2>Stage 2: Research</h2>
+<p><strong>What happens:</strong> Learning what you don&#39;t yet know about users, their workflows, their mental models, competitive alternatives, and technical constraints. Depending on stage and scope, this ranges from lightweight (a few user interviews, competitive review) to comprehensive (surveys, longitudinal studies, quantitative analysis).</p>
+<p><strong>Why it matters:</strong> Research is where assumptions become validated (or invalidated) knowledge. Designs built on assumptions look confident and often ship products users don&#39;t actually want.</p>
+<p><strong>Common mistake:</strong> Under-scoping research to save time, then re-doing it later when the design keeps missing the mark. Right-sized research at the start almost always beats trying to reverse-engineer user understanding from failed launches.</p>
+<h2>Stage 3: Definition</h2>
+<p><strong>What happens:</strong> Translating discovery and research into a specific. Actionable design brief - the actual problem statement, the target user, the success criteria, the scope, and the constraints. This is where &quot;improve activation&quot; becomes &quot;reduce drop-off at the account-setup step, currently at 43%. For new self-serve signups, targeting an 8-point improvement, within existing engineering capacity.&quot;</p>
+<p><strong>Why it matters:</strong> Vague briefs produce vague designs. A well-defined problem is what makes it possible to know whether the design succeeded.</p>
+<p><strong>Common mistake:</strong> Over-defining before validating - locking in a specific solution as the brief. (&quot;build this dashboard with these features&quot;) rather than defining the problem the solution should address.</p>
+<h2>Stage 4: Ideation</h2>
+<p><strong>What happens:</strong> Exploring multiple possible directions before committing to one. This can be sketching, wireframing, structured brainstorming, or reference gathering - the goal is expanding the option space before narrowing it.</p>
+<p><strong>Why it matters:</strong> The first solution that comes to mind is rarely the best one. Committing to it without exploring alternatives is how teams ship generic, unimaginative solutions to problems that had more elegant answers.</p>
+<p><strong>Common mistake:</strong> Falling in love with the first idea and skipping meaningful exploration of alternatives. A useful discipline is producing at least three genuinely different directions before picking one.</p>
+<h2>Stage 5: Prototyping</h2>
+<p><strong>What happens:</strong> Turning the leading direction into something testable - clickable prototypes, high-fidelity mockups, or (increasingly) working code. Our prototyping tools article covers the current tooling landscape.</p>
+<p><strong>Why it matters:</strong> Prototypes force decisions that stay ambiguous in static mockups (what happens when a user does X?), and. They&#39;re what makes real user validation possible before engineering commits build time.</p>
+<p><strong>Common mistake:</strong> Over-investing in prototype polish before validating the underlying direction - building a beautiful high-fidelity prototype for a concept that hasn&#39;t been tested at low fidelity yet.</p>
+<h2>Stage 6: Testing &amp; Refinement</h2>
+<p><strong>What happens:</strong> Putting the prototype in front of real users, observing what actually happens (versus what the team assumed), and revising accordingly. This ranges from lightweight (5 users, one round) to comprehensive (multiple rounds of tests with different segments), but any testing consistently outperforms none.</p>
+<p><strong>Why it matters:</strong> Users behave differently than teams predict. Testing catches this before it ships instead of after.</p>
+<p><strong>Common mistake:</strong> Skipping testing to save time, then discovering post-launch that a fundamental assumption was wrong - and now the fix costs significantly more because it&#39;s already built.</p>
+<h2>Stage 7: Handoff &amp; Launch</h2>
+<p><strong>What happens:</strong> Handing tested designs to engineering with sufficient documentation (specifications. States, edge cases, interaction details) that build can happen accurately without constant back-and-forth. Modern handoff (Figma Dev Mode, similar tools) has reduced friction dramatically but hasn&#39;t eliminated the need for clear design intent to be communicated well.</p>
+<p><strong>Why it matters:</strong> The best design work loses value at handoff if what actually ships doesn&#39;t. Match the intent - either because handoff was underspecified or because the designer disappeared during build.</p>
+<p><strong>Common mistake:</strong> Treating handoff as an end point (&quot;designs are done. Over to engineering&quot;) rather than a transition into an implementation phase where the designer remains involved for inevitable trade-off conversations.</p>
+<h2>The Missing Eighth Stage: Post-Launch Iteration</h2>
+<p>Most product design engagements end at launch. This is a mistake, because launch is when the most important learning starts - what real users at scale actually do with the design, which. Assumptions held up, which didn&#39;t, and what should change next.</p>
+<p>Teams that build post-launch measurement and iteration into the process from the start (rather than treating it as optional) compound design quality over time. Teams that don&#39;t ship, walk away, and ship the same categories of mistakes on the next project.</p>
+<h2>How the Process Should Scale by Stage of Company</h2>
+<p>The seven stages don&#39;t require the same investment at every company stage. A right-sized version:</p>
+<table>
+<thead>
+<tr>
+<th>Company stage</th>
+<th>Right-sized process</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-PMF startup</td>
+<td>Compressed: light discovery, minimal research (a few interviews), lean prototyping, quick testing, ship, iterate fast</td>
+</tr>
+<tr>
+<td>Post-PMF, scaling</td>
+<td>Full 7-stage process for high-impact work; compressed for smaller changes; formal post-launch measurement</td>
+</tr>
+<tr>
+<td>Mature product organization</td>
+<td>Continuous version - most stages happening in parallel across many features; formal design ops and research practice</td>
+</tr>
+</tbody>
+</table>
+
+<p>Over-processing early stage work slows startups down. Under-processing later stage work introduces expensive mistakes at scale. The right amount of process is context-dependent.</p>
+<h2>The Process Doesn&#39;t Have to Be Linear</h2>
+<p>The seven-stage arc is a useful organizing frame, not a strict sequential requirement. In practice, teams often loop backward - new research findings send definition back to the drawing board; testing reveals the ideation stage missed a direction worth exploring. Rigid adherence to sequence is a form of process theater. Treating the stages as a checklist to touch (in whatever order the work actually requires) is the more productive use.</p>
+<h2>FAQ</h2>
+<p><strong>Do we have to do all seven stages for every project?</strong>
+No - the stages are a comprehensive frame, not a checklist that every project needs at full depth. Smaller changes can compress or combine stages; larger, higher-stakes work benefits from the full arc.</p>
+<p><strong>How long does the full process take?</strong>
+It varies enormously by scope - a focused MVP design engagement might run 4-8 weeks through the full process; a large product redesign can run several months. Trying to compress genuinely complex work into a fixed short timeline is one of the most common reasons projects ship the wrong thing.</p>
+<p><strong>Where do most teams fall short in the process?</strong>
+The two most commonly under-invested stages are Discovery and Research (skipped to move faster) and Post-Launch Iteration (skipped because the engagement is officially &quot;done&quot;). Both failures compound over time - bad discovery means solving the wrong problem, and skipped post-launch learning means the same mistake gets repeated on the next project.</p>
+<p><strong>Is this process changing with AI tooling?</strong>
+Yes and no. AI tools are compressing time spent on some stages (particularly prototyping and initial ideation, as covered in our AI design tools article). But the underlying arc - from understanding problems to validating solutions to learning from launch - is unchanged. Faster execution doesn&#39;t remove the need for good decisions about what to build — --</p>
+<p><em>If your team&#39;s design process feels either too rigid or too ad-hoc. Radiant Studio partners with startups and scaling product teams to run a right-sized process - thorough where it matters, fast where it can be.</em></p>

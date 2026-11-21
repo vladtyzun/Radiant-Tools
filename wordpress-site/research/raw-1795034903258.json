@@ -1,0 +1,44 @@
+[
+  {
+    "url": "https://www.heyradiant.com/",
+    "name": "www_heyradiant_com",
+    "title": "Protected section",
+    "description": "",
+    "h1": "Page is protected",
+    "heads": [
+      {
+        "tag": "H1",
+        "text": "Page is protected"
+      }
+    ],
+    "ctas": [
+      "Proceed"
+    ],
+    "nav": [],
+    "sections": 0,
+    "faq": [],
+    "words": 25,
+    "bodyText": "Page is protected\n\nTo continue, you must confirm that you are not a robot.\n\nProceed\n160.79.106.143 — 11/18/2026, 8:48:14 PM — www.heyradiant.com\nprotected by adm.tools"
+  },
+  {
+    "url": "https://www.heyradiant.com/work/",
+    "name": "www_heyradiant_com_work",
+    "title": "Protected section",
+    "description": "",
+    "h1": "Page is protected",
+    "heads": [
+      {
+        "tag": "H1",
+        "text": "Page is protected"
+      }
+    ],
+    "ctas": [
+      "Proceed"
+    ],
+    "nav": [],
+    "sections": 0,
+    "faq": [],
+    "words": 25,
+    "bodyText": "Page is protected\n\nTo continue, you must confirm that you are not a robot.\n\nProceed\n160.79.106.143 — 11/18/2026, 8:48:19 PM — www.heyradiant.com\nprotected by adm.tools"
+  }
+]

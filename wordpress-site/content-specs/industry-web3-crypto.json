@@ -1,0 +1,142 @@
+{
+  "key": "industry:web3",
+  "title": "Web3 & Crypto",
+  "slug": "web3-crypto",
+  "parentKey": "page:industries",
+  "seo": {
+    "title": "Web3 & Crypto Design Agency | Radiant",
+    "description": "Design for wallets, exchanges and onchain products, where a mistyped address is permanent and the interface is the only safety net the user has.",
+    "keyphrase": "web3 design agency"
+  },
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "Irreversible actions deserve\nbetter interfaces than this.",
+      "lead": "Design for wallets, exchanges, and onchain products — where a mistyped address is permanent and the interface is the only safety net the user has."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Web3 design, in short",
+      "body": "Radiant designs wallets, onchain products, and crypto brands: transaction and signing flows, onboarding without seed-phrase panic, portfolio and trading interfaces, and sites that explain a protocol to people outside it. Our wallet work includes Walletbase, where gamification turned passive holders into repeat users. <strong>[PLACEHOLDER: add Walletbase metrics and any further onchain work, and link the case study.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Web3 & Crypto",
+      "challengeTitle": "Sound familiar?",
+      "challenge": "Your onboarding asks a newcomer to write down twelve words and understand gas before they have done anything useful. Signing requests show a hash and ask for trust. Everything is irreversible, nothing is explained in advance, and the people you most want to reach are exactly the ones the interface filters out.",
+      "cta": {
+        "text": "Talk to us about your onchain project",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Where we focus",
+      "items": [
+        "Wallets & Custody",
+        "Exchange & Trading Interfaces",
+        "DeFi & Staking Products",
+        "Onboarding & Key Recovery",
+        "NFT & Digital Collectible Platforms",
+        "Protocol & Token Brand"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "What we fix in onchain products",
+      "cards": [
+        {
+          "title": "Onboarding that frightens newcomers off",
+          "body": "Seed phrases, gas, and networks presented in the first sixty seconds. We sequence the scary parts after first value, and design recovery that does not depend on a screenshot in someone's camera roll."
+        },
+        {
+          "title": "Signing requests nobody can read",
+          "body": "If the user cannot tell what they are approving, they are gambling. We design transaction previews in plain language: what moves, to whom, what it costs, and what it cannot be undone from."
+        },
+        {
+          "title": "Brands that trade credibility for hype",
+          "body": "Neon gradients and anonymous mascots make a serious protocol look like a rug. We design identities that read as financial infrastructure, because increasingly that is what they are."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "What onchain teams need,\nby stage.",
+      "steps": [
+        {
+          "label": "Protocol",
+          "title": "Explain the mechanism",
+          "body": "Documentation, a site, and visual explanations that make the protocol legible to developers, investors, and press without resorting to jargon or promises."
+        },
+        {
+          "label": "Product",
+          "title": "Design the irreversible moments",
+          "body": "Wallet connection, signing, bridging, and recovery — the four places users lose money. Everything else can be iterated; these have to be right at launch."
+        },
+        {
+          "label": "Scale",
+          "title": "Reach beyond crypto-native users",
+          "body": "Fiat on-ramps, account abstraction, and language that assumes no prior knowledge, for the audience that will never read a block explorer."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Onchain work",
+      "name": "Walletbase",
+      "role": "Wallet product design and gamification",
+      "quote": "[PLACEHOLDER: pull the engagement and retention numbers from the Walletbase case study and link it here.]"
+    },
+    {
+      "p": "cards3",
+      "heading": "Web3 design questions",
+      "cards": [
+        {
+          "title": "How do you design onboarding without scaring people?",
+          "body": "Let people do something useful before custody becomes their problem, explain each irreversible step at the moment it happens, and offer recovery options that match how real people store secrets."
+        },
+        {
+          "title": "How do you make transactions understandable?",
+          "body": "Translate the call data into a sentence: what leaves the wallet, what arrives, what it costs, and what permission is being granted indefinitely. Approval scope is where most losses start."
+        },
+        {
+          "title": "Can you design for both crypto-native and new users?",
+          "body": "Yes, by layering: a simple default path with the advanced controls available but not in the way. Trying to serve both in one undifferentiated interface serves neither."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Working with onchain teams",
+      "cards": [
+        {
+          "title": "Do you work with pre-launch and stealth protocols?",
+          "body": "Yes, under NDA. A good deal of onchain work happens before a token or mainnet launch, and we treat timing as confidential."
+        },
+        {
+          "title": "Do you design token or marketing material?",
+          "body": "We design brand, site, and product. We do not write or design anything that promises returns, and we will push back on claims that read as financial advice."
+        },
+        {
+          "title": "Can you work with our smart contract constraints?",
+          "body": "Yes. We ask your engineers in week one what is on-chain, what is indexed, and what is slow — those constraints shape the interface more than any visual decision."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Send us the signing flow",
+      "challenge": "Show us your connect-and-sign path. We will tell you where a careful user hesitates and where a careless one loses money.",
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Services onchain teams use most",
+      "items": [
+        "Product Design",
+        "Branding & Visual Identity",
+        "Website Design",
+        "Motion Design",
+        "Design Systems"
+      ]
+    }
+  ]
+}

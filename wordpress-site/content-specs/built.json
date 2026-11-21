@@ -1,0 +1,77 @@
+{
+  "page:services": {
+    "id": 7363,
+    "slug": "services",
+    "link": "existing draft – Our Services (7363)"
+  },
+  "service:product-design": {
+    "id": 8423,
+    "slug": "product-design",
+    "link": "https://www.heyradiant.com/?page_id=8423"
+  },
+  "page:industries": {
+    "id": 8425,
+    "slug": "industries",
+    "link": "https://www.heyradiant.com/?page_id=8425"
+  },
+  "industry:ai": {
+    "id": 8426,
+    "slug": "ai",
+    "link": "https://www.heyradiant.com/?page_id=8426"
+  },
+  "industry:fintech": {
+    "id": 8427,
+    "slug": "fintech",
+    "link": "https://www.heyradiant.com/?page_id=8427"
+  },
+  "industry:healthtech": {
+    "id": 8428,
+    "slug": "healthtech",
+    "link": "https://www.heyradiant.com/?page_id=8428"
+  },
+  "industry:real-estate": {
+    "id": 8429,
+    "slug": "real-estate-proptech",
+    "link": "https://www.heyradiant.com/?page_id=8429"
+  },
+  "industry:saas": {
+    "id": 8430,
+    "slug": "saas",
+    "link": "https://www.heyradiant.com/?page_id=8430"
+  },
+  "industry:web3": {
+    "id": 8431,
+    "slug": "web3-crypto",
+    "link": "https://www.heyradiant.com/?page_id=8431"
+  },
+  "service:branding": {
+    "id": 8432,
+    "slug": "branding-visual-identity",
+    "link": "https://www.heyradiant.com/?page_id=8432"
+  },
+  "service:design-systems": {
+    "id": 8433,
+    "slug": "design-systems",
+    "link": "https://www.heyradiant.com/?page_id=8433"
+  },
+  "service:motion-design": {
+    "id": 8434,
+    "slug": "motion-design",
+    "link": "https://www.heyradiant.com/?page_id=8434"
+  },
+  "service:no-code-development": {
+    "id": 8435,
+    "slug": "no-code-development",
+    "link": "https://www.heyradiant.com/?page_id=8435"
+  },
+  "service:pitch-decks": {
+    "id": 8436,
+    "slug": "pitch-deck-design",
+    "link": "https://www.heyradiant.com/?page_id=8436"
+  },
+  "service:website-design": {
+    "id": 8437,
+    "slug": "website-design",
+    "link": "https://www.heyradiant.com/?page_id=8437"
+  }
+}

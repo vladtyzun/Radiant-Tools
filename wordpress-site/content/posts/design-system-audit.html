@@ -1,0 +1,90 @@
+---
+id: 8353
+title: Design System Audit: How to Know If Yours Is Actually Working
+slug: design-system-audit
+status: draft
+modified: 2026-10-26T23:31:20
+---
+<h1>Design System Audit: How to Know If Yours Is Actually Working</h1>
+<p>A design system can look complete — comprehensive components, polished documentation, an impressive Figma library — and still be failing. The only real measure of a design system is whether it&#39;s actually used and whether it&#39;s actually keeping the product consistent. Many teams invest heavily in building a system, then never check whether it&#39;s working. A design system audit answers that question. This guide covers how to run one.</p>
+<h2>Why Design Systems Silently Fail</h2>
+<p>As covered in our <a href="https://www.%5Bradiantstudio-domain%5D.com/blog/best-design-systems-examples-2026/">best design systems article</a>, the most common design system failure isn&#39;t a lack of components — it&#39;s a lack of adoption. Teams build a system, then drift away from it: designers detach components to make one-off changes, engineers reimplement things the system already provides, and the shipped product slowly diverges from what the system defines.</p>
+<p>This drift is silent. Nobody announces &quot;we&#39;ve stopped using the design system.&quot; It erodes gradually until the system describes an idealized product that no longer matches reality. An audit catches this before the system becomes irrelevant.</p>
+<h2>The Signs Your Design System Might Not Be Working</h2>
+<p>Before the formal audit, some warning signs that warrant one:</p>
+<ul>
+<li><strong>The shipped product looks inconsistent</strong> despite the system existing (different button styles, spacing, colors in production)</li>
+<li><strong>Designers frequently detach components</strong> rather than using them as intended</li>
+<li><strong>Engineers reimplement UI</strong> the system already provides, because the system&#39;s code isn&#39;t integrated or trusted</li>
+<li><strong>People talk about the system more than they use it</strong> — it&#39;s referenced in principle but bypassed in practice</li>
+<li><strong>The documentation is out of date</strong> — a strong signal the system isn&#39;t actively maintained</li>
+<li><strong>New team members don&#39;t reach for the system</strong> — they reverse-engineer conventions from existing files instead</li>
+</ul>
+<h2>The Design System Health Metrics</h2>
+<p>A rigorous audit looks at measurable indicators, not just impressions:</p>
+<h3>Adoption Rate</h3>
+<p>What percentage of the product&#39;s UI actually uses system components versus custom or detached ones? In tools like Figma, this can be partially measured through component usage analytics. Low adoption is the clearest signal a system isn&#39;t working, regardless of how complete it looks.</p>
+<h3>Component Detachment Rate</h3>
+<p>How often are designers detaching components (breaking the link to the system to make custom changes)? High detachment rates signal that the system&#39;s components don&#39;t meet real needs — either they&#39;re too rigid, missing variants, or missing components entirely.</p>
+<h3>Coverage</h3>
+<p>Does the system actually cover the components and patterns the product needs? Gaps force teams to build custom solutions, which then proliferate inconsistently. A system that only covers easy components (buttons, inputs) but not the hard ones (complex tables, multi-step forms) leaves teams to reinvent the hard parts — a common coverage failure.</p>
+<h3>Design-Code Parity</h3>
+<p>Does the shipped product actually match what the system defines? A system that designers use but engineers ignore produces consistency in Figma and inconsistency in production — the parity is what matters.</p>
+<h3>Documentation Freshness</h3>
+<p>When was the documentation last meaningfully updated? Stale documentation is both a symptom of neglect and a cause of low adoption (people can&#39;t use what they can&#39;t understand).</p>
+<h3>Contribution and Governance Health</h3>
+<p>Is there a clear, used process for proposing changes, adding components, and deprecating old ones? Systems without governance drift into inconsistency as needs evolve and ad-hoc changes accumulate (see our <a href="https://www.%5Bradiantstudio-domain%5D.com/blog/best-design-systems-examples-2026/">design systems examples article</a> for how leading systems handle governance).</p>
+<h2>A Practical Design System Audit Checklist</h2>
+<p>Work through these questions:</p>
+<p><strong>Adoption &amp; Usage</strong></p>
+<ul>
+<li>What percentage of production UI uses system components?</li>
+<li>What&#39;s the component detachment rate, and which components get detached most?</li>
+<li>Do new projects start from the system, or from scratch?</li>
+</ul>
+<p><strong>Coverage &amp; Gaps</strong></p>
+<ul>
+<li>Which needed components or patterns is the system missing?</li>
+<li>Are the complex, high-value components covered, or just the easy ones?</li>
+<li>Where do teams repeatedly build custom solutions the system should provide?</li>
+</ul>
+<p><strong>Consistency &amp; Parity</strong></p>
+<ul>
+<li>Does the shipped product visually match the system?</li>
+<li>Do design and code versions of components stay in sync?</li>
+<li>Where is inconsistency showing up in production?</li>
+</ul>
+<p><strong>Documentation &amp; Maintenance</strong></p>
+<ul>
+<li>Is the documentation current and useful?</li>
+<li>Is there a clear owner responsible for maintenance?</li>
+<li>Is there a working governance process for changes?</li>
+</ul>
+<p><strong>Team &amp; Culture</strong></p>
+<ul>
+<li>Do designers and engineers trust and reach for the system?</li>
+<li>Do new team members onboard onto the system successfully?</li>
+<li>Is the system seen as helpful infrastructure or bureaucratic overhead?</li>
+</ul>
+<h2>How to Fix What the Audit Reveals</h2>
+<p>Common findings and their fixes:</p>
+<ul>
+<li><strong>Low adoption due to missing components</strong> → expand coverage, prioritizing the components that get custom-built most often</li>
+<li><strong>High detachment due to rigid components</strong> → add the variants and flexibility that detachment reveals people need</li>
+<li><strong>Design-code drift</strong> → invest in code integration so engineers use the same system designers do</li>
+<li><strong>Stale documentation</strong> → assign clear ownership and treat documentation as part of the system, not an afterthought</li>
+<li><strong>No governance</strong> → establish a lightweight process for proposing, adding, and deprecating (right-sized to team scale — see our <a href="https://www.%5Bradiantstudio-domain%5D.com/blog/best-design-systems-examples-2026/">design systems examples article</a>)</li>
+<li><strong>Cultural resistance</strong> → address why people avoid the system; usually it&#39;s not meeting real needs, not stubbornness</li>
+</ul>
+<h2>How Often to Audit</h2>
+<p>A design system is a living product, and audits should be periodic — a lightweight check quarterly and a more thorough audit annually is a reasonable cadence for most teams. Additionally, audit whenever you notice the warning signs above, or before a major product expansion that will stress the system. The point is to catch drift early, while it&#39;s cheap to correct, rather than after the system has quietly become irrelevant.</p>
+<h2>FAQ</h2>
+<p><strong>How do I know if my design system is actually being used?</strong>
+The clearest measure is adoption rate — what percentage of your production UI uses system components versus custom or detached ones. Component analytics in tools like Figma can partially measure this. High component detachment rates and visible inconsistency in the shipped product are also strong signals the system isn&#39;t being used as intended.</p>
+<p><strong>What&#39;s the most common reason design systems fail?</strong>
+Low adoption, usually caused by the system not meeting real needs — missing components, overly rigid components that force detachment, or a lack of code integration so engineers bypass it. Design systems rarely fail from being incomplete-looking; they fail from being unused.</p>
+<p><strong>How often should I audit my design system?</strong>
+A lightweight quarterly check plus a thorough annual audit works for most teams, with additional audits triggered by warning signs (rising inconsistency, frequent detachment) or before major product expansions. The goal is catching drift while it&#39;s still cheap to fix.</p>
+<p><strong>Can a design system be too comprehensive?</strong>
+Yes — over-engineering is a real failure mode. A system with excessive components, complex governance, and rigid rules that outpace the team&#39;s actual needs creates overhead that reduces adoption. The best systems match their complexity to the team&#39;s real scale and needs (see our <a href="https://www.%5Bradiantstudio-domain%5D.com/blog/what-is-a-design-system/">what is a design system pillar</a>).</p>
+<p><em>If you suspect your design system isn&#39;t delivering the consistency and velocity it should, <a href="https://www.%5Bradiantstudio-domain%5D.com">Radiant Studio</a> audits and revitalizes design systems around real adoption and measurable health. <a href="https://www.%5Bradiantstudio-domain%5D.com/services/design-systems">See our approach to design systems</a>.</em></p>

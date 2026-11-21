@@ -1,0 +1,142 @@
+{
+  "key": "industry:healthtech",
+  "title": "Healthtech",
+  "slug": "healthtech",
+  "parentKey": "page:industries",
+  "seo": {
+    "title": "Healthtech & Digital Health Design | Radiant",
+    "description": "Design for digital health teams: patient apps, clinician tools, consent flows and accessible sites. Clear under stress, defensible under regulation.",
+    "keyphrase": "healthtech design agency"
+  },
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "Health products are used\non the worst day of someone's year.",
+      "lead": "Design for healthtech and digital health teams — clinical tools, patient apps, and sites that are clear under stress and defensible under regulation."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "Healthtech design, in short",
+      "body": "Radiant designs digital health products and brands: patient-facing apps, clinician and admin tools, onboarding and consent flows, and accessible marketing sites. We design to WCAG 2.2 AA by default and plan privacy and consent language with your compliance team from the first wireframe. <strong>[PLACEHOLDER: healthtech is an expansion market for Radiant — name any health or wellness work before publishing, or keep this page unpublished until there is one case to point to.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "Healthtech",
+      "challengeTitle": "Sound familiar?",
+      "challenge": "Your product serves patients who are anxious and clinicians who are interrupted every ninety seconds, through one interface designed for neither. Consent and privacy language was written by lawyers and pasted in at the end. Nobody can tell from your website whether this is a medical product or a wellness app — including, sometimes, your buyers.",
+      "cta": {
+        "text": "Talk to us about your health project",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Where we focus",
+      "items": [
+        "Patient-facing Apps",
+        "Clinician & Practice Tools",
+        "Onboarding & Consent Flows",
+        "Remote Monitoring & Devices",
+        "Care Coordination Platforms",
+        "Accessible Health Marketing Sites"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "What we fix in health products",
+      "cards": [
+        {
+          "title": "Interfaces that assume a calm user",
+          "body": "People use health products while worried, tired, or in pain. We design for low attention and high stakes: plain language, one decision per screen, and no irreversible action without a clear way back."
+        },
+        {
+          "title": "Consent treated as paperwork",
+          "body": "Consent and privacy are the first real conversation you have with a patient. We design them to be read and understood, which is also what regulators increasingly expect."
+        },
+        {
+          "title": "Clinical tools that cost seconds per click",
+          "body": "A clinician repeats a workflow forty times a day. We design around the repetition — defaults, keyboard paths, and dense views that respect how little time there is."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "What health teams need,\nby stage.",
+      "steps": [
+        {
+          "label": "Validation",
+          "title": "Prove the care model",
+          "body": "A prototype clear enough to test with real patients and clinicians, and a story that works for both a pilot site and an investor."
+        },
+        {
+          "label": "Launch",
+          "title": "Onboarding, consent, accessibility",
+          "body": "The flows that decide whether a patient completes signup, with accessibility and consent designed in rather than audited after."
+        },
+        {
+          "label": "Scale",
+          "title": "Multi-role, multi-site",
+          "body": "Patients, clinicians, admins, and payers in one system, with permissions, audit trails, and a design system that keeps new modules consistent."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "Healthtech design questions",
+      "cards": [
+        {
+          "title": "Do you work with regulated medical products?",
+          "body": "We design them; we do not certify them. We work alongside your regulatory lead, document design decisions where they matter for a submission, and keep usability evidence where it is required. [PLACEHOLDER: confirm experience with IEC 62366 or FDA human factors if any.]"
+        },
+        {
+          "title": "How do you handle patient data in design work?",
+          "body": "We work with synthetic or anonymised data, sign a BAA or equivalent where applicable, and never put real patient records into design tools. [PLACEHOLDER: confirm your standard data agreement.]"
+        },
+        {
+          "title": "Is accessibility mandatory for health products?",
+          "body": "Treat it as mandatory. Public-sector and EU-facing health services are explicitly covered, and health products reach people with impairments at a far higher rate than average."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Working with health teams",
+      "cards": [
+        {
+          "title": "Can you run research with patients?",
+          "body": "Yes, within ethical limits and with your approvals in place. [PLACEHOLDER: confirm whether you handle recruitment or work through the client's clinical network.]"
+        },
+        {
+          "title": "Do you design for devices as well as apps?",
+          "body": "We design the software layer around a device — pairing, readings, alerts, and the moments a reading needs a human response."
+        },
+        {
+          "title": "How long does a health product engagement take?",
+          "body": "A patient-facing MVP takes eight to twelve weeks. Clinical tooling takes longer, because the research and validation steps are not compressible."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Start with the consent and onboarding review",
+      "challenge": "Send us your signup and consent flow. We will show you where a worried patient stops, and what we would change first.",
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Services health teams use most",
+      "items": [
+        "Product Design",
+        "Design Systems",
+        "Website Design",
+        "Branding & Visual Identity",
+        "Motion Design"
+      ]
+    }
+  ]
+}

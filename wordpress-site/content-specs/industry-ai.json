@@ -1,0 +1,142 @@
+{
+  "key": "industry:ai",
+  "title": "AI & Data Products",
+  "slug": "ai",
+  "parentKey": "page:industries",
+  "seo": {
+    "title": "AI Product Design Agency | Radiant",
+    "description": "Design for AI and data products: interfaces that show their working, handle wrong answers honestly, and make a probabilistic product feel dependable.",
+    "keyphrase": "ai product design agency"
+  },
+  "sections": [
+    {
+      "p": "hero",
+      "h1": "AI products fail on trust\nlong before they fail on models.",
+      "lead": "Design for AI and data companies — interfaces that show their working, handle wrong answers honestly, and make a probabilistic product feel dependable."
+    },
+    {
+      "p": "intro",
+      "eyebrow": "AI product design, in short",
+      "body": "Radiant designs AI and data products: assistant and agent interfaces, prompt and review flows, confidence and citation patterns, dense data dashboards, and the marketing sites that explain them without hype. <strong>[PLACEHOLDER: name AI/data clients and one proof point. If AI work is still emerging for Radiant, say so plainly here rather than implying a track record.]</strong>"
+    },
+    {
+      "p": "block",
+      "label": "AI & Data Products",
+      "challengeTitle": "Sound familiar?",
+      "challenge": "The model works and the product still does not land. Users cannot tell where the answer came from, what it is confident about, or what to do when it is wrong. The interface is a text box with everything hidden behind it, and your marketing site sounds exactly like every other AI company's.",
+      "cta": {
+        "text": "Talk to us about your AI project",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Where we focus",
+      "items": [
+        "Assistants & Agent Interfaces",
+        "Human-in-the-loop Review",
+        "Citations & Confidence Patterns",
+        "Data & Analytics Dashboards",
+        "Model Output Evaluation UI",
+        "AI Feature Onboarding"
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "What we fix in AI products",
+      "cards": [
+        {
+          "title": "A blank box and no idea what to type",
+          "body": "Open-ended input is the hardest interface there is. We design entry points, examples, and constraints that show people what the product is good at before they waste a prompt discovering what it is not."
+        },
+        {
+          "title": "Wrong answers handled as edge cases",
+          "body": "In a probabilistic product, being wrong is a core state, not an exception. We design correction, citation, and escalation paths so a bad answer costs trust once rather than permanently."
+        },
+        {
+          "title": "No visible reason to believe it",
+          "body": "Sources, confidence, and what the system did on your behalf have to be visible at the moment of the decision. Hiding the working makes a good model feel like a guess."
+        }
+      ]
+    },
+    {
+      "p": "steps3",
+      "heading": "What AI teams need,\nby stage.",
+      "steps": [
+        {
+          "label": "Prototype",
+          "title": "Make the capability legible",
+          "body": "A demo that shows the mechanism rather than a chat window, plus the investor-facing story. This is where most AI products win or lose their first round."
+        },
+        {
+          "label": "Launch",
+          "title": "Design for being wrong",
+          "body": "Review flows, citations, undo, and feedback capture built in from the first release, so every wrong answer improves the product instead of ending a trial."
+        },
+        {
+          "label": "Scale",
+          "title": "From feature to workflow",
+          "body": "Move from a bolted-on assistant to the place the work actually happens: permissions, audit trails, team review, and the dense interfaces power users need."
+        }
+      ]
+    },
+    {
+      "p": "proof",
+      "heading": "Trusted by our partners",
+      "name": "Aaron D.",
+      "role": "Co-Founder · RetentionX",
+      "quote": "Radiant exceeded all our expectations! Design and animations quality are on top level."
+    },
+    {
+      "p": "cards3",
+      "heading": "AI design questions",
+      "cards": [
+        {
+          "title": "How do you design trust into an AI product?",
+          "body": "Show the source, show the confidence, and make correction cheap. Users forgive a system that is transparent about uncertainty and abandon one that is confidently wrong."
+        },
+        {
+          "title": "Should our AI feature be a chat interface?",
+          "body": "Usually not on its own. Chat is a fallback for intent you cannot predict; most value comes from putting the capability inside the workflow the user is already in."
+        },
+        {
+          "title": "How do you design something that changes weekly?",
+          "body": "Design the frame, not the output: states, boundaries, and review patterns that hold while the model improves underneath them."
+        }
+      ]
+    },
+    {
+      "p": "cards3",
+      "heading": "Working with AI teams",
+      "cards": [
+        {
+          "title": "Do you work with AI-generated or vibe-coded MVPs?",
+          "body": "Yes. A common engagement is taking a working prototype and giving it the structure, states, and visual system it needs to be sold to real customers."
+        },
+        {
+          "title": "Can you design the marketing site too?",
+          "body": "Yes, and we will push you to describe what the product does rather than what the category promises. Specificity is the only differentiator left in AI marketing."
+        },
+        {
+          "title": "Do you understand our technical constraints?",
+          "body": "We design against latency, token cost, and failure modes as real constraints, and we ask your engineers about them in week one rather than designing something unbuildable."
+        }
+      ]
+    },
+    {
+      "p": "block",
+      "label": "Next step",
+      "challengeTitle": "Show us the demo",
+      "challenge": "Give us access to the prototype and tell us who has to believe it next — users, buyers, or investors. We will tell you what is standing in the way.",
+      "cta": {
+        "text": "Book a call",
+        "href": "/#contact"
+      },
+      "deliverTitle": "Services AI teams use most",
+      "items": [
+        "Product Design",
+        "Design Systems",
+        "Website Design",
+        "Motion Design",
+        "Pitch Decks & Collaterals"
+      ]
+    }
+  ]
+}
